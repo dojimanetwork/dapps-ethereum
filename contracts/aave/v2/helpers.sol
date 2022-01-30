@@ -1,7 +1,8 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.7.0;
 
-import { DSMath } from "../../../common/math.sol";
-import { Basic } from "../../../common/basic.sol";
+import { DSMath } from "../../common/math.sol";
+import { Basic } from "../../common/basic.sol";
 import { AaveLendingPoolProviderInterface, AaveDataProviderInterface } from "./interface.sol";
 
 abstract contract Helpers is DSMath, Basic {
@@ -9,12 +10,12 @@ abstract contract Helpers is DSMath, Basic {
     /**
      * @dev Aave Lending Pool Provider
     */
-    AaveLendingPoolProviderInterface constant internal aaveProvider = AaveLendingPoolProviderInterface(0xB53C1a33016B2DC2fF3653530bfF1848a515c8c5);
+    AaveLendingPoolProviderInterface constant internal aaveProvider = AaveLendingPoolProviderInterface(0x88757f2f99175387aB4C6a4b3067c77A695b0349);
 
     /**
      * @dev Aave Protocol Data Provider
     */
-    AaveDataProviderInterface constant internal aaveData = AaveDataProviderInterface(0x057835Ad21a177dbdd3090bB1CAE03EaCF78Fc6d);
+    AaveDataProviderInterface constant internal aaveData = AaveDataProviderInterface(0x3c73A5E5785cAC854D468F727c606C07488a29D6);
 
     /**
      * @dev Aave Referral Code

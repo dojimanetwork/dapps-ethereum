@@ -1,3 +1,4 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.7.0;
 
 /**
@@ -5,15 +6,15 @@ pragma solidity ^0.7.0;
  * @dev Lending & Borrowing.
  */
 
-import { TokenInterface } from "../../../common/interfaces.sol";
-import { Stores } from "../../../common/stores.sol";
+import { TokenInterface } from "../../common/interfaces.sol";
+import { Stores } from "../../common/stores.sol";
 import { Helpers } from "./helpers.sol";
 import { Events } from "./events.sol";
 import { AaveInterface } from "./interface.sol";
 
-abstract contract AaveResolver is Events, Helpers {
+ contract AaveResolver is Events, Helpers {
     /**
-     * @dev Deposit ETH/ERC20_Token.
+     * @dev Deposit ETH/ERC20_Token. check 2
      * @notice Deposit a token to Aave v2 for lending / collaterization.
      * @param token The address of the token to deposit.(For ETH: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE)
      * @param amt The amount of the token to deposit. (For max: `uint256(-1)`)

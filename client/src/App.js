@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import getWeb3 from "./getWeb3";
-import Date from "./build/contracts/Date.json"
+import Date from "./contracts/Date.json"
 import "./App.css";
 
 class App extends Component {

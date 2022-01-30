@@ -1,0 +1,2811 @@
+{
+  "contractName": "Helpers",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.7.6+commit.7338295f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"stateVariables\":{\"aaveData\":{\"details\":\"Aave Protocol Data Provider\"},\"aaveProvider\":{\"details\":\"Aave Lending Pool Provider\"},\"referralCode\":{\"details\":\"Aave Referral Code\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/aave/v2/helpers.sol\":\"Helpers\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts/math/SafeMath.sol\":{\"keccak256\":\"0xcc78a17dd88fa5a2edc60c8489e2f405c0913b377216a5b26b35656b2d0dab52\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://526dc85e1f9b9b45830e202568d267d93dde7a4fcccf4ad7798dadcd92304d3c\",\"dweb:/ipfs/QmaoXMB972J3cSDLtBq3xBo4jLwqD2uzXTwujtSPqkYVhR\"]},\"project:/contracts/aave/v2/helpers.sol\":{\"keccak256\":\"0xd02b7e548f255128ed54bc96bef0402328073c7124e35591b3564556935fcf36\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://81c1cc8a954f56b1b50e457996b5d37d1a318f7b7d45da12adb584b211dfe0c2\",\"dweb:/ipfs/QmScHF9B4iP786DyKJJWiJi9sDs6yu9i52vKWZqYyztkSu\"]},\"project:/contracts/aave/v2/interface.sol\":{\"keccak256\":\"0x4b301c138b37ad9f04014aab2798dc022eb7dcec7947e5663620c58159611626\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://566d4b878cbebf6ab3cb0221244c8118d35c948bfaa74b4044435a1a60924b6f\",\"dweb:/ipfs/QmRGJQKkN3qw5hbVTsGsDbun5F7gm2PktFKTpfEKRPWHdp\"]},\"project:/contracts/common/basic.sol\":{\"keccak256\":\"0x152337e524fcc2f25b719576fe88114525cbe8436c9f2b5ad5980eba695ef26b\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://7b44e5303b0a9f4d01708583b1bef82dc6b74052b7e0c146a82e37ef7ddd7050\",\"dweb:/ipfs/QmddxjDwGvzwo2yZqa1g8vbgBn4ttSnFzJTaQzuwepd4x3\"]},\"project:/contracts/common/interfaces.sol\":{\"keccak256\":\"0x87b81570be2bb116befa07d456d7478e510431ef97b21b4fada4a547ad7a2f5e\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ed1d037e66e002b39af48c401be05c2a535eff261f342f63f9e1145106aaf212\",\"dweb:/ipfs/QmaJqaN9YaQ96A2TQvtf4iwFP1bbm1Ydtudnb6nGUeu4Po\"]},\"project:/contracts/common/math.sol\":{\"keccak256\":\"0xb22ff7164d623b07a0227a008ee9e93813cdd3c40736ab45739257f1b11ee0fa\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://684a30f356de6ca2254ef194f96694f10465b16a16cd54870213db06bf3545d5\",\"dweb:/ipfs/QmVLeGiuzJfCJaV63nLQXJynrKBm3So6DoiVNvQDuDaz5S\"]},\"project:/contracts/common/stores.sol\":{\"keccak256\":\"0x68b3c4ba19cc2aaa0698d67dfdc0695e901becec0c6c65595221479ee88f846b\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://e8400f3d9696fbb5591eba34308e85610f4a6a1f46fa7ac694f1e22242552a35\",\"dweb:/ipfs/QmTDhpbgJQYExDpAeAFHL8jraeGRLvZxHLasUTWT2vnQgF\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.7.0;\n\nimport { DSMath } from \"../../common/math.sol\";\nimport { Basic } from \"../../common/basic.sol\";\nimport { AaveLendingPoolProviderInterface, AaveDataProviderInterface } from \"./interface.sol\";\n\nabstract contract Helpers is DSMath, Basic {\n    \n    /**\n     * @dev Aave Lending Pool Provider\n    */\n    AaveLendingPoolProviderInterface constant internal aaveProvider = AaveLendingPoolProviderInterface(0x88757f2f99175387aB4C6a4b3067c77A695b0349);\n\n    /**\n     * @dev Aave Protocol Data Provider\n    */\n    AaveDataProviderInterface constant internal aaveData = AaveDataProviderInterface(0x3c73A5E5785cAC854D468F727c606C07488a29D6);\n\n    /**\n     * @dev Aave Referral Code\n    */\n    uint16 constant internal referralCode = 3228;\n\n    /**\n     * @dev Checks if collateral is enabled for an asset\n     * @param token token address of the asset.(For ETH: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE)\n    */\n    function getIsColl(address token) internal view returns (bool isCol) {\n        (, , , , , , , , isCol) = aaveData.getUserReserveData(token, address(this));\n    }\n\n    /**\n     * @dev Get total debt balance & fee for an asset\n     * @param token token address of the debt.(For ETH: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE)\n     * @param rateMode Borrow rate mode (Stable = 1, Variable = 2)\n    */\n    function getPaybackBalance(address token, uint rateMode) internal view returns (uint) {\n        (, uint stableDebt, uint variableDebt, , , , , , ) = aaveData.getUserReserveData(token, address(this));\n        return rateMode == 1 ? stableDebt : variableDebt;\n    }\n\n    /**\n     * @dev Get total collateral balance for an asset\n     * @param token token address of the collateral.(For ETH: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE)\n    */\n    function getCollateralBalance(address token) internal view returns (uint bal) {\n        (bal, , , , , , , ,) = aaveData.getUserReserveData(token, address(this));\n    }\n}\n",
+  "sourcePath": "/Users/udaybhanuprasad/Documents/nft/contracts/aave/v2/helpers.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/aave/v2/helpers.sol",
+    "exportedSymbols": {
+      "AaveDataProviderInterface": [
+        619
+      ],
+      "AaveLendingPoolProviderInterface": [
+        582
+      ],
+      "Basic": [
+        1543
+      ],
+      "DSMath": [
+        1872
+      ],
+      "Helpers": [
+        515
+      ]
+    },
+    "id": 516,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 414,
+        "literals": [
+          "solidity",
+          "^",
+          "0.7",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:23:2"
+      },
+      {
+        "absolutePath": "project:/contracts/common/math.sol",
+        "file": "../../common/math.sol",
+        "id": 416,
+        "nodeType": "ImportDirective",
+        "scope": 516,
+        "sourceUnit": 1873,
+        "src": "57:47:2",
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 415,
+              "name": "DSMath",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "src": "66:6:2",
+              "typeDescriptions": {}
+            }
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "project:/contracts/common/basic.sol",
+        "file": "../../common/basic.sol",
+        "id": 418,
+        "nodeType": "ImportDirective",
+        "scope": 516,
+        "sourceUnit": 1544,
+        "src": "105:47:2",
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 417,
+              "name": "Basic",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "src": "114:5:2",
+              "typeDescriptions": {}
+            }
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "project:/contracts/aave/v2/interface.sol",
+        "file": "./interface.sol",
+        "id": 421,
+        "nodeType": "ImportDirective",
+        "scope": 516,
+        "sourceUnit": 635,
+        "src": "153:94:2",
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 419,
+              "name": "AaveLendingPoolProviderInterface",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "src": "162:32:2",
+              "typeDescriptions": {}
+            }
+          },
+          {
+            "foreign": {
+              "id": 420,
+              "name": "AaveDataProviderInterface",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "src": "196:25:2",
+              "typeDescriptions": {}
+            }
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "abstract": true,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 422,
+              "name": "DSMath",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 1872,
+              "src": "278:6:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_DSMath_$1872",
+                "typeString": "contract DSMath"
+              }
+            },
+            "id": 423,
+            "nodeType": "InheritanceSpecifier",
+            "src": "278:6:2"
+          },
+          {
+            "baseName": {
+              "id": 424,
+              "name": "Basic",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 1543,
+              "src": "286:5:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Basic_$1543",
+                "typeString": "contract Basic"
+              }
+            },
+            "id": 425,
+            "nodeType": "InheritanceSpecifier",
+            "src": "286:5:2"
+          }
+        ],
+        "contractDependencies": [
+          1543,
+          1872,
+          1941
+        ],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 515,
+        "linearizedBaseContracts": [
+          515,
+          1543,
+          1941,
+          1872
+        ],
+        "name": "Helpers",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": true,
+            "documentation": {
+              "id": 426,
+              "nodeType": "StructuredDocumentation",
+              "src": "303:49:2",
+              "text": " @dev Aave Lending Pool Provider"
+            },
+            "id": 431,
+            "mutability": "constant",
+            "name": "aaveProvider",
+            "nodeType": "VariableDeclaration",
+            "scope": 515,
+            "src": "357:142:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_AaveLendingPoolProviderInterface_$582",
+              "typeString": "contract AaveLendingPoolProviderInterface"
+            },
+            "typeName": {
+              "id": 427,
+              "name": "AaveLendingPoolProviderInterface",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 582,
+              "src": "357:32:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_AaveLendingPoolProviderInterface_$582",
+                "typeString": "contract AaveLendingPoolProviderInterface"
+              }
+            },
+            "value": {
+              "arguments": [
+                {
+                  "hexValue": "307838383735376632663939313735333837614234433661346233303637633737413639356230333439",
+                  "id": 429,
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "kind": "number",
+                  "lValueRequested": false,
+                  "nodeType": "Literal",
+                  "src": "456:42:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address_payable",
+                    "typeString": "address payable"
+                  },
+                  "value": "0x88757f2f99175387aB4C6a4b3067c77A695b0349"
+                }
+              ],
+              "expression": {
+                "argumentTypes": [
+                  {
+                    "typeIdentifier": "t_address_payable",
+                    "typeString": "address payable"
+                  }
+                ],
+                "id": 428,
+                "name": "AaveLendingPoolProviderInterface",
+                "nodeType": "Identifier",
+                "overloadedDeclarations": [],
+                "referencedDeclaration": 582,
+                "src": "423:32:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_type$_t_contract$_AaveLendingPoolProviderInterface_$582_$",
+                  "typeString": "type(contract AaveLendingPoolProviderInterface)"
+                }
+              },
+              "id": 430,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "typeConversion",
+              "lValueRequested": false,
+              "names": [],
+              "nodeType": "FunctionCall",
+              "src": "423:76:2",
+              "tryCall": false,
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_AaveLendingPoolProviderInterface_$582",
+                "typeString": "contract AaveLendingPoolProviderInterface"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": true,
+            "documentation": {
+              "id": 432,
+              "nodeType": "StructuredDocumentation",
+              "src": "506:50:2",
+              "text": " @dev Aave Protocol Data Provider"
+            },
+            "id": 437,
+            "mutability": "constant",
+            "name": "aaveData",
+            "nodeType": "VariableDeclaration",
+            "scope": 515,
+            "src": "561:124:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_AaveDataProviderInterface_$619",
+              "typeString": "contract AaveDataProviderInterface"
+            },
+            "typeName": {
+              "id": 433,
+              "name": "AaveDataProviderInterface",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 619,
+              "src": "561:25:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_AaveDataProviderInterface_$619",
+                "typeString": "contract AaveDataProviderInterface"
+              }
+            },
+            "value": {
+              "arguments": [
+                {
+                  "hexValue": "307833633733413545353738356341433835344434363846373237633630364330373438386132394436",
+                  "id": 435,
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "kind": "number",
+                  "lValueRequested": false,
+                  "nodeType": "Literal",
+                  "src": "642:42:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address_payable",
+                    "typeString": "address payable"
+                  },
+                  "value": "0x3c73A5E5785cAC854D468F727c606C07488a29D6"
+                }
+              ],
+              "expression": {
+                "argumentTypes": [
+                  {
+                    "typeIdentifier": "t_address_payable",
+                    "typeString": "address payable"
+                  }
+                ],
+                "id": 434,
+                "name": "AaveDataProviderInterface",
+                "nodeType": "Identifier",
+                "overloadedDeclarations": [],
+                "referencedDeclaration": 619,
+                "src": "616:25:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_type$_t_contract$_AaveDataProviderInterface_$619_$",
+                  "typeString": "type(contract AaveDataProviderInterface)"
+                }
+              },
+              "id": 436,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "typeConversion",
+              "lValueRequested": false,
+              "names": [],
+              "nodeType": "FunctionCall",
+              "src": "616:69:2",
+              "tryCall": false,
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_AaveDataProviderInterface_$619",
+                "typeString": "contract AaveDataProviderInterface"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": true,
+            "documentation": {
+              "id": 438,
+              "nodeType": "StructuredDocumentation",
+              "src": "692:41:2",
+              "text": " @dev Aave Referral Code"
+            },
+            "id": 441,
+            "mutability": "constant",
+            "name": "referralCode",
+            "nodeType": "VariableDeclaration",
+            "scope": 515,
+            "src": "738:44:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint16",
+              "typeString": "uint16"
+            },
+            "typeName": {
+              "id": 439,
+              "name": "uint16",
+              "nodeType": "ElementaryTypeName",
+              "src": "738:6:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint16",
+                "typeString": "uint16"
+              }
+            },
+            "value": {
+              "hexValue": "33323238",
+              "id": 440,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "778:4:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_3228_by_1",
+                "typeString": "int_const 3228"
+              },
+              "value": "3228"
+            },
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 461,
+              "nodeType": "Block",
+              "src": "1031:92:2",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 459,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "components": [
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        {
+                          "id": 449,
+                          "name": "isCol",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 447,
+                          "src": "1058:5:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        }
+                      ],
+                      "id": 450,
+                      "isConstant": false,
+                      "isInlineArray": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "TupleExpression",
+                      "src": "1041:23:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_tuple$__$__$__$__$__$__$__$__$_t_bool_$",
+                        "typeString": "tuple(,,,,,,,,bool)"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "arguments": [
+                        {
+                          "id": 453,
+                          "name": "token",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 444,
+                          "src": "1095:5:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        {
+                          "arguments": [
+                            {
+                              "id": 456,
+                              "name": "this",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 4294967268,
+                              "src": "1110:4:2",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_contract$_Helpers_$515",
+                                "typeString": "contract Helpers"
+                              }
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_contract$_Helpers_$515",
+                                "typeString": "contract Helpers"
+                              }
+                            ],
+                            "id": 455,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "lValueRequested": false,
+                            "nodeType": "ElementaryTypeNameExpression",
+                            "src": "1102:7:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_type$_t_address_$",
+                              "typeString": "type(address)"
+                            },
+                            "typeName": {
+                              "id": 454,
+                              "name": "address",
+                              "nodeType": "ElementaryTypeName",
+                              "src": "1102:7:2",
+                              "typeDescriptions": {}
+                            }
+                          },
+                          "id": 457,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "typeConversion",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "1102:13:2",
+                          "tryCall": false,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          },
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        ],
+                        "expression": {
+                          "id": 451,
+                          "name": "aaveData",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 437,
+                          "src": "1067:8:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_contract$_AaveDataProviderInterface_$619",
+                            "typeString": "contract AaveDataProviderInterface"
+                          }
+                        },
+                        "id": 452,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "getUserReserveData",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 618,
+                        "src": "1067:27:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_external_view$_t_address_$_t_address_$returns$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint40_$_t_bool_$",
+                          "typeString": "function (address,address) view external returns (uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint40,bool)"
+                        }
+                      },
+                      "id": 458,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "1067:49:2",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_tuple$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint40_$_t_bool_$",
+                        "typeString": "tuple(uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint40,bool)"
+                      }
+                    },
+                    "src": "1041:75:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 460,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1041:75:2"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 442,
+              "nodeType": "StructuredDocumentation",
+              "src": "789:168:2",
+              "text": " @dev Checks if collateral is enabled for an asset\n @param token token address of the asset.(For ETH: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE)"
+            },
+            "id": 462,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getIsColl",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 445,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 444,
+                  "mutability": "mutable",
+                  "name": "token",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 462,
+                  "src": "981:13:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 443,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "981:7:2",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "980:15:2"
+            },
+            "returnParameters": {
+              "id": 448,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 447,
+                  "mutability": "mutable",
+                  "name": "isCol",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 462,
+                  "src": "1019:10:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 446,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1019:4:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1018:12:2"
+            },
+            "scope": 515,
+            "src": "962:161:2",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 492,
+              "nodeType": "Block",
+              "src": "1451:177:2",
+              "statements": [
+                {
+                  "assignments": [
+                    null,
+                    473,
+                    475,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  "declarations": [
+                    null,
+                    {
+                      "constant": false,
+                      "id": 473,
+                      "mutability": "mutable",
+                      "name": "stableDebt",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 492,
+                      "src": "1464:15:2",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "typeName": {
+                        "id": 472,
+                        "name": "uint",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "1464:4:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "visibility": "internal"
+                    },
+                    {
+                      "constant": false,
+                      "id": 475,
+                      "mutability": "mutable",
+                      "name": "variableDebt",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 492,
+                      "src": "1481:17:2",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "typeName": {
+                        "id": 474,
+                        "name": "uint",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "1481:4:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "visibility": "internal"
+                    },
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  "id": 484,
+                  "initialValue": {
+                    "arguments": [
+                      {
+                        "id": 478,
+                        "name": "token",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 465,
+                        "src": "1542:5:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "arguments": [
+                          {
+                            "id": 481,
+                            "name": "this",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 4294967268,
+                            "src": "1557:4:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_contract$_Helpers_$515",
+                              "typeString": "contract Helpers"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_contract$_Helpers_$515",
+                              "typeString": "contract Helpers"
+                            }
+                          ],
+                          "id": 480,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "nodeType": "ElementaryTypeNameExpression",
+                          "src": "1549:7:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_address_$",
+                            "typeString": "type(address)"
+                          },
+                          "typeName": {
+                            "id": 479,
+                            "name": "address",
+                            "nodeType": "ElementaryTypeName",
+                            "src": "1549:7:2",
+                            "typeDescriptions": {}
+                          }
+                        },
+                        "id": 482,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "typeConversion",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "1549:13:2",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "expression": {
+                        "id": 476,
+                        "name": "aaveData",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 437,
+                        "src": "1514:8:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_contract$_AaveDataProviderInterface_$619",
+                          "typeString": "contract AaveDataProviderInterface"
+                        }
+                      },
+                      "id": 477,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "getUserReserveData",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 618,
+                      "src": "1514:27:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_external_view$_t_address_$_t_address_$returns$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint40_$_t_bool_$",
+                        "typeString": "function (address,address) view external returns (uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint40,bool)"
+                      }
+                    },
+                    "id": 483,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1514:49:2",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint40_$_t_bool_$",
+                      "typeString": "tuple(uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint40,bool)"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "1461:102:2"
+                },
+                {
+                  "expression": {
+                    "condition": {
+                      "commonType": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "id": 487,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "leftExpression": {
+                        "id": 485,
+                        "name": "rateMode",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 467,
+                        "src": "1580:8:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "nodeType": "BinaryOperation",
+                      "operator": "==",
+                      "rightExpression": {
+                        "hexValue": "31",
+                        "id": 486,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "number",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "1592:1:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_rational_1_by_1",
+                          "typeString": "int_const 1"
+                        },
+                        "value": "1"
+                      },
+                      "src": "1580:13:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "falseExpression": {
+                      "id": 489,
+                      "name": "variableDebt",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 475,
+                      "src": "1609:12:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 490,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "Conditional",
+                    "src": "1580:41:2",
+                    "trueExpression": {
+                      "id": 488,
+                      "name": "stableDebt",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 473,
+                      "src": "1596:10:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 471,
+                  "id": 491,
+                  "nodeType": "Return",
+                  "src": "1573:48:2"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 463,
+              "nodeType": "StructuredDocumentation",
+              "src": "1129:231:2",
+              "text": " @dev Get total debt balance & fee for an asset\n @param token token address of the debt.(For ETH: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE)\n @param rateMode Borrow rate mode (Stable = 1, Variable = 2)"
+            },
+            "id": 493,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getPaybackBalance",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 468,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 465,
+                  "mutability": "mutable",
+                  "name": "token",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 493,
+                  "src": "1392:13:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 464,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1392:7:2",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 467,
+                  "mutability": "mutable",
+                  "name": "rateMode",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 493,
+                  "src": "1407:13:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 466,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1407:4:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1391:30:2"
+            },
+            "returnParameters": {
+              "id": 471,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 470,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 493,
+                  "src": "1445:4:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 469,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1445:4:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1444:6:2"
+            },
+            "scope": 515,
+            "src": "1365:263:2",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 513,
+              "nodeType": "Block",
+              "src": "1887:89:2",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 511,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "components": [
+                        {
+                          "id": 501,
+                          "name": "bal",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 499,
+                          "src": "1898:3:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null
+                      ],
+                      "id": 502,
+                      "isConstant": false,
+                      "isInlineArray": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "TupleExpression",
+                      "src": "1897:20:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_tuple$_t_uint256_$__$__$__$__$__$__$__$__$",
+                        "typeString": "tuple(uint256,,,,,,,,)"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "arguments": [
+                        {
+                          "id": 505,
+                          "name": "token",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 496,
+                          "src": "1948:5:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        {
+                          "arguments": [
+                            {
+                              "id": 508,
+                              "name": "this",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 4294967268,
+                              "src": "1963:4:2",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_contract$_Helpers_$515",
+                                "typeString": "contract Helpers"
+                              }
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_contract$_Helpers_$515",
+                                "typeString": "contract Helpers"
+                              }
+                            ],
+                            "id": 507,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "lValueRequested": false,
+                            "nodeType": "ElementaryTypeNameExpression",
+                            "src": "1955:7:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_type$_t_address_$",
+                              "typeString": "type(address)"
+                            },
+                            "typeName": {
+                              "id": 506,
+                              "name": "address",
+                              "nodeType": "ElementaryTypeName",
+                              "src": "1955:7:2",
+                              "typeDescriptions": {}
+                            }
+                          },
+                          "id": 509,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "typeConversion",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "1955:13:2",
+                          "tryCall": false,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          },
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        ],
+                        "expression": {
+                          "id": 503,
+                          "name": "aaveData",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 437,
+                          "src": "1920:8:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_contract$_AaveDataProviderInterface_$619",
+                            "typeString": "contract AaveDataProviderInterface"
+                          }
+                        },
+                        "id": 504,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "getUserReserveData",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 618,
+                        "src": "1920:27:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_external_view$_t_address_$_t_address_$returns$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint40_$_t_bool_$",
+                          "typeString": "function (address,address) view external returns (uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint40,bool)"
+                        }
+                      },
+                      "id": 510,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "1920:49:2",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_tuple$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint256_$_t_uint40_$_t_bool_$",
+                        "typeString": "tuple(uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint40,bool)"
+                      }
+                    },
+                    "src": "1897:72:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 512,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1897:72:2"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 494,
+              "nodeType": "StructuredDocumentation",
+              "src": "1634:170:2",
+              "text": " @dev Get total collateral balance for an asset\n @param token token address of the collateral.(For ETH: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE)"
+            },
+            "id": 514,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getCollateralBalance",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 497,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 496,
+                  "mutability": "mutable",
+                  "name": "token",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 514,
+                  "src": "1839:13:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 495,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1839:7:2",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1838:15:2"
+            },
+            "returnParameters": {
+              "id": 500,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 499,
+                  "mutability": "mutable",
+                  "name": "bal",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 514,
+                  "src": "1877:8:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 498,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1877:4:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1876:10:2"
+            },
+            "scope": 515,
+            "src": "1809:167:2",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 516,
+        "src": "249:1729:2"
+      }
+    ],
+    "src": "32:1947:2"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "project:/contracts/aave/v2/helpers.sol",
+      "exportedSymbols": {
+        "AaveDataProviderInterface": [
+          619
+        ],
+        "AaveLendingPoolProviderInterface": [
+          582
+        ],
+        "Basic": [
+          1543
+        ],
+        "DSMath": [
+          1872
+        ],
+        "Helpers": [
+          515
+        ]
+      },
+      "license": "MIT"
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.7",
+            ".0"
+          ]
+        },
+        "id": 414,
+        "name": "PragmaDirective",
+        "src": "32:23:2"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 1873,
+          "absolutePath": "project:/contracts/common/math.sol",
+          "file": "../../common/math.sol",
+          "scope": 516,
+          "symbolAliases": [
+            {
+              "foreign": {
+                "attributes": {
+                  "overloadedDeclarations": [
+                    null
+                  ],
+                  "value": "DSMath"
+                },
+                "id": 415,
+                "name": "Identifier",
+                "src": "66:6:2"
+              }
+            }
+          ],
+          "unitAlias": ""
+        },
+        "id": 416,
+        "name": "ImportDirective",
+        "src": "57:47:2"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 1544,
+          "absolutePath": "project:/contracts/common/basic.sol",
+          "file": "../../common/basic.sol",
+          "scope": 516,
+          "symbolAliases": [
+            {
+              "foreign": {
+                "attributes": {
+                  "overloadedDeclarations": [
+                    null
+                  ],
+                  "value": "Basic"
+                },
+                "id": 417,
+                "name": "Identifier",
+                "src": "114:5:2"
+              }
+            }
+          ],
+          "unitAlias": ""
+        },
+        "id": 418,
+        "name": "ImportDirective",
+        "src": "105:47:2"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 635,
+          "absolutePath": "project:/contracts/aave/v2/interface.sol",
+          "file": "./interface.sol",
+          "scope": 516,
+          "symbolAliases": [
+            {
+              "foreign": {
+                "attributes": {
+                  "overloadedDeclarations": [
+                    null
+                  ],
+                  "value": "AaveLendingPoolProviderInterface"
+                },
+                "id": 419,
+                "name": "Identifier",
+                "src": "162:32:2"
+              }
+            },
+            {
+              "foreign": {
+                "attributes": {
+                  "overloadedDeclarations": [
+                    null
+                  ],
+                  "value": "AaveDataProviderInterface"
+                },
+                "id": 420,
+                "name": "Identifier",
+                "src": "196:25:2"
+              }
+            }
+          ],
+          "unitAlias": ""
+        },
+        "id": 421,
+        "name": "ImportDirective",
+        "src": "153:94:2"
+      },
+      {
+        "attributes": {
+          "abstract": true,
+          "contractDependencies": [
+            1543,
+            1872,
+            1941
+          ],
+          "contractKind": "contract",
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            515,
+            1543,
+            1941,
+            1872
+          ],
+          "name": "Helpers",
+          "scope": 516
+        },
+        "children": [
+          {
+            "attributes": {},
+            "children": [
+              {
+                "attributes": {
+                  "name": "DSMath",
+                  "referencedDeclaration": 1872,
+                  "type": "contract DSMath"
+                },
+                "id": 422,
+                "name": "UserDefinedTypeName",
+                "src": "278:6:2"
+              }
+            ],
+            "id": 423,
+            "name": "InheritanceSpecifier",
+            "src": "278:6:2"
+          },
+          {
+            "attributes": {},
+            "children": [
+              {
+                "attributes": {
+                  "name": "Basic",
+                  "referencedDeclaration": 1543,
+                  "type": "contract Basic"
+                },
+                "id": 424,
+                "name": "UserDefinedTypeName",
+                "src": "286:5:2"
+              }
+            ],
+            "id": 425,
+            "name": "InheritanceSpecifier",
+            "src": "286:5:2"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "mutability": "constant",
+              "name": "aaveProvider",
+              "scope": 515,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "contract AaveLendingPoolProviderInterface",
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "AaveLendingPoolProviderInterface",
+                  "referencedDeclaration": 582,
+                  "type": "contract AaveLendingPoolProviderInterface"
+                },
+                "id": 427,
+                "name": "UserDefinedTypeName",
+                "src": "357:32:2"
+              },
+              {
+                "attributes": {
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "isStructConstructorCall": false,
+                  "lValueRequested": false,
+                  "names": [
+                    null
+                  ],
+                  "tryCall": false,
+                  "type": "contract AaveLendingPoolProviderInterface",
+                  "type_conversion": true
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      ],
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 582,
+                      "type": "type(contract AaveLendingPoolProviderInterface)",
+                      "value": "AaveLendingPoolProviderInterface"
+                    },
+                    "id": 428,
+                    "name": "Identifier",
+                    "src": "423:32:2"
+                  },
+                  {
+                    "attributes": {
+                      "hexvalue": "307838383735376632663939313735333837614234433661346233303637633737413639356230333439",
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "token": "number",
+                      "type": "address payable",
+                      "value": "0x88757f2f99175387aB4C6a4b3067c77A695b0349"
+                    },
+                    "id": 429,
+                    "name": "Literal",
+                    "src": "456:42:2"
+                  }
+                ],
+                "id": 430,
+                "name": "FunctionCall",
+                "src": "423:76:2"
+              },
+              {
+                "attributes": {
+                  "text": " @dev Aave Lending Pool Provider"
+                },
+                "id": 426,
+                "name": "StructuredDocumentation",
+                "src": "303:49:2"
+              }
+            ],
+            "id": 431,
+            "name": "VariableDeclaration",
+            "src": "357:142:2"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "mutability": "constant",
+              "name": "aaveData",
+              "scope": 515,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "contract AaveDataProviderInterface",
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "AaveDataProviderInterface",
+                  "referencedDeclaration": 619,
+                  "type": "contract AaveDataProviderInterface"
+                },
+                "id": 433,
+                "name": "UserDefinedTypeName",
+                "src": "561:25:2"
+              },
+              {
+                "attributes": {
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "isStructConstructorCall": false,
+                  "lValueRequested": false,
+                  "names": [
+                    null
+                  ],
+                  "tryCall": false,
+                  "type": "contract AaveDataProviderInterface",
+                  "type_conversion": true
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      ],
+                      "overloadedDeclarations": [
+                        null
+                      ],
+                      "referencedDeclaration": 619,
+                      "type": "type(contract AaveDataProviderInterface)",
+                      "value": "AaveDataProviderInterface"
+                    },
+                    "id": 434,
+                    "name": "Identifier",
+                    "src": "616:25:2"
+                  },
+                  {
+                    "attributes": {
+                      "hexvalue": "307833633733413545353738356341433835344434363846373237633630364330373438386132394436",
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "token": "number",
+                      "type": "address payable",
+                      "value": "0x3c73A5E5785cAC854D468F727c606C07488a29D6"
+                    },
+                    "id": 435,
+                    "name": "Literal",
+                    "src": "642:42:2"
+                  }
+                ],
+                "id": 436,
+                "name": "FunctionCall",
+                "src": "616:69:2"
+              },
+              {
+                "attributes": {
+                  "text": " @dev Aave Protocol Data Provider"
+                },
+                "id": 432,
+                "name": "StructuredDocumentation",
+                "src": "506:50:2"
+              }
+            ],
+            "id": 437,
+            "name": "VariableDeclaration",
+            "src": "561:124:2"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "mutability": "constant",
+              "name": "referralCode",
+              "scope": 515,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "uint16",
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "uint16",
+                  "type": "uint16"
+                },
+                "id": 439,
+                "name": "ElementaryTypeName",
+                "src": "738:6:2"
+              },
+              {
+                "attributes": {
+                  "hexvalue": "33323238",
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "lValueRequested": false,
+                  "token": "number",
+                  "type": "int_const 3228",
+                  "value": "3228"
+                },
+                "id": 440,
+                "name": "Literal",
+                "src": "778:4:2"
+              },
+              {
+                "attributes": {
+                  "text": " @dev Aave Referral Code"
+                },
+                "id": 438,
+                "name": "StructuredDocumentation",
+                "src": "692:41:2"
+              }
+            ],
+            "id": 441,
+            "name": "VariableDeclaration",
+            "src": "738:44:2"
+          },
+          {
+            "attributes": {
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "getIsColl",
+              "scope": 515,
+              "stateMutability": "view",
+              "virtual": false,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "text": " @dev Checks if collateral is enabled for an asset\n @param token token address of the asset.(For ETH: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE)"
+                },
+                "id": 442,
+                "name": "StructuredDocumentation",
+                "src": "789:168:2"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "token",
+                      "scope": 462,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 443,
+                        "name": "ElementaryTypeName",
+                        "src": "981:7:2"
+                      }
+                    ],
+                    "id": 444,
+                    "name": "VariableDeclaration",
+                    "src": "981:13:2"
+                  }
+                ],
+                "id": 445,
+                "name": "ParameterList",
+                "src": "980:15:2"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "isCol",
+                      "scope": 462,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "bool",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "bool",
+                          "type": "bool"
+                        },
+                        "id": 446,
+                        "name": "ElementaryTypeName",
+                        "src": "1019:4:2"
+                      }
+                    ],
+                    "id": 447,
+                    "name": "VariableDeclaration",
+                    "src": "1019:10:2"
+                  }
+                ],
+                "id": 448,
+                "name": "ParameterList",
+                "src": "1018:12:2"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "tuple()"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "components": [
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                {
+                                  "attributes": {
+                                    "overloadedDeclarations": [
+                                      null
+                                    ],
+                                    "referencedDeclaration": 447,
+                                    "type": "bool",
+                                    "value": "isCol"
+                                  },
+                                  "id": 449,
+                                  "name": "Identifier",
+                                  "src": "1058:5:2"
+                                }
+                              ],
+                              "isConstant": false,
+                              "isInlineArray": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "type": "tuple(,,,,,,,,bool)"
+                            },
+                            "id": 450,
+                            "name": "TupleExpression",
+                            "src": "1041:23:2"
+                          },
+                          {
+                            "attributes": {
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "isStructConstructorCall": false,
+                              "lValueRequested": false,
+                              "names": [
+                                null
+                              ],
+                              "tryCall": false,
+                              "type": "tuple(uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint40,bool)",
+                              "type_conversion": false
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_address",
+                                      "typeString": "address"
+                                    },
+                                    {
+                                      "typeIdentifier": "t_address",
+                                      "typeString": "address"
+                                    }
+                                  ],
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "getUserReserveData",
+                                  "referencedDeclaration": 618,
+                                  "type": "function (address,address) view external returns (uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint40,bool)"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 437,
+                                      "type": "contract AaveDataProviderInterface",
+                                      "value": "aaveData"
+                                    },
+                                    "id": 451,
+                                    "name": "Identifier",
+                                    "src": "1067:8:2"
+                                  }
+                                ],
+                                "id": 452,
+                                "name": "MemberAccess",
+                                "src": "1067:27:2"
+                              },
+                              {
+                                "attributes": {
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 444,
+                                  "type": "address",
+                                  "value": "token"
+                                },
+                                "id": 453,
+                                "name": "Identifier",
+                                "src": "1095:5:2"
+                              },
+                              {
+                                "attributes": {
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "isStructConstructorCall": false,
+                                  "lValueRequested": false,
+                                  "names": [
+                                    null
+                                  ],
+                                  "tryCall": false,
+                                  "type": "address",
+                                  "type_conversion": true
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": [
+                                        {
+                                          "typeIdentifier": "t_contract$_Helpers_$515",
+                                          "typeString": "contract Helpers"
+                                        }
+                                      ],
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": true,
+                                      "lValueRequested": false,
+                                      "type": "type(address)"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "name": "address"
+                                        },
+                                        "id": 454,
+                                        "name": "ElementaryTypeName",
+                                        "src": "1102:7:2"
+                                      }
+                                    ],
+                                    "id": 455,
+                                    "name": "ElementaryTypeNameExpression",
+                                    "src": "1102:7:2"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 4294967268,
+                                      "type": "contract Helpers",
+                                      "value": "this"
+                                    },
+                                    "id": 456,
+                                    "name": "Identifier",
+                                    "src": "1110:4:2"
+                                  }
+                                ],
+                                "id": 457,
+                                "name": "FunctionCall",
+                                "src": "1102:13:2"
+                              }
+                            ],
+                            "id": 458,
+                            "name": "FunctionCall",
+                            "src": "1067:49:2"
+                          }
+                        ],
+                        "id": 459,
+                        "name": "Assignment",
+                        "src": "1041:75:2"
+                      }
+                    ],
+                    "id": 460,
+                    "name": "ExpressionStatement",
+                    "src": "1041:75:2"
+                  }
+                ],
+                "id": 461,
+                "name": "Block",
+                "src": "1031:92:2"
+              }
+            ],
+            "id": 462,
+            "name": "FunctionDefinition",
+            "src": "962:161:2"
+          },
+          {
+            "attributes": {
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "getPaybackBalance",
+              "scope": 515,
+              "stateMutability": "view",
+              "virtual": false,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "text": " @dev Get total debt balance & fee for an asset\n @param token token address of the debt.(For ETH: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE)\n @param rateMode Borrow rate mode (Stable = 1, Variable = 2)"
+                },
+                "id": 463,
+                "name": "StructuredDocumentation",
+                "src": "1129:231:2"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "token",
+                      "scope": 493,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 464,
+                        "name": "ElementaryTypeName",
+                        "src": "1392:7:2"
+                      }
+                    ],
+                    "id": 465,
+                    "name": "VariableDeclaration",
+                    "src": "1392:13:2"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "rateMode",
+                      "scope": 493,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 466,
+                        "name": "ElementaryTypeName",
+                        "src": "1407:4:2"
+                      }
+                    ],
+                    "id": 467,
+                    "name": "VariableDeclaration",
+                    "src": "1407:13:2"
+                  }
+                ],
+                "id": 468,
+                "name": "ParameterList",
+                "src": "1391:30:2"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "",
+                      "scope": 493,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 469,
+                        "name": "ElementaryTypeName",
+                        "src": "1445:4:2"
+                      }
+                    ],
+                    "id": 470,
+                    "name": "VariableDeclaration",
+                    "src": "1445:4:2"
+                  }
+                ],
+                "id": 471,
+                "name": "ParameterList",
+                "src": "1444:6:2"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "assignments": [
+                        null,
+                        473,
+                        475,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null
+                      ]
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "mutability": "mutable",
+                          "name": "stableDebt",
+                          "scope": 492,
+                          "stateVariable": false,
+                          "storageLocation": "default",
+                          "type": "uint256",
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "name": "uint",
+                              "type": "uint256"
+                            },
+                            "id": 472,
+                            "name": "ElementaryTypeName",
+                            "src": "1464:4:2"
+                          }
+                        ],
+                        "id": 473,
+                        "name": "VariableDeclaration",
+                        "src": "1464:15:2"
+                      },
+                      {
+                        "attributes": {
+                          "constant": false,
+                          "mutability": "mutable",
+                          "name": "variableDebt",
+                          "scope": 492,
+                          "stateVariable": false,
+                          "storageLocation": "default",
+                          "type": "uint256",
+                          "visibility": "internal"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "name": "uint",
+                              "type": "uint256"
+                            },
+                            "id": 474,
+                            "name": "ElementaryTypeName",
+                            "src": "1481:4:2"
+                          }
+                        ],
+                        "id": 475,
+                        "name": "VariableDeclaration",
+                        "src": "1481:17:2"
+                      },
+                      {
+                        "attributes": {
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "tryCall": false,
+                          "type": "tuple(uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint40,bool)",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                },
+                                {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                }
+                              ],
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "getUserReserveData",
+                              "referencedDeclaration": 618,
+                              "type": "function (address,address) view external returns (uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint40,bool)"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 437,
+                                  "type": "contract AaveDataProviderInterface",
+                                  "value": "aaveData"
+                                },
+                                "id": 476,
+                                "name": "Identifier",
+                                "src": "1514:8:2"
+                              }
+                            ],
+                            "id": 477,
+                            "name": "MemberAccess",
+                            "src": "1514:27:2"
+                          },
+                          {
+                            "attributes": {
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 465,
+                              "type": "address",
+                              "value": "token"
+                            },
+                            "id": 478,
+                            "name": "Identifier",
+                            "src": "1542:5:2"
+                          },
+                          {
+                            "attributes": {
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "isStructConstructorCall": false,
+                              "lValueRequested": false,
+                              "names": [
+                                null
+                              ],
+                              "tryCall": false,
+                              "type": "address",
+                              "type_conversion": true
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_contract$_Helpers_$515",
+                                      "typeString": "contract Helpers"
+                                    }
+                                  ],
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "type": "type(address)"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "name": "address"
+                                    },
+                                    "id": 479,
+                                    "name": "ElementaryTypeName",
+                                    "src": "1549:7:2"
+                                  }
+                                ],
+                                "id": 480,
+                                "name": "ElementaryTypeNameExpression",
+                                "src": "1549:7:2"
+                              },
+                              {
+                                "attributes": {
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 4294967268,
+                                  "type": "contract Helpers",
+                                  "value": "this"
+                                },
+                                "id": 481,
+                                "name": "Identifier",
+                                "src": "1557:4:2"
+                              }
+                            ],
+                            "id": 482,
+                            "name": "FunctionCall",
+                            "src": "1549:13:2"
+                          }
+                        ],
+                        "id": 483,
+                        "name": "FunctionCall",
+                        "src": "1514:49:2"
+                      }
+                    ],
+                    "id": 484,
+                    "name": "VariableDeclarationStatement",
+                    "src": "1461:102:2"
+                  },
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 471
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "commonType": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              },
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "operator": "==",
+                              "type": "bool"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 467,
+                                  "type": "uint256",
+                                  "value": "rateMode"
+                                },
+                                "id": 485,
+                                "name": "Identifier",
+                                "src": "1580:8:2"
+                              },
+                              {
+                                "attributes": {
+                                  "hexvalue": "31",
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "token": "number",
+                                  "type": "int_const 1",
+                                  "value": "1"
+                                },
+                                "id": 486,
+                                "name": "Literal",
+                                "src": "1592:1:2"
+                              }
+                            ],
+                            "id": 487,
+                            "name": "BinaryOperation",
+                            "src": "1580:13:2"
+                          },
+                          {
+                            "attributes": {
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 473,
+                              "type": "uint256",
+                              "value": "stableDebt"
+                            },
+                            "id": 488,
+                            "name": "Identifier",
+                            "src": "1596:10:2"
+                          },
+                          {
+                            "attributes": {
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 475,
+                              "type": "uint256",
+                              "value": "variableDebt"
+                            },
+                            "id": 489,
+                            "name": "Identifier",
+                            "src": "1609:12:2"
+                          }
+                        ],
+                        "id": 490,
+                        "name": "Conditional",
+                        "src": "1580:41:2"
+                      }
+                    ],
+                    "id": 491,
+                    "name": "Return",
+                    "src": "1573:48:2"
+                  }
+                ],
+                "id": 492,
+                "name": "Block",
+                "src": "1451:177:2"
+              }
+            ],
+            "id": 493,
+            "name": "FunctionDefinition",
+            "src": "1365:263:2"
+          },
+          {
+            "attributes": {
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "getCollateralBalance",
+              "scope": 515,
+              "stateMutability": "view",
+              "virtual": false,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "text": " @dev Get total collateral balance for an asset\n @param token token address of the collateral.(For ETH: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE)"
+                },
+                "id": 494,
+                "name": "StructuredDocumentation",
+                "src": "1634:170:2"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "token",
+                      "scope": 514,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 495,
+                        "name": "ElementaryTypeName",
+                        "src": "1839:7:2"
+                      }
+                    ],
+                    "id": 496,
+                    "name": "VariableDeclaration",
+                    "src": "1839:13:2"
+                  }
+                ],
+                "id": 497,
+                "name": "ParameterList",
+                "src": "1838:15:2"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "bal",
+                      "scope": 514,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 498,
+                        "name": "ElementaryTypeName",
+                        "src": "1877:4:2"
+                      }
+                    ],
+                    "id": 499,
+                    "name": "VariableDeclaration",
+                    "src": "1877:8:2"
+                  }
+                ],
+                "id": 500,
+                "name": "ParameterList",
+                "src": "1876:10:2"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "tuple()"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "isConstant": false,
+                              "isInlineArray": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "type": "tuple(uint256,,,,,,,,)"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 499,
+                                  "type": "uint256",
+                                  "value": "bal"
+                                },
+                                "id": 501,
+                                "name": "Identifier",
+                                "src": "1898:3:2"
+                              }
+                            ],
+                            "id": 502,
+                            "name": "TupleExpression",
+                            "src": "1897:20:2"
+                          },
+                          {
+                            "attributes": {
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "isStructConstructorCall": false,
+                              "lValueRequested": false,
+                              "names": [
+                                null
+                              ],
+                              "tryCall": false,
+                              "type": "tuple(uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint40,bool)",
+                              "type_conversion": false
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_address",
+                                      "typeString": "address"
+                                    },
+                                    {
+                                      "typeIdentifier": "t_address",
+                                      "typeString": "address"
+                                    }
+                                  ],
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "getUserReserveData",
+                                  "referencedDeclaration": 618,
+                                  "type": "function (address,address) view external returns (uint256,uint256,uint256,uint256,uint256,uint256,uint256,uint40,bool)"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 437,
+                                      "type": "contract AaveDataProviderInterface",
+                                      "value": "aaveData"
+                                    },
+                                    "id": 503,
+                                    "name": "Identifier",
+                                    "src": "1920:8:2"
+                                  }
+                                ],
+                                "id": 504,
+                                "name": "MemberAccess",
+                                "src": "1920:27:2"
+                              },
+                              {
+                                "attributes": {
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 496,
+                                  "type": "address",
+                                  "value": "token"
+                                },
+                                "id": 505,
+                                "name": "Identifier",
+                                "src": "1948:5:2"
+                              },
+                              {
+                                "attributes": {
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "isStructConstructorCall": false,
+                                  "lValueRequested": false,
+                                  "names": [
+                                    null
+                                  ],
+                                  "tryCall": false,
+                                  "type": "address",
+                                  "type_conversion": true
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": [
+                                        {
+                                          "typeIdentifier": "t_contract$_Helpers_$515",
+                                          "typeString": "contract Helpers"
+                                        }
+                                      ],
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": true,
+                                      "lValueRequested": false,
+                                      "type": "type(address)"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "name": "address"
+                                        },
+                                        "id": 506,
+                                        "name": "ElementaryTypeName",
+                                        "src": "1955:7:2"
+                                      }
+                                    ],
+                                    "id": 507,
+                                    "name": "ElementaryTypeNameExpression",
+                                    "src": "1955:7:2"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 4294967268,
+                                      "type": "contract Helpers",
+                                      "value": "this"
+                                    },
+                                    "id": 508,
+                                    "name": "Identifier",
+                                    "src": "1963:4:2"
+                                  }
+                                ],
+                                "id": 509,
+                                "name": "FunctionCall",
+                                "src": "1955:13:2"
+                              }
+                            ],
+                            "id": 510,
+                            "name": "FunctionCall",
+                            "src": "1920:49:2"
+                          }
+                        ],
+                        "id": 511,
+                        "name": "Assignment",
+                        "src": "1897:72:2"
+                      }
+                    ],
+                    "id": 512,
+                    "name": "ExpressionStatement",
+                    "src": "1897:72:2"
+                  }
+                ],
+                "id": 513,
+                "name": "Block",
+                "src": "1887:89:2"
+              }
+            ],
+            "id": 514,
+            "name": "FunctionDefinition",
+            "src": "1809:167:2"
+          }
+        ],
+        "id": 515,
+        "name": "ContractDefinition",
+        "src": "249:1729:2"
+      }
+    ],
+    "id": 516,
+    "name": "SourceUnit",
+    "src": "32:1947:2"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.7.6+commit.7338295f.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.4",
+  "updatedAt": "2022-01-30T09:38:37.634Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "stateVariables": {
+      "aaveData": {
+        "details": "Aave Protocol Data Provider"
+      },
+      "aaveProvider": {
+        "details": "Aave Lending Pool Provider"
+      },
+      "referralCode": {
+        "details": "Aave Referral Code"
+      }
+    },
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}
