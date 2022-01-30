@@ -35,9 +35,6 @@ class App extends Component {
     }
   };
 
-  clickFunc(){
-    console.log("hi");
-  }
 
   callContract = async()=>{
     console.log(this.accounts);
