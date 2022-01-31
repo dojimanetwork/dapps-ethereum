@@ -51,6 +51,13 @@ module.exports = {
       gasPrice: 395305800000000,
       network_id: "42",
    },
+   matic: {
+    provider: () => new HDWalletProvider(secrets.mnemonic, `https://rpc-mumbai.maticvigil.com`),
+    network_id: 80001,
+    confirmations: 2,
+    timeoutBlocks: 200,
+    skipDryRun: true
+  },
     // Useful for testing. The `development` name is special - truffle uses it by default
     // if it's defined here and no other network is specified at the command line.
     // You should run a client (like ganache-cli, geth or parity) in a separate terminal

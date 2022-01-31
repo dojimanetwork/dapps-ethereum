@@ -8,14 +8,14 @@ import { AaveLendingPoolProviderInterface, AaveDataProviderInterface } from "./i
 abstract contract Helpers is DSMath, Basic {
     
     /**
-     * @dev Aave Lending Pool Provider
+     * @dev Aave Lending Pool Provider in matic js
     */
-    AaveLendingPoolProviderInterface constant internal aaveProvider = AaveLendingPoolProviderInterface(0x88757f2f99175387aB4C6a4b3067c77A695b0349);
+    AaveLendingPoolProviderInterface constant internal aaveProvider = AaveLendingPoolProviderInterface(0x178113104fEcbcD7fF8669a0150721e231F0FD4B);
 
     /**
-     * @dev Aave Protocol Data Provider
+     * @dev Aave Protocol Data Provider in matic js
     */
-    AaveDataProviderInterface constant internal aaveData = AaveDataProviderInterface(0x3c73A5E5785cAC854D468F727c606C07488a29D6);
+    AaveDataProviderInterface constant internal aaveData = AaveDataProviderInterface(0xFA3bD19110d986c5e5E9DD5F69362d05035D045B);
 
     /**
      * @dev Aave Referral Code

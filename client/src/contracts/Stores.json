@@ -15,21 +15,21 @@
     "absolutePath": "project:/contracts/common/stores.sol",
     "exportedSymbols": {
       "InstaMapping": [
-        1624
+        1657
       ],
       "MemoryInterface": [
-        1609
+        1642
       ],
       "Stores": [
-        1941
+        1974
       ]
     },
-    "id": 1942,
+    "id": 1975,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 1874,
+        "id": 1907,
         "literals": [
           "solidity",
           "^",
@@ -37,34 +37,34 @@
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "32:23:8"
+        "src": "32:23:9"
       },
       {
         "absolutePath": "project:/contracts/common/interfaces.sol",
         "file": "./interfaces.sol",
-        "id": 1877,
+        "id": 1910,
         "nodeType": "ImportDirective",
-        "scope": 1942,
-        "sourceUnit": 1643,
-        "src": "57:65:8",
+        "scope": 1975,
+        "sourceUnit": 1676,
+        "src": "57:65:9",
         "symbolAliases": [
           {
             "foreign": {
-              "id": 1875,
+              "id": 1908,
               "name": "MemoryInterface",
               "nodeType": "Identifier",
               "overloadedDeclarations": [],
-              "src": "66:15:8",
+              "src": "66:15:9",
               "typeDescriptions": {}
             }
           },
           {
             "foreign": {
-              "id": 1876,
+              "id": 1909,
               "name": "InstaMapping",
               "nodeType": "Identifier",
               "overloadedDeclarations": [],
-              "src": "83:12:8",
+              "src": "83:12:9",
               "typeDescriptions": {}
             }
           }
@@ -77,9 +77,9 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 1941,
+        "id": 1974,
         "linearizedBaseContracts": [
-          1941
+          1974
         ],
         "name": "Stores",
         "nodeType": "ContractDefinition",
@@ -87,17 +87,17 @@
           {
             "constant": true,
             "documentation": {
-              "id": 1878,
+              "id": 1911,
               "nodeType": "StructuredDocumentation",
-              "src": "155:43:8",
+              "src": "155:43:9",
               "text": " @dev Return ethereum address"
             },
-            "id": 1881,
+            "id": 1914,
             "mutability": "constant",
             "name": "ethAddr",
             "nodeType": "VariableDeclaration",
-            "scope": 1941,
-            "src": "201:78:8",
+            "scope": 1974,
+            "src": "201:78:9",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -105,10 +105,10 @@
               "typeString": "address"
             },
             "typeName": {
-              "id": 1879,
+              "id": 1912,
               "name": "address",
               "nodeType": "ElementaryTypeName",
-              "src": "201:7:8",
+              "src": "201:7:9",
               "stateMutability": "nonpayable",
               "typeDescriptions": {
                 "typeIdentifier": "t_address",
@@ -117,14 +117,14 @@
             },
             "value": {
               "hexValue": "307845656565654565656545654565654565456545656545454565656565456565656565656545456545",
-              "id": 1880,
+              "id": 1913,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
               "kind": "number",
               "lValueRequested": false,
               "nodeType": "Literal",
-              "src": "237:42:8",
+              "src": "237:42:9",
               "typeDescriptions": {
                 "typeIdentifier": "t_address_payable",
                 "typeString": "address payable"
@@ -136,17 +136,17 @@
           {
             "constant": true,
             "documentation": {
-              "id": 1882,
+              "id": 1915,
               "nodeType": "StructuredDocumentation",
-              "src": "284:46:8",
+              "src": "284:46:9",
               "text": " @dev Return Wrapped ETH address"
             },
-            "id": 1885,
+            "id": 1918,
             "mutability": "constant",
             "name": "wethAddr",
             "nodeType": "VariableDeclaration",
-            "scope": 1941,
-            "src": "333:79:8",
+            "scope": 1974,
+            "src": "333:79:9",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -154,10 +154,10 @@
               "typeString": "address"
             },
             "typeName": {
-              "id": 1883,
+              "id": 1916,
               "name": "address",
               "nodeType": "ElementaryTypeName",
-              "src": "333:7:8",
+              "src": "333:7:9",
               "stateMutability": "nonpayable",
               "typeDescriptions": {
                 "typeIdentifier": "t_address",
@@ -166,14 +166,14 @@
             },
             "value": {
               "hexValue": "307843303261614133396232323346453844304130653543344632376541443930383343373536436332",
-              "id": 1884,
+              "id": 1917,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
               "kind": "number",
               "lValueRequested": false,
               "nodeType": "Literal",
-              "src": "370:42:8",
+              "src": "370:42:9",
               "typeDescriptions": {
                 "typeIdentifier": "t_address_payable",
                 "typeString": "address payable"
@@ -185,31 +185,31 @@
           {
             "constant": true,
             "documentation": {
-              "id": 1886,
+              "id": 1919,
               "nodeType": "StructuredDocumentation",
-              "src": "417:50:8",
+              "src": "417:50:9",
               "text": " @dev Return memory variable address"
             },
-            "id": 1891,
+            "id": 1924,
             "mutability": "constant",
             "name": "instaMemory",
             "nodeType": "VariableDeclaration",
-            "scope": 1941,
-            "src": "470:107:8",
+            "scope": 1974,
+            "src": "470:107:9",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_MemoryInterface_$1609",
+              "typeIdentifier": "t_contract$_MemoryInterface_$1642",
               "typeString": "contract MemoryInterface"
             },
             "typeName": {
-              "id": 1887,
+              "id": 1920,
               "name": "MemoryInterface",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1609,
-              "src": "470:15:8",
+              "referencedDeclaration": 1642,
+              "src": "470:15:9",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_MemoryInterface_$1609",
+                "typeIdentifier": "t_contract$_MemoryInterface_$1642",
                 "typeString": "contract MemoryInterface"
               }
             },
@@ -217,14 +217,14 @@
               "arguments": [
                 {
                   "hexValue": "307838613534313943664337313142323334336331376136414266344232624146614262303639353746",
-                  "id": 1889,
+                  "id": 1922,
                   "isConstant": false,
                   "isLValue": false,
                   "isPure": true,
                   "kind": "number",
                   "lValueRequested": false,
                   "nodeType": "Literal",
-                  "src": "534:42:8",
+                  "src": "534:42:9",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address_payable",
                     "typeString": "address payable"
@@ -239,18 +239,18 @@
                     "typeString": "address payable"
                   }
                 ],
-                "id": 1888,
+                "id": 1921,
                 "name": "MemoryInterface",
                 "nodeType": "Identifier",
                 "overloadedDeclarations": [],
-                "referencedDeclaration": 1609,
-                "src": "518:15:8",
+                "referencedDeclaration": 1642,
+                "src": "518:15:9",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_type$_t_contract$_MemoryInterface_$1609_$",
+                  "typeIdentifier": "t_type$_t_contract$_MemoryInterface_$1642_$",
                   "typeString": "type(contract MemoryInterface)"
                 }
               },
-              "id": 1890,
+              "id": 1923,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -258,10 +258,10 @@
               "lValueRequested": false,
               "names": [],
               "nodeType": "FunctionCall",
-              "src": "518:59:8",
+              "src": "518:59:9",
               "tryCall": false,
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_MemoryInterface_$1609",
+                "typeIdentifier": "t_contract$_MemoryInterface_$1642",
                 "typeString": "contract MemoryInterface"
               }
             },
@@ -270,31 +270,31 @@
           {
             "constant": true,
             "documentation": {
-              "id": 1892,
+              "id": 1925,
               "nodeType": "StructuredDocumentation",
-              "src": "582:54:8",
+              "src": "582:54:9",
               "text": " @dev Return InstaDApp Mapping Addresses"
             },
-            "id": 1897,
+            "id": 1930,
             "mutability": "constant",
             "name": "instaMapping",
             "nodeType": "VariableDeclaration",
-            "scope": 1941,
-            "src": "639:102:8",
+            "scope": 1974,
+            "src": "639:102:9",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_InstaMapping_$1624",
+              "typeIdentifier": "t_contract$_InstaMapping_$1657",
               "typeString": "contract InstaMapping"
             },
             "typeName": {
-              "id": 1893,
+              "id": 1926,
               "name": "InstaMapping",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 1624,
-              "src": "639:12:8",
+              "referencedDeclaration": 1657,
+              "src": "639:12:9",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_InstaMapping_$1624",
+                "typeIdentifier": "t_contract$_InstaMapping_$1657",
                 "typeString": "contract InstaMapping"
               }
             },
@@ -302,14 +302,14 @@
               "arguments": [
                 {
                   "hexValue": "307865383146373043633743304434366531326437306566633630363037463136626244363137453838",
-                  "id": 1895,
+                  "id": 1928,
                   "isConstant": false,
                   "isLValue": false,
                   "isPure": true,
                   "kind": "number",
                   "lValueRequested": false,
                   "nodeType": "Literal",
-                  "src": "698:42:8",
+                  "src": "698:42:9",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address_payable",
                     "typeString": "address payable"
@@ -324,18 +324,18 @@
                     "typeString": "address payable"
                   }
                 ],
-                "id": 1894,
+                "id": 1927,
                 "name": "InstaMapping",
                 "nodeType": "Identifier",
                 "overloadedDeclarations": [],
-                "referencedDeclaration": 1624,
-                "src": "685:12:8",
+                "referencedDeclaration": 1657,
+                "src": "685:12:9",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_type$_t_contract$_InstaMapping_$1624_$",
+                  "typeIdentifier": "t_type$_t_contract$_InstaMapping_$1657_$",
                   "typeString": "type(contract InstaMapping)"
                 }
               },
-              "id": 1896,
+              "id": 1929,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -343,10 +343,10 @@
               "lValueRequested": false,
               "names": [],
               "nodeType": "FunctionCall",
-              "src": "685:56:8",
+              "src": "685:56:9",
               "tryCall": false,
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_InstaMapping_$1624",
+                "typeIdentifier": "t_contract$_InstaMapping_$1657",
                 "typeString": "contract InstaMapping"
               }
             },
@@ -354,24 +354,24 @@
           },
           {
             "body": {
-              "id": 1919,
+              "id": 1952,
               "nodeType": "Block",
-              "src": "883:68:8",
+              "src": "883:68:9",
               "statements": [
                 {
                   "expression": {
-                    "id": 1917,
+                    "id": 1950,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
-                      "id": 1907,
+                      "id": 1940,
                       "name": "returnVal",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1905,
-                      "src": "889:9:8",
+                      "referencedDeclaration": 1938,
+                      "src": "889:9:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -385,18 +385,18 @@
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
                         },
-                        "id": 1910,
+                        "id": 1943,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "leftExpression": {
-                          "id": 1908,
+                          "id": 1941,
                           "name": "getId",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1900,
-                          "src": "901:5:8",
+                          "referencedDeclaration": 1933,
+                          "src": "901:5:9",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -406,21 +406,21 @@
                         "operator": "==",
                         "rightExpression": {
                           "hexValue": "30",
-                          "id": 1909,
+                          "id": 1942,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
                           "kind": "number",
                           "lValueRequested": false,
                           "nodeType": "Literal",
-                          "src": "910:1:8",
+                          "src": "910:1:9",
                           "typeDescriptions": {
                             "typeIdentifier": "t_rational_0_by_1",
                             "typeString": "int_const 0"
                           },
                           "value": "0"
                         },
-                        "src": "901:10:8",
+                        "src": "901:10:9",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -429,12 +429,12 @@
                       "falseExpression": {
                         "arguments": [
                           {
-                            "id": 1914,
+                            "id": 1947,
                             "name": "getId",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1900,
-                            "src": "940:5:8",
+                            "referencedDeclaration": 1933,
+                            "src": "940:5:9",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
                               "typeString": "uint256"
@@ -449,32 +449,32 @@
                             }
                           ],
                           "expression": {
-                            "id": 1912,
+                            "id": 1945,
                             "name": "instaMemory",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 1891,
-                            "src": "920:11:8",
+                            "referencedDeclaration": 1924,
+                            "src": "920:11:9",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_MemoryInterface_$1609",
+                              "typeIdentifier": "t_contract$_MemoryInterface_$1642",
                               "typeString": "contract MemoryInterface"
                             }
                           },
-                          "id": 1913,
+                          "id": 1946,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "getUint",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 1601,
-                          "src": "920:19:8",
+                          "referencedDeclaration": 1634,
+                          "src": "920:19:9",
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_external_nonpayable$_t_uint256_$returns$_t_uint256_$",
                             "typeString": "function (uint256) external returns (uint256)"
                           }
                         },
-                        "id": 1915,
+                        "id": 1948,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -482,27 +482,27 @@
                         "lValueRequested": false,
                         "names": [],
                         "nodeType": "FunctionCall",
-                        "src": "920:26:8",
+                        "src": "920:26:9",
                         "tryCall": false,
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
                         }
                       },
-                      "id": 1916,
+                      "id": 1949,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
                       "nodeType": "Conditional",
-                      "src": "901:45:8",
+                      "src": "901:45:9",
                       "trueExpression": {
-                        "id": 1911,
+                        "id": 1944,
                         "name": "val",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1902,
-                        "src": "914:3:8",
+                        "referencedDeclaration": 1935,
+                        "src": "914:3:9",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -513,42 +513,42 @@
                         "typeString": "uint256"
                       }
                     },
-                    "src": "889:57:8",
+                    "src": "889:57:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 1918,
+                  "id": 1951,
                   "nodeType": "ExpressionStatement",
-                  "src": "889:57:8"
+                  "src": "889:57:9"
                 }
               ]
             },
             "documentation": {
-              "id": 1898,
+              "id": 1931,
               "nodeType": "StructuredDocumentation",
-              "src": "746:61:8",
+              "src": "746:61:9",
               "text": " @dev Get Uint value from InstaMemory Contract."
             },
-            "id": 1920,
+            "id": 1953,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "getUint",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1903,
+              "id": 1936,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1900,
+                  "id": 1933,
                   "mutability": "mutable",
                   "name": "getId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1920,
-                  "src": "827:10:8",
+                  "scope": 1953,
+                  "src": "827:10:9",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -556,10 +556,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1899,
+                    "id": 1932,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "827:4:8",
+                    "src": "827:4:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -569,12 +569,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1902,
+                  "id": 1935,
                   "mutability": "mutable",
                   "name": "val",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1920,
-                  "src": "839:8:8",
+                  "scope": 1953,
+                  "src": "839:8:9",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -582,10 +582,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1901,
+                    "id": 1934,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "839:4:8",
+                    "src": "839:4:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -594,20 +594,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "826:22:8"
+              "src": "826:22:9"
             },
             "returnParameters": {
-              "id": 1906,
+              "id": 1939,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1905,
+                  "id": 1938,
                   "mutability": "mutable",
                   "name": "returnVal",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1920,
-                  "src": "867:14:8",
+                  "scope": 1953,
+                  "src": "867:14:9",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -615,10 +615,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1904,
+                    "id": 1937,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "867:4:8",
+                    "src": "867:4:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -627,19 +627,19 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "866:16:8"
+              "src": "866:16:9"
             },
-            "scope": 1941,
-            "src": "810:141:8",
+            "scope": 1974,
+            "src": "810:141:9",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "internal"
           },
           {
             "body": {
-              "id": 1939,
+              "id": 1972,
               "nodeType": "Block",
-              "src": "1071:58:8",
+              "src": "1071:58:9",
               "statements": [
                 {
                   "condition": {
@@ -647,18 +647,18 @@
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
-                    "id": 1930,
+                    "id": 1963,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftExpression": {
-                      "id": 1928,
+                      "id": 1961,
                       "name": "setId",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1923,
-                      "src": "1081:5:8",
+                      "referencedDeclaration": 1956,
+                      "src": "1081:5:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -668,51 +668,51 @@
                     "operator": "!=",
                     "rightExpression": {
                       "hexValue": "30",
-                      "id": 1929,
+                      "id": 1962,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
                       "kind": "number",
                       "lValueRequested": false,
                       "nodeType": "Literal",
-                      "src": "1090:1:8",
+                      "src": "1090:1:9",
                       "typeDescriptions": {
                         "typeIdentifier": "t_rational_0_by_1",
                         "typeString": "int_const 0"
                       },
                       "value": "0"
                     },
-                    "src": "1081:10:8",
+                    "src": "1081:10:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
-                  "id": 1938,
+                  "id": 1971,
                   "nodeType": "IfStatement",
-                  "src": "1077:47:8",
+                  "src": "1077:47:9",
                   "trueBody": {
                     "expression": {
                       "arguments": [
                         {
-                          "id": 1934,
+                          "id": 1967,
                           "name": "setId",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1923,
-                          "src": "1113:5:8",
+                          "referencedDeclaration": 1956,
+                          "src": "1113:5:9",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
                           }
                         },
                         {
-                          "id": 1935,
+                          "id": 1968,
                           "name": "val",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1925,
-                          "src": "1120:3:8",
+                          "referencedDeclaration": 1958,
+                          "src": "1120:3:9",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -731,32 +731,32 @@
                           }
                         ],
                         "expression": {
-                          "id": 1931,
+                          "id": 1964,
                           "name": "instaMemory",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 1891,
-                          "src": "1093:11:8",
+                          "referencedDeclaration": 1924,
+                          "src": "1093:11:9",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_contract$_MemoryInterface_$1609",
+                            "typeIdentifier": "t_contract$_MemoryInterface_$1642",
                             "typeString": "contract MemoryInterface"
                           }
                         },
-                        "id": 1933,
+                        "id": 1966,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "setUint",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 1608,
-                        "src": "1093:19:8",
+                        "referencedDeclaration": 1641,
+                        "src": "1093:19:9",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_external_nonpayable$_t_uint256_$_t_uint256_$returns$__$",
                           "typeString": "function (uint256,uint256) external"
                         }
                       },
-                      "id": 1936,
+                      "id": 1969,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -764,44 +764,44 @@
                       "lValueRequested": false,
                       "names": [],
                       "nodeType": "FunctionCall",
-                      "src": "1093:31:8",
+                      "src": "1093:31:9",
                       "tryCall": false,
                       "typeDescriptions": {
                         "typeIdentifier": "t_tuple$__$",
                         "typeString": "tuple()"
                       }
                     },
-                    "id": 1937,
+                    "id": 1970,
                     "nodeType": "ExpressionStatement",
-                    "src": "1093:31:8"
+                    "src": "1093:31:9"
                   }
                 }
               ]
             },
             "documentation": {
-              "id": 1921,
+              "id": 1954,
               "nodeType": "StructuredDocumentation",
-              "src": "955:57:8",
+              "src": "955:57:9",
               "text": " @dev Set Uint value in InstaMemory Contract."
             },
-            "id": 1940,
+            "id": 1973,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "setUint",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1926,
+              "id": 1959,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1923,
+                  "id": 1956,
                   "mutability": "mutable",
                   "name": "setId",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1940,
-                  "src": "1032:10:8",
+                  "scope": 1973,
+                  "src": "1032:10:9",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -809,10 +809,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1922,
+                    "id": 1955,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1032:4:8",
+                    "src": "1032:4:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -822,12 +822,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 1925,
+                  "id": 1958,
                   "mutability": "mutable",
                   "name": "val",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1940,
-                  "src": "1044:8:8",
+                  "scope": 1973,
+                  "src": "1044:8:9",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -835,10 +835,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 1924,
+                    "id": 1957,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1044:4:8",
+                    "src": "1044:4:9",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -847,39 +847,39 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1031:22:8"
+              "src": "1031:22:9"
             },
             "returnParameters": {
-              "id": 1927,
+              "id": 1960,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1071:0:8"
+              "src": "1071:0:9"
             },
-            "scope": 1941,
-            "src": "1015:114:8",
+            "scope": 1974,
+            "src": "1015:114:9",
             "stateMutability": "nonpayable",
             "virtual": true,
             "visibility": "internal"
           }
         ],
-        "scope": 1942,
-        "src": "125:1007:8"
+        "scope": 1975,
+        "src": "125:1007:9"
       }
     ],
-    "src": "32:1101:8"
+    "src": "32:1101:9"
   },
   "legacyAST": {
     "attributes": {
       "absolutePath": "project:/contracts/common/stores.sol",
       "exportedSymbols": {
         "InstaMapping": [
-          1624
+          1657
         ],
         "MemoryInterface": [
-          1609
+          1642
         ],
         "Stores": [
-          1941
+          1974
         ]
       },
       "license": "MIT"
@@ -894,16 +894,16 @@
             ".0"
           ]
         },
-        "id": 1874,
+        "id": 1907,
         "name": "PragmaDirective",
-        "src": "32:23:8"
+        "src": "32:23:9"
       },
       {
         "attributes": {
-          "SourceUnit": 1643,
+          "SourceUnit": 1676,
           "absolutePath": "project:/contracts/common/interfaces.sol",
           "file": "./interfaces.sol",
-          "scope": 1942,
+          "scope": 1975,
           "symbolAliases": [
             {
               "foreign": {
@@ -913,9 +913,9 @@
                   ],
                   "value": "MemoryInterface"
                 },
-                "id": 1875,
+                "id": 1908,
                 "name": "Identifier",
-                "src": "66:15:8"
+                "src": "66:15:9"
               }
             },
             {
@@ -926,17 +926,17 @@
                   ],
                   "value": "InstaMapping"
                 },
-                "id": 1876,
+                "id": 1909,
                 "name": "Identifier",
-                "src": "83:12:8"
+                "src": "83:12:9"
               }
             }
           ],
           "unitAlias": ""
         },
-        "id": 1877,
+        "id": 1910,
         "name": "ImportDirective",
-        "src": "57:65:8"
+        "src": "57:65:9"
       },
       {
         "attributes": {
@@ -950,10 +950,10 @@
           "contractKind": "contract",
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            1941
+            1974
           ],
           "name": "Stores",
-          "scope": 1942
+          "scope": 1975
         },
         "children": [
           {
@@ -961,7 +961,7 @@
               "constant": true,
               "mutability": "constant",
               "name": "ethAddr",
-              "scope": 1941,
+              "scope": 1974,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "address",
@@ -974,9 +974,9 @@
                   "stateMutability": "nonpayable",
                   "type": "address"
                 },
-                "id": 1879,
+                "id": 1912,
                 "name": "ElementaryTypeName",
-                "src": "201:7:8"
+                "src": "201:7:9"
               },
               {
                 "attributes": {
@@ -989,29 +989,29 @@
                   "type": "address payable",
                   "value": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
                 },
-                "id": 1880,
+                "id": 1913,
                 "name": "Literal",
-                "src": "237:42:8"
+                "src": "237:42:9"
               },
               {
                 "attributes": {
                   "text": " @dev Return ethereum address"
                 },
-                "id": 1878,
+                "id": 1911,
                 "name": "StructuredDocumentation",
-                "src": "155:43:8"
+                "src": "155:43:9"
               }
             ],
-            "id": 1881,
+            "id": 1914,
             "name": "VariableDeclaration",
-            "src": "201:78:8"
+            "src": "201:78:9"
           },
           {
             "attributes": {
               "constant": true,
               "mutability": "constant",
               "name": "wethAddr",
-              "scope": 1941,
+              "scope": 1974,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "address",
@@ -1024,9 +1024,9 @@
                   "stateMutability": "nonpayable",
                   "type": "address"
                 },
-                "id": 1883,
+                "id": 1916,
                 "name": "ElementaryTypeName",
-                "src": "333:7:8"
+                "src": "333:7:9"
               },
               {
                 "attributes": {
@@ -1039,29 +1039,29 @@
                   "type": "address payable",
                   "value": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
                 },
-                "id": 1884,
+                "id": 1917,
                 "name": "Literal",
-                "src": "370:42:8"
+                "src": "370:42:9"
               },
               {
                 "attributes": {
                   "text": " @dev Return Wrapped ETH address"
                 },
-                "id": 1882,
+                "id": 1915,
                 "name": "StructuredDocumentation",
-                "src": "284:46:8"
+                "src": "284:46:9"
               }
             ],
-            "id": 1885,
+            "id": 1918,
             "name": "VariableDeclaration",
-            "src": "333:79:8"
+            "src": "333:79:9"
           },
           {
             "attributes": {
               "constant": true,
               "mutability": "constant",
               "name": "instaMemory",
-              "scope": 1941,
+              "scope": 1974,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "contract MemoryInterface",
@@ -1071,12 +1071,12 @@
               {
                 "attributes": {
                   "name": "MemoryInterface",
-                  "referencedDeclaration": 1609,
+                  "referencedDeclaration": 1642,
                   "type": "contract MemoryInterface"
                 },
-                "id": 1887,
+                "id": 1920,
                 "name": "UserDefinedTypeName",
-                "src": "470:15:8"
+                "src": "470:15:9"
               },
               {
                 "attributes": {
@@ -1104,13 +1104,13 @@
                       "overloadedDeclarations": [
                         null
                       ],
-                      "referencedDeclaration": 1609,
+                      "referencedDeclaration": 1642,
                       "type": "type(contract MemoryInterface)",
                       "value": "MemoryInterface"
                     },
-                    "id": 1888,
+                    "id": 1921,
                     "name": "Identifier",
-                    "src": "518:15:8"
+                    "src": "518:15:9"
                   },
                   {
                     "attributes": {
@@ -1123,34 +1123,34 @@
                       "type": "address payable",
                       "value": "0x8a5419CfC711B2343c17a6ABf4B2bAFaBb06957F"
                     },
-                    "id": 1889,
+                    "id": 1922,
                     "name": "Literal",
-                    "src": "534:42:8"
+                    "src": "534:42:9"
                   }
                 ],
-                "id": 1890,
+                "id": 1923,
                 "name": "FunctionCall",
-                "src": "518:59:8"
+                "src": "518:59:9"
               },
               {
                 "attributes": {
                   "text": " @dev Return memory variable address"
                 },
-                "id": 1886,
+                "id": 1919,
                 "name": "StructuredDocumentation",
-                "src": "417:50:8"
+                "src": "417:50:9"
               }
             ],
-            "id": 1891,
+            "id": 1924,
             "name": "VariableDeclaration",
-            "src": "470:107:8"
+            "src": "470:107:9"
           },
           {
             "attributes": {
               "constant": true,
               "mutability": "constant",
               "name": "instaMapping",
-              "scope": 1941,
+              "scope": 1974,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "contract InstaMapping",
@@ -1160,12 +1160,12 @@
               {
                 "attributes": {
                   "name": "InstaMapping",
-                  "referencedDeclaration": 1624,
+                  "referencedDeclaration": 1657,
                   "type": "contract InstaMapping"
                 },
-                "id": 1893,
+                "id": 1926,
                 "name": "UserDefinedTypeName",
-                "src": "639:12:8"
+                "src": "639:12:9"
               },
               {
                 "attributes": {
@@ -1193,13 +1193,13 @@
                       "overloadedDeclarations": [
                         null
                       ],
-                      "referencedDeclaration": 1624,
+                      "referencedDeclaration": 1657,
                       "type": "type(contract InstaMapping)",
                       "value": "InstaMapping"
                     },
-                    "id": 1894,
+                    "id": 1927,
                     "name": "Identifier",
-                    "src": "685:12:8"
+                    "src": "685:12:9"
                   },
                   {
                     "attributes": {
@@ -1212,27 +1212,27 @@
                       "type": "address payable",
                       "value": "0xe81F70Cc7C0D46e12d70efc60607F16bbD617E88"
                     },
-                    "id": 1895,
+                    "id": 1928,
                     "name": "Literal",
-                    "src": "698:42:8"
+                    "src": "698:42:9"
                   }
                 ],
-                "id": 1896,
+                "id": 1929,
                 "name": "FunctionCall",
-                "src": "685:56:8"
+                "src": "685:56:9"
               },
               {
                 "attributes": {
                   "text": " @dev Return InstaDApp Mapping Addresses"
                 },
-                "id": 1892,
+                "id": 1925,
                 "name": "StructuredDocumentation",
-                "src": "582:54:8"
+                "src": "582:54:9"
               }
             ],
-            "id": 1897,
+            "id": 1930,
             "name": "VariableDeclaration",
-            "src": "639:102:8"
+            "src": "639:102:9"
           },
           {
             "attributes": {
@@ -1243,7 +1243,7 @@
                 null
               ],
               "name": "getUint",
-              "scope": 1941,
+              "scope": 1974,
               "stateMutability": "nonpayable",
               "virtual": false,
               "visibility": "internal"
@@ -1253,9 +1253,9 @@
                 "attributes": {
                   "text": " @dev Get Uint value from InstaMemory Contract."
                 },
-                "id": 1898,
+                "id": 1931,
                 "name": "StructuredDocumentation",
-                "src": "746:61:8"
+                "src": "746:61:9"
               },
               {
                 "children": [
@@ -1264,7 +1264,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "getId",
-                      "scope": 1920,
+                      "scope": 1953,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -1276,21 +1276,21 @@
                           "name": "uint",
                           "type": "uint256"
                         },
-                        "id": 1899,
+                        "id": 1932,
                         "name": "ElementaryTypeName",
-                        "src": "827:4:8"
+                        "src": "827:4:9"
                       }
                     ],
-                    "id": 1900,
+                    "id": 1933,
                     "name": "VariableDeclaration",
-                    "src": "827:10:8"
+                    "src": "827:10:9"
                   },
                   {
                     "attributes": {
                       "constant": false,
                       "mutability": "mutable",
                       "name": "val",
-                      "scope": 1920,
+                      "scope": 1953,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -1302,19 +1302,19 @@
                           "name": "uint",
                           "type": "uint256"
                         },
-                        "id": 1901,
+                        "id": 1934,
                         "name": "ElementaryTypeName",
-                        "src": "839:4:8"
+                        "src": "839:4:9"
                       }
                     ],
-                    "id": 1902,
+                    "id": 1935,
                     "name": "VariableDeclaration",
-                    "src": "839:8:8"
+                    "src": "839:8:9"
                   }
                 ],
-                "id": 1903,
+                "id": 1936,
                 "name": "ParameterList",
-                "src": "826:22:8"
+                "src": "826:22:9"
               },
               {
                 "children": [
@@ -1323,7 +1323,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "returnVal",
-                      "scope": 1920,
+                      "scope": 1953,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -1335,19 +1335,19 @@
                           "name": "uint",
                           "type": "uint256"
                         },
-                        "id": 1904,
+                        "id": 1937,
                         "name": "ElementaryTypeName",
-                        "src": "867:4:8"
+                        "src": "867:4:9"
                       }
                     ],
-                    "id": 1905,
+                    "id": 1938,
                     "name": "VariableDeclaration",
-                    "src": "867:14:8"
+                    "src": "867:14:9"
                   }
                 ],
-                "id": 1906,
+                "id": 1939,
                 "name": "ParameterList",
-                "src": "866:16:8"
+                "src": "866:16:9"
               },
               {
                 "children": [
@@ -1368,13 +1368,13 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1905,
+                              "referencedDeclaration": 1938,
                               "type": "uint256",
                               "value": "returnVal"
                             },
-                            "id": 1907,
+                            "id": 1940,
                             "name": "Identifier",
-                            "src": "889:9:8"
+                            "src": "889:9:9"
                           },
                           {
                             "attributes": {
@@ -1404,13 +1404,13 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 1900,
+                                      "referencedDeclaration": 1933,
                                       "type": "uint256",
                                       "value": "getId"
                                     },
-                                    "id": 1908,
+                                    "id": 1941,
                                     "name": "Identifier",
-                                    "src": "901:5:8"
+                                    "src": "901:5:9"
                                   },
                                   {
                                     "attributes": {
@@ -1423,27 +1423,27 @@
                                       "type": "int_const 0",
                                       "value": "0"
                                     },
-                                    "id": 1909,
+                                    "id": 1942,
                                     "name": "Literal",
-                                    "src": "910:1:8"
+                                    "src": "910:1:9"
                                   }
                                 ],
-                                "id": 1910,
+                                "id": 1943,
                                 "name": "BinaryOperation",
-                                "src": "901:10:8"
+                                "src": "901:10:9"
                               },
                               {
                                 "attributes": {
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1902,
+                                  "referencedDeclaration": 1935,
                                   "type": "uint256",
                                   "value": "val"
                                 },
-                                "id": 1911,
+                                "id": 1944,
                                 "name": "Identifier",
-                                "src": "914:3:8"
+                                "src": "914:3:9"
                               },
                               {
                                 "attributes": {
@@ -1473,7 +1473,7 @@
                                       "isPure": false,
                                       "lValueRequested": false,
                                       "member_name": "getUint",
-                                      "referencedDeclaration": 1601,
+                                      "referencedDeclaration": 1634,
                                       "type": "function (uint256) external returns (uint256)"
                                     },
                                     "children": [
@@ -1482,61 +1482,61 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 1891,
+                                          "referencedDeclaration": 1924,
                                           "type": "contract MemoryInterface",
                                           "value": "instaMemory"
                                         },
-                                        "id": 1912,
+                                        "id": 1945,
                                         "name": "Identifier",
-                                        "src": "920:11:8"
+                                        "src": "920:11:9"
                                       }
                                     ],
-                                    "id": 1913,
+                                    "id": 1946,
                                     "name": "MemberAccess",
-                                    "src": "920:19:8"
+                                    "src": "920:19:9"
                                   },
                                   {
                                     "attributes": {
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 1900,
+                                      "referencedDeclaration": 1933,
                                       "type": "uint256",
                                       "value": "getId"
                                     },
-                                    "id": 1914,
+                                    "id": 1947,
                                     "name": "Identifier",
-                                    "src": "940:5:8"
+                                    "src": "940:5:9"
                                   }
                                 ],
-                                "id": 1915,
+                                "id": 1948,
                                 "name": "FunctionCall",
-                                "src": "920:26:8"
+                                "src": "920:26:9"
                               }
                             ],
-                            "id": 1916,
+                            "id": 1949,
                             "name": "Conditional",
-                            "src": "901:45:8"
+                            "src": "901:45:9"
                           }
                         ],
-                        "id": 1917,
+                        "id": 1950,
                         "name": "Assignment",
-                        "src": "889:57:8"
+                        "src": "889:57:9"
                       }
                     ],
-                    "id": 1918,
+                    "id": 1951,
                     "name": "ExpressionStatement",
-                    "src": "889:57:8"
+                    "src": "889:57:9"
                   }
                 ],
-                "id": 1919,
+                "id": 1952,
                 "name": "Block",
-                "src": "883:68:8"
+                "src": "883:68:9"
               }
             ],
-            "id": 1920,
+            "id": 1953,
             "name": "FunctionDefinition",
-            "src": "810:141:8"
+            "src": "810:141:9"
           },
           {
             "attributes": {
@@ -1547,7 +1547,7 @@
                 null
               ],
               "name": "setUint",
-              "scope": 1941,
+              "scope": 1974,
               "stateMutability": "nonpayable",
               "virtual": true,
               "visibility": "internal"
@@ -1557,9 +1557,9 @@
                 "attributes": {
                   "text": " @dev Set Uint value in InstaMemory Contract."
                 },
-                "id": 1921,
+                "id": 1954,
                 "name": "StructuredDocumentation",
-                "src": "955:57:8"
+                "src": "955:57:9"
               },
               {
                 "children": [
@@ -1568,7 +1568,7 @@
                       "constant": false,
                       "mutability": "mutable",
                       "name": "setId",
-                      "scope": 1940,
+                      "scope": 1973,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -1580,21 +1580,21 @@
                           "name": "uint",
                           "type": "uint256"
                         },
-                        "id": 1922,
+                        "id": 1955,
                         "name": "ElementaryTypeName",
-                        "src": "1032:4:8"
+                        "src": "1032:4:9"
                       }
                     ],
-                    "id": 1923,
+                    "id": 1956,
                     "name": "VariableDeclaration",
-                    "src": "1032:10:8"
+                    "src": "1032:10:9"
                   },
                   {
                     "attributes": {
                       "constant": false,
                       "mutability": "mutable",
                       "name": "val",
-                      "scope": 1940,
+                      "scope": 1973,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -1606,19 +1606,19 @@
                           "name": "uint",
                           "type": "uint256"
                         },
-                        "id": 1924,
+                        "id": 1957,
                         "name": "ElementaryTypeName",
-                        "src": "1044:4:8"
+                        "src": "1044:4:9"
                       }
                     ],
-                    "id": 1925,
+                    "id": 1958,
                     "name": "VariableDeclaration",
-                    "src": "1044:8:8"
+                    "src": "1044:8:9"
                   }
                 ],
-                "id": 1926,
+                "id": 1959,
                 "name": "ParameterList",
-                "src": "1031:22:8"
+                "src": "1031:22:9"
               },
               {
                 "attributes": {
@@ -1627,9 +1627,9 @@
                   ]
                 },
                 "children": [],
-                "id": 1927,
+                "id": 1960,
                 "name": "ParameterList",
-                "src": "1071:0:8"
+                "src": "1071:0:9"
               },
               {
                 "children": [
@@ -1655,13 +1655,13 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1923,
+                              "referencedDeclaration": 1956,
                               "type": "uint256",
                               "value": "setId"
                             },
-                            "id": 1928,
+                            "id": 1961,
                             "name": "Identifier",
-                            "src": "1081:5:8"
+                            "src": "1081:5:9"
                           },
                           {
                             "attributes": {
@@ -1674,14 +1674,14 @@
                               "type": "int_const 0",
                               "value": "0"
                             },
-                            "id": 1929,
+                            "id": 1962,
                             "name": "Literal",
-                            "src": "1090:1:8"
+                            "src": "1090:1:9"
                           }
                         ],
-                        "id": 1930,
+                        "id": 1963,
                         "name": "BinaryOperation",
-                        "src": "1081:10:8"
+                        "src": "1081:10:9"
                       },
                       {
                         "children": [
@@ -1717,7 +1717,7 @@
                                   "isPure": false,
                                   "lValueRequested": false,
                                   "member_name": "setUint",
-                                  "referencedDeclaration": 1608,
+                                  "referencedDeclaration": 1641,
                                   "type": "function (uint256,uint256) external"
                                 },
                                 "children": [
@@ -1726,79 +1726,79 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 1891,
+                                      "referencedDeclaration": 1924,
                                       "type": "contract MemoryInterface",
                                       "value": "instaMemory"
                                     },
-                                    "id": 1931,
+                                    "id": 1964,
                                     "name": "Identifier",
-                                    "src": "1093:11:8"
+                                    "src": "1093:11:9"
                                   }
                                 ],
-                                "id": 1933,
+                                "id": 1966,
                                 "name": "MemberAccess",
-                                "src": "1093:19:8"
+                                "src": "1093:19:9"
                               },
                               {
                                 "attributes": {
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1923,
+                                  "referencedDeclaration": 1956,
                                   "type": "uint256",
                                   "value": "setId"
                                 },
-                                "id": 1934,
+                                "id": 1967,
                                 "name": "Identifier",
-                                "src": "1113:5:8"
+                                "src": "1113:5:9"
                               },
                               {
                                 "attributes": {
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1925,
+                                  "referencedDeclaration": 1958,
                                   "type": "uint256",
                                   "value": "val"
                                 },
-                                "id": 1935,
+                                "id": 1968,
                                 "name": "Identifier",
-                                "src": "1120:3:8"
+                                "src": "1120:3:9"
                               }
                             ],
-                            "id": 1936,
+                            "id": 1969,
                             "name": "FunctionCall",
-                            "src": "1093:31:8"
+                            "src": "1093:31:9"
                           }
                         ],
-                        "id": 1937,
+                        "id": 1970,
                         "name": "ExpressionStatement",
-                        "src": "1093:31:8"
+                        "src": "1093:31:9"
                       }
                     ],
-                    "id": 1938,
+                    "id": 1971,
                     "name": "IfStatement",
-                    "src": "1077:47:8"
+                    "src": "1077:47:9"
                   }
                 ],
-                "id": 1939,
+                "id": 1972,
                 "name": "Block",
-                "src": "1071:58:8"
+                "src": "1071:58:9"
               }
             ],
-            "id": 1940,
+            "id": 1973,
             "name": "FunctionDefinition",
-            "src": "1015:114:8"
+            "src": "1015:114:9"
           }
         ],
-        "id": 1941,
+        "id": 1974,
         "name": "ContractDefinition",
-        "src": "125:1007:8"
+        "src": "125:1007:9"
       }
     ],
-    "id": 1942,
+    "id": 1975,
     "name": "SourceUnit",
-    "src": "32:1101:8"
+    "src": "32:1101:9"
   },
   "compiler": {
     "name": "solc",
@@ -1806,7 +1806,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.4",
-  "updatedAt": "2022-01-30T07:09:52.456Z",
+  "updatedAt": "2022-01-30T17:29:03.345Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},
