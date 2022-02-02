@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import getWeb3 from "./getWeb3";
-import Date from "./contracts/Date.json"
+// import Date from "./contracts/Date.json"
+import AaveResolver from "./contracts/AaveResolver.json"
 import "./App.css";
 
 class App extends Component {
@@ -17,10 +18,12 @@ class App extends Component {
         // Get the contract instance.
         //this.networkId = await this.web3.eth.net.getId(); <<- this doesn't work with MetaMask anymore
         this.networkId = await this.web3.eth.net.getId();
-
+        console.log(this.networkId);
+        // this.networkId = await this.web3.eth.net.getChainId();
+        // console.log(this.networkId);
         this.myToken = new this.web3.eth.Contract(
-          Date.abi,
-          Date.networks[this.networkId] && Date.networks[this.networkId].address,
+          AaveResolver.abi,
+          AaveResolver.networks[this.networkId] && AaveResolver.networks[this.networkId].address,
         );
 
         // Set web3, accounts, and contract to the state, and then proceed with an
@@ -37,8 +40,9 @@ class App extends Component {
 
 
   callContract = async()=>{
-    console.log(this.accounts);
-    let temp = await this.myToken.methods.getNumber().send({from: this.accounts[0], value: 0});
+    console.log(this.web3);
+    let temp = await this.myToken.methods.deposit("0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",1,0,0)
+          .send({from: this.accounts[0],value: this.web3.eth.toWei(0.05, "ether")});
 
     console.log(temp);
   }
