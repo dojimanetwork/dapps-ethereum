@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import getWeb3 from "./getWeb3";
-// import Date from "./contracts/Date.json"
 import Compound from "./pubicContracts/Compound_abi.json";
 import "./App.css";
 import Web3 from "web3";
+import MyContract from "./contracts/MyContract.json";
 
 class App extends Component {
   state = { loaded: false };
@@ -17,20 +17,19 @@ class App extends Component {
         this.accounts = await this.web3.eth.getAccounts();
 
         // Get the contract instance.
-        //this.networkId = await this.web3.eth.net.getId(); <<- this doesn't work with MetaMask anymore
         this.networkId = await this.web3.eth.net.getId();
         console.log(this.networkId);
         // this.networkId = await this.web3.eth.net.getChainId();
         // console.log(this.networkId);
 
-
-        // this.myToken = new this.web3.eth.Contract(
-        //   DepositTest.abi,
-        //   DepositTest.networks[this.networkId] && DepositTest.networks[this.networkId].address,
-        // );
-
+    
+        this.contractAddress = "0x20572e4c090f15667cf7378e16fad2ea0e2f3eff";
         this.compoundContract = new this.web3.eth.Contract(
-          Compound.abi,"0x20572e4c090f15667cf7378e16fad2ea0e2f3eff"
+          Compound.abi,this.contractAddress
+        )
+
+        this.myContract = new this.web3.eth.Contract(
+          MyContract.abi,MyContract.networks[this.networkId] && MyContract.networks[this.networkId].address,
         )
 
         // Set web3, accounts, and contract to the state, and then proceed with an
@@ -48,16 +47,14 @@ class App extends Component {
 
   deposit = async()=>{
     console.log(this.web3);
-    // await this.myToken.methods.deposit()
-    //       .send({from: this.accounts[0],value: Web3.utils.toWei('1','ether')});
 
-    await this.compoundContract.methods.mint().send({
-      from: this.accounts[0],
-      gasLimit: Web3.utils.toHex(250000),
-      gasPrice: Web3.utils.toHex(20000000000), // use ethgasstation.info (mainnet only)
-      value: Web3.utils.toHex(Web3.utils.toWei('0.1', 'ether'))
+    await this.myContract.methods.supplyEthToCompound(this.contractAddress).send({
+      from: this.accounts[0], // Some Ganache wallet address
+      gasLimit: Web3.utils.toHex(750000),        // posted at compound.finance/developers#gas-costs
+      gasPrice: Web3.utils.toHex(20000000000),   // use ethgasstation.info (mainnet only)
+      value: Web3.utils.toHex(Web3.utils.toWei('0.01', 'ether'))
     });
-
+    
   }
 
   checkBalance = async()=>{
@@ -76,11 +73,21 @@ class App extends Component {
   withdraw = async()=>{
     let cTokenBalance = await this.compoundContract.methods.balanceOf(this.accounts[0]).call();
 
-    await this.compoundContract.methods.redeem(cTokenBalance).send({
+    let redeemResult = await this.myContract.methods.redeemCEth(
+      cTokenBalance,
+      true,
+      this.contractAddress
+    ).send({
       from: this.accounts[0],
-      gasLimit: Web3.utils.toHex(500000),
+      gasLimit: Web3.utils.toHex(750000),      // posted at compound.finance/developers#gas-costs
       gasPrice: Web3.utils.toHex(20000000000), // use ethgasstation.info (mainnet only)
     });
+  
+    if (redeemResult.events.MyLog.returnValues[1] !== 0) {
+      throw Error('Redeem Error Code: '+redeemResult.events.MyLog.returnValues[1]);
+    }
+
+
   }
 
   render() {
@@ -93,9 +100,7 @@ class App extends Component {
         <button type="button" onClick={this.deposit}>Deposit</button>
         <button type="button" onClick={this.checkBalance}>Check Balance</button>
         <button type="button" onClick={this.withdraw}>Withdraw</button>
-
       </div>
-
     );
   }
 }

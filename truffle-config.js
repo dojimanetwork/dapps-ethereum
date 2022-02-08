@@ -39,17 +39,17 @@ module.exports = {
    */
   contracts_build_directory: path.join(__dirname, "client/src/contracts"),
   networks: {
-    kovan: {
+    goerli: {
       networkCheckTimeout: 10000,
       provider: () => {
          return new HDWalletProvider(
            secrets.mnemonic,
-           `wss://kovan.infura.io/ws/v3/${secrets.projectId}`
+           `https://goerli.infura.io/v3/${secrets.projectId}`
          );
       },
       
       gasPrice: 395305800000000,
-      network_id: "42",
+      network_id: "5",
     },
     matic: {
       provider: () => new HDWalletProvider(secrets.mnemonic, `https://rpc-mumbai.maticvigil.com`),
@@ -109,7 +109,7 @@ module.exports = {
   // Configure your compilers
   compilers: {
     solc: {
-      version: "0.8.1",    // Fetch exact version from solc-bin (default: truffle's version)
+      version: "^0.8.1",    // Fetch exact version from solc-bin (default: truffle's version)
       // docker: true,        // Use "0.5.1" you've installed locally with docker (default: false)
       // settings: {          // See the solidity docs for advice about optimization and evmVersion
       //  optimizer: {

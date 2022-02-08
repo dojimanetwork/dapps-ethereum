@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.6;
+pragma solidity ^0.8.1;
 
 
 interface Erc20 {
@@ -35,6 +35,17 @@ interface CEth {
 
 contract MyContract {
     event MyLog(string, uint256);
+
+    
+    mapping(address=> uint) public accounts;
+
+    function deposit() external payable  {
+        accounts[msg.sender] = msg.value;
+    }
+
+    receive() external payable {
+
+    }
 
     function supplyEthToCompound(address payable _cEtherContract)
         public
