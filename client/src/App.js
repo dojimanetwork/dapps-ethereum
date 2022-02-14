@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import getWeb3 from "./getWeb3";
 // import Date from "./contracts/Date.json"
-import Compound from "./pubicContracts/Compound_abi.json";
+import Compound from "./contracts/UniswapLiquidity.json";
 import "./App.css";
-import Web3 from "web3";
+//import Web3 from "web3";
 
 class App extends Component {
   state = { loaded: false };
@@ -28,9 +28,10 @@ class App extends Component {
         //   DepositTest.abi,
         //   DepositTest.networks[this.networkId] && DepositTest.networks[this.networkId].address,
         // );
+        
 
         this.compoundContract = new this.web3.eth.Contract(
-          Compound.abi,"0x20572e4c090f15667cf7378e16fad2ea0e2f3eff"
+          Compound.abi,'0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D'
         )
 
         // Set web3, accounts, and contract to the state, and then proceed with an
@@ -51,16 +52,20 @@ class App extends Component {
     // await this.myToken.methods.deposit()
     //       .send({from: this.accounts[0],value: Web3.utils.toWei('1','ether')});
 
-    await this.compoundContract.methods.mint().send({
-      from: this.accounts[0],
-      gasLimit: Web3.utils.toHex(250000),
-      gasPrice: Web3.utils.toHex(20000000000), // use ethgasstation.info (mainnet only)
-      value: Web3.utils.toHex(Web3.utils.toWei('0.1', 'ether'))
+    await this.compoundContract.methods.deposit( '0x6b175474e89094c44da98b954eedeac495271d0f',
+    '0x7d1afa7b718fb893db30a3abc0cfc608aacfebb0',
+       '1',
+      '1',
+      '1',
+      '0' ).send({
+      from: this.accounts[0]
+    
     });
+
 
   }
 
-  checkBalance = async()=>{
+ /* checkBalance = async()=>{
 
     let cTokenBalance = await this.compoundContract.methods.balanceOf(this.accounts[0]).call()/ 1e8;
 
@@ -71,15 +76,19 @@ class App extends Component {
     
   
     console.log("ETH supplied to the Compound Protocol:", balanceOfUnderlying, '\n');
-  }
+  }*/
 
   withdraw = async()=>{
-    let cTokenBalance = await this.compoundContract.methods.balanceOf(this.accounts[0]).call();
+   // let cTokenBalance = await this.compoundContract.methods.balanceOf(this.accounts[0]).call();
 
-    await this.compoundContract.methods.redeem(cTokenBalance).send({
-      from: this.accounts[0],
-      gasLimit: Web3.utils.toHex(500000),
-      gasPrice: Web3.utils.toHex(20000000000), // use ethgasstation.info (mainnet only)
+    await this.compoundContract.methods.withdraw( '0x6b175474e89094c44da98b954eedeac495271d0f',
+    '0x7d1afa7b718fb893db30a3abc0cfc608aacfebb0',
+        '1',
+        '1',
+        '1',
+        '0').send({
+      from: this.accounts[0]
+   
     });
   }
 
@@ -91,7 +100,7 @@ class App extends Component {
     return (
       <div>
         <button type="button" onClick={this.deposit}>Deposit</button>
-        <button type="button" onClick={this.checkBalance}>Check Balance</button>
+      
         <button type="button" onClick={this.withdraw}>Withdraw</button>
 
       </div>

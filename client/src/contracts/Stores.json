@@ -1,0 +1,1781 @@
+{
+  "contractName": "Stores",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"stateVariables\":{\"ethAddr\":{\"details\":\"Return ethereum address\"},\"instaMapping\":{\"details\":\"Return InstaDApp Mapping Addresses\"},\"instaMemory\":{\"details\":\"Return memory variable address\"},\"wethAddr\":{\"details\":\"Return Wrapped ETH address\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/stores.sol\":\"Stores\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/interfaces.sol\":{\"keccak256\":\"0xb2e9a1e18b3d0a187bc34499dbc2e270d4bdb2feb7427d26b381faea52f59c99\",\"urls\":[\"bzz-raw://4fac84f20e45bf288bb231f3d194a7336606ebf926c8af3acdb672967a2855e1\",\"dweb:/ipfs/QmNZwvYcru4QRiZMJgLy1Rs2gzorF3xpBAHC8TqFiRF9rJ\"]},\"project:/contracts/stores.sol\":{\"keccak256\":\"0x802cd729224dc814a481599675bfeac40a34f0ccab4a24e6420ea7d52b1006aa\",\"urls\":[\"bzz-raw://a8dc1a2148b88f787d6f4d0de034d06c56d92aac477b67900968746f4a48e3dd\",\"dweb:/ipfs/QmVcMbDXyByYy8FKXRydtkaBmeyFgJqYjwepkTDgnXw4R9\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma solidity ^0.8.0;\r\n\r\nimport { MemoryInterface, InstaMapping } from \"./interfaces.sol\";\r\n\r\n\r\nabstract contract Stores {\r\n\r\n  /**\r\n   * @dev Return ethereum address\r\n   */\r\n  address constant internal ethAddr = 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE;\r\n\r\n  /**\r\n   * @dev Return Wrapped ETH address\r\n   */\r\n  address constant internal wethAddr = 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2;\r\n\r\n  /**\r\n   * @dev Return memory variable address\r\n   */\r\n  MemoryInterface constant internal instaMemory = MemoryInterface(0x8a5419CfC711B2343c17a6ABf4B2bAFaBb06957F);\r\n\r\n  /**\r\n   * @dev Return InstaDApp Mapping Addresses\r\n   */\r\n  InstaMapping constant internal instaMapping = InstaMapping(0xe81F70Cc7C0D46e12d70efc60607F16bbD617E88);\r\n\r\n  /**\r\n   * @dev Get Uint value from InstaMemory Contract.\r\n   */\r\n  function getUint(uint getId, uint val) internal returns (uint returnVal) {\r\n    returnVal = getId == 0 ? val : instaMemory.getUint(getId);\r\n  }\r\n\r\n  /**\r\n  * @dev Set Uint value in InstaMemory Contract.\r\n  */\r\n  function setUint(uint setId, uint val) virtual internal {\r\n    if (setId != 0) instaMemory.setUint(setId, val);\r\n  }\r\n\r\n}",
+  "sourcePath": "C:\\Users\\mared\\OneDrive\\Desktop\\dapps-ethereum\\contracts\\stores.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/stores.sol",
+    "exportedSymbols": {
+      "InstaMapping": [
+        392
+      ],
+      "MemoryInterface": [
+        377
+      ],
+      "Stores": [
+        1738
+      ]
+    },
+    "id": 1739,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1669,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:4"
+      },
+      {
+        "absolutePath": "project:/contracts/interfaces.sol",
+        "file": "./interfaces.sol",
+        "id": 1672,
+        "nodeType": "ImportDirective",
+        "scope": 1739,
+        "sourceUnit": 411,
+        "src": "27:65:4",
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 1670,
+              "name": "MemoryInterface",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "src": "36:15:4",
+              "typeDescriptions": {}
+            }
+          },
+          {
+            "foreign": {
+              "id": 1671,
+              "name": "InstaMapping",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "src": "53:12:4",
+              "typeDescriptions": {}
+            }
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "abstract": true,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 1738,
+        "linearizedBaseContracts": [
+          1738
+        ],
+        "name": "Stores",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": true,
+            "documentation": {
+              "id": 1673,
+              "nodeType": "StructuredDocumentation",
+              "src": "130:45:4",
+              "text": " @dev Return ethereum address"
+            },
+            "id": 1676,
+            "mutability": "constant",
+            "name": "ethAddr",
+            "nodeType": "VariableDeclaration",
+            "scope": 1738,
+            "src": "179:78:4",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 1674,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "179:7:4",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "value": {
+              "hexValue": "307845656565654565656545654565654565456545656545454565656565456565656565656545456545",
+              "id": 1675,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "215:42:4",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              },
+              "value": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": true,
+            "documentation": {
+              "id": 1677,
+              "nodeType": "StructuredDocumentation",
+              "src": "264:48:4",
+              "text": " @dev Return Wrapped ETH address"
+            },
+            "id": 1680,
+            "mutability": "constant",
+            "name": "wethAddr",
+            "nodeType": "VariableDeclaration",
+            "scope": 1738,
+            "src": "316:79:4",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 1678,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "316:7:4",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "value": {
+              "hexValue": "307843303261614133396232323346453844304130653543344632376541443930383343373536436332",
+              "id": 1679,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "353:42:4",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              },
+              "value": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": true,
+            "documentation": {
+              "id": 1681,
+              "nodeType": "StructuredDocumentation",
+              "src": "402:52:4",
+              "text": " @dev Return memory variable address"
+            },
+            "id": 1687,
+            "mutability": "constant",
+            "name": "instaMemory",
+            "nodeType": "VariableDeclaration",
+            "scope": 1738,
+            "src": "458:107:4",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_MemoryInterface_$377",
+              "typeString": "contract MemoryInterface"
+            },
+            "typeName": {
+              "id": 1683,
+              "nodeType": "UserDefinedTypeName",
+              "pathNode": {
+                "id": 1682,
+                "name": "MemoryInterface",
+                "nodeType": "IdentifierPath",
+                "referencedDeclaration": 377,
+                "src": "458:15:4"
+              },
+              "referencedDeclaration": 377,
+              "src": "458:15:4",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_MemoryInterface_$377",
+                "typeString": "contract MemoryInterface"
+              }
+            },
+            "value": {
+              "arguments": [
+                {
+                  "hexValue": "307838613534313943664337313142323334336331376136414266344232624146614262303639353746",
+                  "id": 1685,
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "kind": "number",
+                  "lValueRequested": false,
+                  "nodeType": "Literal",
+                  "src": "522:42:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "value": "0x8a5419CfC711B2343c17a6ABf4B2bAFaBb06957F"
+                }
+              ],
+              "expression": {
+                "argumentTypes": [
+                  {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                ],
+                "id": 1684,
+                "name": "MemoryInterface",
+                "nodeType": "Identifier",
+                "overloadedDeclarations": [],
+                "referencedDeclaration": 377,
+                "src": "506:15:4",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_type$_t_contract$_MemoryInterface_$377_$",
+                  "typeString": "type(contract MemoryInterface)"
+                }
+              },
+              "id": 1686,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "typeConversion",
+              "lValueRequested": false,
+              "names": [],
+              "nodeType": "FunctionCall",
+              "src": "506:59:4",
+              "tryCall": false,
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_MemoryInterface_$377",
+                "typeString": "contract MemoryInterface"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": true,
+            "documentation": {
+              "id": 1688,
+              "nodeType": "StructuredDocumentation",
+              "src": "572:56:4",
+              "text": " @dev Return InstaDApp Mapping Addresses"
+            },
+            "id": 1694,
+            "mutability": "constant",
+            "name": "instaMapping",
+            "nodeType": "VariableDeclaration",
+            "scope": 1738,
+            "src": "632:102:4",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_InstaMapping_$392",
+              "typeString": "contract InstaMapping"
+            },
+            "typeName": {
+              "id": 1690,
+              "nodeType": "UserDefinedTypeName",
+              "pathNode": {
+                "id": 1689,
+                "name": "InstaMapping",
+                "nodeType": "IdentifierPath",
+                "referencedDeclaration": 392,
+                "src": "632:12:4"
+              },
+              "referencedDeclaration": 392,
+              "src": "632:12:4",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_InstaMapping_$392",
+                "typeString": "contract InstaMapping"
+              }
+            },
+            "value": {
+              "arguments": [
+                {
+                  "hexValue": "307865383146373043633743304434366531326437306566633630363037463136626244363137453838",
+                  "id": 1692,
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "kind": "number",
+                  "lValueRequested": false,
+                  "nodeType": "Literal",
+                  "src": "691:42:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "value": "0xe81F70Cc7C0D46e12d70efc60607F16bbD617E88"
+                }
+              ],
+              "expression": {
+                "argumentTypes": [
+                  {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                ],
+                "id": 1691,
+                "name": "InstaMapping",
+                "nodeType": "Identifier",
+                "overloadedDeclarations": [],
+                "referencedDeclaration": 392,
+                "src": "678:12:4",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_type$_t_contract$_InstaMapping_$392_$",
+                  "typeString": "type(contract InstaMapping)"
+                }
+              },
+              "id": 1693,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "typeConversion",
+              "lValueRequested": false,
+              "names": [],
+              "nodeType": "FunctionCall",
+              "src": "678:56:4",
+              "tryCall": false,
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_InstaMapping_$392",
+                "typeString": "contract InstaMapping"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 1716,
+              "nodeType": "Block",
+              "src": "881:70:4",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 1714,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 1704,
+                      "name": "returnVal",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 1702,
+                      "src": "888:9:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "condition": {
+                        "commonType": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "id": 1707,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "id": 1705,
+                          "name": "getId",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 1697,
+                          "src": "900:5:4",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "hexValue": "30",
+                          "id": 1706,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "number",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "909:1:4",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_rational_0_by_1",
+                            "typeString": "int_const 0"
+                          },
+                          "value": "0"
+                        },
+                        "src": "900:10:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      "falseExpression": {
+                        "arguments": [
+                          {
+                            "id": 1711,
+                            "name": "getId",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 1697,
+                            "src": "939:5:4",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          ],
+                          "expression": {
+                            "id": 1709,
+                            "name": "instaMemory",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 1687,
+                            "src": "919:11:4",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_contract$_MemoryInterface_$377",
+                              "typeString": "contract MemoryInterface"
+                            }
+                          },
+                          "id": 1710,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "getUint",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 369,
+                          "src": "919:19:4",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_external_nonpayable$_t_uint256_$returns$_t_uint256_$",
+                            "typeString": "function (uint256) external returns (uint256)"
+                          }
+                        },
+                        "id": 1712,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "919:26:4",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "id": 1713,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "Conditional",
+                      "src": "900:45:4",
+                      "trueExpression": {
+                        "id": 1708,
+                        "name": "val",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 1699,
+                        "src": "913:3:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "888:57:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 1715,
+                  "nodeType": "ExpressionStatement",
+                  "src": "888:57:4"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 1695,
+              "nodeType": "StructuredDocumentation",
+              "src": "741:63:4",
+              "text": " @dev Get Uint value from InstaMemory Contract."
+            },
+            "id": 1717,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getUint",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1700,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1697,
+                  "mutability": "mutable",
+                  "name": "getId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1717,
+                  "src": "825:10:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1696,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "825:4:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1699,
+                  "mutability": "mutable",
+                  "name": "val",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1717,
+                  "src": "837:8:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1698,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "837:4:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "824:22:4"
+            },
+            "returnParameters": {
+              "id": 1703,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1702,
+                  "mutability": "mutable",
+                  "name": "returnVal",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1717,
+                  "src": "865:14:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1701,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "865:4:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "864:16:4"
+            },
+            "scope": 1738,
+            "src": "808:143:4",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 1736,
+              "nodeType": "Block",
+              "src": "1076:60:4",
+              "statements": [
+                {
+                  "condition": {
+                    "commonType": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    },
+                    "id": 1727,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "id": 1725,
+                      "name": "setId",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 1720,
+                      "src": "1087:5:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "!=",
+                    "rightExpression": {
+                      "hexValue": "30",
+                      "id": 1726,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1096:1:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_0_by_1",
+                        "typeString": "int_const 0"
+                      },
+                      "value": "0"
+                    },
+                    "src": "1087:10:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 1735,
+                  "nodeType": "IfStatement",
+                  "src": "1083:47:4",
+                  "trueBody": {
+                    "expression": {
+                      "arguments": [
+                        {
+                          "id": 1731,
+                          "name": "setId",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 1720,
+                          "src": "1119:5:4",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "id": 1732,
+                          "name": "val",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 1722,
+                          "src": "1126:3:4",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        ],
+                        "expression": {
+                          "id": 1728,
+                          "name": "instaMemory",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 1687,
+                          "src": "1099:11:4",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_contract$_MemoryInterface_$377",
+                            "typeString": "contract MemoryInterface"
+                          }
+                        },
+                        "id": 1730,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "setUint",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 376,
+                        "src": "1099:19:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_external_nonpayable$_t_uint256_$_t_uint256_$returns$__$",
+                          "typeString": "function (uint256,uint256) external"
+                        }
+                      },
+                      "id": 1733,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "1099:31:4",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_tuple$__$",
+                        "typeString": "tuple()"
+                      }
+                    },
+                    "id": 1734,
+                    "nodeType": "ExpressionStatement",
+                    "src": "1099:31:4"
+                  }
+                }
+              ]
+            },
+            "documentation": {
+              "id": 1718,
+              "nodeType": "StructuredDocumentation",
+              "src": "957:59:4",
+              "text": " @dev Set Uint value in InstaMemory Contract."
+            },
+            "id": 1737,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setUint",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1723,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1720,
+                  "mutability": "mutable",
+                  "name": "setId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1737,
+                  "src": "1037:10:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1719,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1037:4:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1722,
+                  "mutability": "mutable",
+                  "name": "val",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1737,
+                  "src": "1049:8:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1721,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1049:4:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1036:22:4"
+            },
+            "returnParameters": {
+              "id": 1724,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1076:0:4"
+            },
+            "scope": 1738,
+            "src": "1020:116:4",
+            "stateMutability": "nonpayable",
+            "virtual": true,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 1739,
+        "src": "98:1043:4"
+      }
+    ],
+    "src": "0:1141:4"
+  },
+  "legacyAST": {
+    "absolutePath": "project:/contracts/stores.sol",
+    "exportedSymbols": {
+      "InstaMapping": [
+        392
+      ],
+      "MemoryInterface": [
+        377
+      ],
+      "Stores": [
+        1738
+      ]
+    },
+    "id": 1739,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1669,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:4"
+      },
+      {
+        "absolutePath": "project:/contracts/interfaces.sol",
+        "file": "./interfaces.sol",
+        "id": 1672,
+        "nodeType": "ImportDirective",
+        "scope": 1739,
+        "sourceUnit": 411,
+        "src": "27:65:4",
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 1670,
+              "name": "MemoryInterface",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "src": "36:15:4",
+              "typeDescriptions": {}
+            }
+          },
+          {
+            "foreign": {
+              "id": 1671,
+              "name": "InstaMapping",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "src": "53:12:4",
+              "typeDescriptions": {}
+            }
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "abstract": true,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 1738,
+        "linearizedBaseContracts": [
+          1738
+        ],
+        "name": "Stores",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": true,
+            "documentation": {
+              "id": 1673,
+              "nodeType": "StructuredDocumentation",
+              "src": "130:45:4",
+              "text": " @dev Return ethereum address"
+            },
+            "id": 1676,
+            "mutability": "constant",
+            "name": "ethAddr",
+            "nodeType": "VariableDeclaration",
+            "scope": 1738,
+            "src": "179:78:4",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 1674,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "179:7:4",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "value": {
+              "hexValue": "307845656565654565656545654565654565456545656545454565656565456565656565656545456545",
+              "id": 1675,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "215:42:4",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              },
+              "value": "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": true,
+            "documentation": {
+              "id": 1677,
+              "nodeType": "StructuredDocumentation",
+              "src": "264:48:4",
+              "text": " @dev Return Wrapped ETH address"
+            },
+            "id": 1680,
+            "mutability": "constant",
+            "name": "wethAddr",
+            "nodeType": "VariableDeclaration",
+            "scope": 1738,
+            "src": "316:79:4",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 1678,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "316:7:4",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "value": {
+              "hexValue": "307843303261614133396232323346453844304130653543344632376541443930383343373536436332",
+              "id": 1679,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "353:42:4",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              },
+              "value": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": true,
+            "documentation": {
+              "id": 1681,
+              "nodeType": "StructuredDocumentation",
+              "src": "402:52:4",
+              "text": " @dev Return memory variable address"
+            },
+            "id": 1687,
+            "mutability": "constant",
+            "name": "instaMemory",
+            "nodeType": "VariableDeclaration",
+            "scope": 1738,
+            "src": "458:107:4",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_MemoryInterface_$377",
+              "typeString": "contract MemoryInterface"
+            },
+            "typeName": {
+              "id": 1683,
+              "nodeType": "UserDefinedTypeName",
+              "pathNode": {
+                "id": 1682,
+                "name": "MemoryInterface",
+                "nodeType": "IdentifierPath",
+                "referencedDeclaration": 377,
+                "src": "458:15:4"
+              },
+              "referencedDeclaration": 377,
+              "src": "458:15:4",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_MemoryInterface_$377",
+                "typeString": "contract MemoryInterface"
+              }
+            },
+            "value": {
+              "arguments": [
+                {
+                  "hexValue": "307838613534313943664337313142323334336331376136414266344232624146614262303639353746",
+                  "id": 1685,
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "kind": "number",
+                  "lValueRequested": false,
+                  "nodeType": "Literal",
+                  "src": "522:42:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "value": "0x8a5419CfC711B2343c17a6ABf4B2bAFaBb06957F"
+                }
+              ],
+              "expression": {
+                "argumentTypes": [
+                  {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                ],
+                "id": 1684,
+                "name": "MemoryInterface",
+                "nodeType": "Identifier",
+                "overloadedDeclarations": [],
+                "referencedDeclaration": 377,
+                "src": "506:15:4",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_type$_t_contract$_MemoryInterface_$377_$",
+                  "typeString": "type(contract MemoryInterface)"
+                }
+              },
+              "id": 1686,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "typeConversion",
+              "lValueRequested": false,
+              "names": [],
+              "nodeType": "FunctionCall",
+              "src": "506:59:4",
+              "tryCall": false,
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_MemoryInterface_$377",
+                "typeString": "contract MemoryInterface"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": true,
+            "documentation": {
+              "id": 1688,
+              "nodeType": "StructuredDocumentation",
+              "src": "572:56:4",
+              "text": " @dev Return InstaDApp Mapping Addresses"
+            },
+            "id": 1694,
+            "mutability": "constant",
+            "name": "instaMapping",
+            "nodeType": "VariableDeclaration",
+            "scope": 1738,
+            "src": "632:102:4",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_InstaMapping_$392",
+              "typeString": "contract InstaMapping"
+            },
+            "typeName": {
+              "id": 1690,
+              "nodeType": "UserDefinedTypeName",
+              "pathNode": {
+                "id": 1689,
+                "name": "InstaMapping",
+                "nodeType": "IdentifierPath",
+                "referencedDeclaration": 392,
+                "src": "632:12:4"
+              },
+              "referencedDeclaration": 392,
+              "src": "632:12:4",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_InstaMapping_$392",
+                "typeString": "contract InstaMapping"
+              }
+            },
+            "value": {
+              "arguments": [
+                {
+                  "hexValue": "307865383146373043633743304434366531326437306566633630363037463136626244363137453838",
+                  "id": 1692,
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "kind": "number",
+                  "lValueRequested": false,
+                  "nodeType": "Literal",
+                  "src": "691:42:4",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "value": "0xe81F70Cc7C0D46e12d70efc60607F16bbD617E88"
+                }
+              ],
+              "expression": {
+                "argumentTypes": [
+                  {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                ],
+                "id": 1691,
+                "name": "InstaMapping",
+                "nodeType": "Identifier",
+                "overloadedDeclarations": [],
+                "referencedDeclaration": 392,
+                "src": "678:12:4",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_type$_t_contract$_InstaMapping_$392_$",
+                  "typeString": "type(contract InstaMapping)"
+                }
+              },
+              "id": 1693,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "typeConversion",
+              "lValueRequested": false,
+              "names": [],
+              "nodeType": "FunctionCall",
+              "src": "678:56:4",
+              "tryCall": false,
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_InstaMapping_$392",
+                "typeString": "contract InstaMapping"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 1716,
+              "nodeType": "Block",
+              "src": "881:70:4",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 1714,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 1704,
+                      "name": "returnVal",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 1702,
+                      "src": "888:9:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "condition": {
+                        "commonType": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "id": 1707,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "id": 1705,
+                          "name": "getId",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 1697,
+                          "src": "900:5:4",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "hexValue": "30",
+                          "id": 1706,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "number",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "909:1:4",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_rational_0_by_1",
+                            "typeString": "int_const 0"
+                          },
+                          "value": "0"
+                        },
+                        "src": "900:10:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      "falseExpression": {
+                        "arguments": [
+                          {
+                            "id": 1711,
+                            "name": "getId",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 1697,
+                            "src": "939:5:4",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          ],
+                          "expression": {
+                            "id": 1709,
+                            "name": "instaMemory",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 1687,
+                            "src": "919:11:4",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_contract$_MemoryInterface_$377",
+                              "typeString": "contract MemoryInterface"
+                            }
+                          },
+                          "id": 1710,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "getUint",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 369,
+                          "src": "919:19:4",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_external_nonpayable$_t_uint256_$returns$_t_uint256_$",
+                            "typeString": "function (uint256) external returns (uint256)"
+                          }
+                        },
+                        "id": 1712,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "919:26:4",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "id": 1713,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "Conditional",
+                      "src": "900:45:4",
+                      "trueExpression": {
+                        "id": 1708,
+                        "name": "val",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 1699,
+                        "src": "913:3:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "888:57:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 1715,
+                  "nodeType": "ExpressionStatement",
+                  "src": "888:57:4"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 1695,
+              "nodeType": "StructuredDocumentation",
+              "src": "741:63:4",
+              "text": " @dev Get Uint value from InstaMemory Contract."
+            },
+            "id": 1717,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getUint",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1700,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1697,
+                  "mutability": "mutable",
+                  "name": "getId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1717,
+                  "src": "825:10:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1696,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "825:4:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1699,
+                  "mutability": "mutable",
+                  "name": "val",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1717,
+                  "src": "837:8:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1698,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "837:4:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "824:22:4"
+            },
+            "returnParameters": {
+              "id": 1703,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1702,
+                  "mutability": "mutable",
+                  "name": "returnVal",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1717,
+                  "src": "865:14:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1701,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "865:4:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "864:16:4"
+            },
+            "scope": 1738,
+            "src": "808:143:4",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 1736,
+              "nodeType": "Block",
+              "src": "1076:60:4",
+              "statements": [
+                {
+                  "condition": {
+                    "commonType": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    },
+                    "id": 1727,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "id": 1725,
+                      "name": "setId",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 1720,
+                      "src": "1087:5:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "!=",
+                    "rightExpression": {
+                      "hexValue": "30",
+                      "id": 1726,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1096:1:4",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_0_by_1",
+                        "typeString": "int_const 0"
+                      },
+                      "value": "0"
+                    },
+                    "src": "1087:10:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 1735,
+                  "nodeType": "IfStatement",
+                  "src": "1083:47:4",
+                  "trueBody": {
+                    "expression": {
+                      "arguments": [
+                        {
+                          "id": 1731,
+                          "name": "setId",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 1720,
+                          "src": "1119:5:4",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "id": 1732,
+                          "name": "val",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 1722,
+                          "src": "1126:3:4",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        ],
+                        "expression": {
+                          "id": 1728,
+                          "name": "instaMemory",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 1687,
+                          "src": "1099:11:4",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_contract$_MemoryInterface_$377",
+                            "typeString": "contract MemoryInterface"
+                          }
+                        },
+                        "id": 1730,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "setUint",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 376,
+                        "src": "1099:19:4",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_external_nonpayable$_t_uint256_$_t_uint256_$returns$__$",
+                          "typeString": "function (uint256,uint256) external"
+                        }
+                      },
+                      "id": 1733,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "1099:31:4",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_tuple$__$",
+                        "typeString": "tuple()"
+                      }
+                    },
+                    "id": 1734,
+                    "nodeType": "ExpressionStatement",
+                    "src": "1099:31:4"
+                  }
+                }
+              ]
+            },
+            "documentation": {
+              "id": 1718,
+              "nodeType": "StructuredDocumentation",
+              "src": "957:59:4",
+              "text": " @dev Set Uint value in InstaMemory Contract."
+            },
+            "id": 1737,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setUint",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1723,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1720,
+                  "mutability": "mutable",
+                  "name": "setId",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1737,
+                  "src": "1037:10:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1719,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1037:4:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 1722,
+                  "mutability": "mutable",
+                  "name": "val",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1737,
+                  "src": "1049:8:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1721,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1049:4:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1036:22:4"
+            },
+            "returnParameters": {
+              "id": 1724,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1076:0:4"
+            },
+            "scope": 1738,
+            "src": "1020:116:4",
+            "stateMutability": "nonpayable",
+            "virtual": true,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 1739,
+        "src": "98:1043:4"
+      }
+    ],
+    "src": "0:1141:4"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.0+commit.c7dfd78e.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.4",
+  "updatedAt": "2022-02-12T17:50:47.116Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "stateVariables": {
+      "ethAddr": {
+        "details": "Return ethereum address"
+      },
+      "instaMapping": {
+        "details": "Return InstaDApp Mapping Addresses"
+      },
+      "instaMemory": {
+        "details": "Return memory variable address"
+      },
+      "wethAddr": {
+        "details": "Return Wrapped ETH address"
+      }
+    },
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

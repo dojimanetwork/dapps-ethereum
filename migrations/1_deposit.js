@@ -1,5 +1,5 @@
-const DepositTest = artifacts.require("DepositTest");
+const UniswapLiquidity = artifacts.require("UniswapLiquidity");
 
 module.exports = function (deployer) {
-  deployer.deploy(DepositTest);
+  deployer.deploy(UniswapLiquidity);
 };
