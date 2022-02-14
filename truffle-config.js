@@ -25,7 +25,7 @@
 const path = require('path');
 const HDWalletProvider = require("@truffle/hdwallet-provider");
 const fs = require("fs");
-const secrets = JSON.parse(fs.readFileSync(".secrets.json").toString().trim());
+// const secrets = JSON.parse(fs.readFileSync(".secrets.json").toString().trim());
 
 module.exports = {
   /**
@@ -39,28 +39,32 @@ module.exports = {
    */
   contracts_build_directory: path.join(__dirname, "client/src/contracts"),
   networks: {
-    goerli: {
-      networkCheckTimeout: 10000,
-      provider: () => {
-         return new HDWalletProvider(
-           secrets.mnemonic,
-           `https://goerli.infura.io/v3/${secrets.projectId}`
-         );
-      },
-      
-      gasPrice: 395305800000000,
-      network_id: "5",
-    },
-    matic: {
-      provider: () => new HDWalletProvider(secrets.mnemonic, `https://rpc-mumbai.maticvigil.com`),
-      network_id: 80001,
-      confirmations: 2,
-      timeoutBlocks: 200,
-      skipDryRun: true
-    },
+    // ropsten: {
+    //   networkCheckTimeout: 10000,
+    //   provider: () => {
+    //      return new HDWalletProvider(
+    //        secrets.mnemonic,
+    //        `wss://ropsten.infura.io/ws/v3/d7b6641283a44e96a6ad55b43a453ce0`
+    //      );
+    //   },
+    //   gasPrice: 8000000,
+    //   network_id: "3",
+    // },
+    // matic: {
+    //   provider: () => new HDWalletProvider(secrets.mnemonic, `https://rpc-mumbai.maticvigil.com`),
+    //   network_id: 80001,
+    //   confirmations: 2,
+    //   timeoutBlocks: 200,
+    //   skipDryRun: true
+    // },
     development: {
       host: "127.0.0.1",     // Localhost (default: none)
       port: 7545,            // Standard Ethereum port (default: none)
+      network_id: "*",       // Any network (default: none)
+    },
+    developmentCli: {
+      host: "127.0.0.1",     // Localhost (default: none)
+      port: 8545,            // Standard Ethereum port (default: none)
       network_id: "*",       // Any network (default: none)
     },
     // Useful for testing. The `development` name is special - truffle uses it by default
@@ -109,7 +113,7 @@ module.exports = {
   // Configure your compilers
   compilers: {
     solc: {
-      version: "^0.8.1",    // Fetch exact version from solc-bin (default: truffle's version)
+      version: "^0.8.1",      // Fetch exact version from solc-bin (default: truffle's version)
       // docker: true,        // Use "0.5.1" you've installed locally with docker (default: false)
       // settings: {          // See the solidity docs for advice about optimization and evmVersion
       //  optimizer: {

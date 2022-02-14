@@ -31,6 +31,8 @@ interface CEth {
     function redeem(uint) external returns (uint);
 
     function redeemUnderlying(uint) external returns (uint);
+
+    function balanceOf(address owner) external view returns (uint256);
 }
 
 contract MyContract {
@@ -45,6 +47,20 @@ contract MyContract {
 
     receive() external payable {
 
+    }
+
+    function getBalanceInContract() external view returns(uint) {
+        return address(this).balance;
+    }
+
+    function balanceOf(address owner,address _cEtherContract) external payable returns (uint256){
+        CEth cToken = CEth(_cEtherContract);
+
+        uint256 balance = cToken.balanceOf(owner);
+
+        emit MyLog("Balance (scaled up by 1e18): ", balance);
+
+        return balance;
     }
 
     function supplyEthToCompound(address payable _cEtherContract)
