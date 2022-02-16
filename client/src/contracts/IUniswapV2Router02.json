@@ -281,7 +281,7 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"WETH\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"tokenA\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"tokenB\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amountADesired\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountBDesired\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountAMin\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountBMin\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"}],\"name\":\"addLiquidity\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"amountA\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountB\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"liquidity\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"factory\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amountOut\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"reserveIn\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"reserveOut\",\"type\":\"uint256\"}],\"name\":\"getAmountIn\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"amountIn\",\"type\":\"uint256\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amountIn\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"reserveIn\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"reserveOut\",\"type\":\"uint256\"}],\"name\":\"getAmountOut\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"amountOut\",\"type\":\"uint256\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amountOut\",\"type\":\"uint256\"},{\"internalType\":\"address[]\",\"name\":\"path\",\"type\":\"address[]\"}],\"name\":\"getAmountsIn\",\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"amounts\",\"type\":\"uint256[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amountIn\",\"type\":\"uint256\"},{\"internalType\":\"address[]\",\"name\":\"path\",\"type\":\"address[]\"}],\"name\":\"getAmountsOut\",\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"amounts\",\"type\":\"uint256[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amountA\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"reserveA\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"reserveB\",\"type\":\"uint256\"}],\"name\":\"quote\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"amountB\",\"type\":\"uint256\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"tokenA\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"tokenB\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"liquidity\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountAMin\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountBMin\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"}],\"name\":\"removeLiquidity\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"amountA\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountB\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/main.sol\":\"IUniswapV2Router02\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts/utils/math/SafeMath.sol\":{\"keccak256\":\"0xa2f576be637946f767aa56601c26d717f48a0aff44f82e46f13807eea1009a21\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://973868f808e88e21a1a0a01d4839314515ee337ad096286c88e41b74dcc11fc2\",\"dweb:/ipfs/QmfYuZxRfx2J2xdk4EXN7jKg4bUYEMTaYk9BAw9Bqn4o2Y\"]},\"project:/contracts/interfaces.sol\":{\"keccak256\":\"0xb2e9a1e18b3d0a187bc34499dbc2e270d4bdb2feb7427d26b381faea52f59c99\",\"urls\":[\"bzz-raw://4fac84f20e45bf288bb231f3d194a7336606ebf926c8af3acdb672967a2855e1\",\"dweb:/ipfs/QmNZwvYcru4QRiZMJgLy1Rs2gzorF3xpBAHC8TqFiRF9rJ\"]},\"project:/contracts/main.sol\":{\"keccak256\":\"0xdf3af9c3f6213da8461a1e052004104d4122790f8ab827c03041eed32b1bbe8c\",\"urls\":[\"bzz-raw://7a48767a4e7df281616cc749a0e8b00260d9f161dbdd19a80abc745359790cdb\",\"dweb:/ipfs/QmWPxA1BqMhkRBMwRtQkyNxT1pkWZnAVzgxoQ7M42CdBfg\"]},\"project:/contracts/math.sol\":{\"keccak256\":\"0x88574d989e21675f9ea35b6b2b813bef83f2353f008a749fb9dc53895d1ef4c7\",\"urls\":[\"bzz-raw://4d47f8a31300323c92fbac2056569518000470131689c16f4bafb08b86fe5163\",\"dweb:/ipfs/QmRgGf6m9znepcfrb81fxaTPopDcR2PjsJ4oGgrqiu3pCG\"]},\"project:/contracts/stores.sol\":{\"keccak256\":\"0x802cd729224dc814a481599675bfeac40a34f0ccab4a24e6420ea7d52b1006aa\",\"urls\":[\"bzz-raw://a8dc1a2148b88f787d6f4d0de034d06c56d92aac477b67900968746f4a48e3dd\",\"dweb:/ipfs/QmVcMbDXyByYy8FKXRydtkaBmeyFgJqYjwepkTDgnXw4R9\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"WETH\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"tokenA\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"tokenB\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amountADesired\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountBDesired\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountAMin\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountBMin\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"}],\"name\":\"addLiquidity\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"amountA\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountB\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"liquidity\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"factory\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amountOut\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"reserveIn\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"reserveOut\",\"type\":\"uint256\"}],\"name\":\"getAmountIn\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"amountIn\",\"type\":\"uint256\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amountIn\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"reserveIn\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"reserveOut\",\"type\":\"uint256\"}],\"name\":\"getAmountOut\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"amountOut\",\"type\":\"uint256\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amountOut\",\"type\":\"uint256\"},{\"internalType\":\"address[]\",\"name\":\"path\",\"type\":\"address[]\"}],\"name\":\"getAmountsIn\",\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"amounts\",\"type\":\"uint256[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amountIn\",\"type\":\"uint256\"},{\"internalType\":\"address[]\",\"name\":\"path\",\"type\":\"address[]\"}],\"name\":\"getAmountsOut\",\"outputs\":[{\"internalType\":\"uint256[]\",\"name\":\"amounts\",\"type\":\"uint256[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amountA\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"reserveA\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"reserveB\",\"type\":\"uint256\"}],\"name\":\"quote\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"amountB\",\"type\":\"uint256\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"tokenA\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"tokenB\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"liquidity\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountAMin\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountBMin\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"deadline\",\"type\":\"uint256\"}],\"name\":\"removeLiquidity\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"amountA\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"amountB\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/main.sol\":\"IUniswapV2Router02\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts/utils/math/SafeMath.sol\":{\"keccak256\":\"0xa2f576be637946f767aa56601c26d717f48a0aff44f82e46f13807eea1009a21\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://973868f808e88e21a1a0a01d4839314515ee337ad096286c88e41b74dcc11fc2\",\"dweb:/ipfs/QmfYuZxRfx2J2xdk4EXN7jKg4bUYEMTaYk9BAw9Bqn4o2Y\"]},\"project:/contracts/interfaces.sol\":{\"keccak256\":\"0xb2e9a1e18b3d0a187bc34499dbc2e270d4bdb2feb7427d26b381faea52f59c99\",\"urls\":[\"bzz-raw://4fac84f20e45bf288bb231f3d194a7336606ebf926c8af3acdb672967a2855e1\",\"dweb:/ipfs/QmNZwvYcru4QRiZMJgLy1Rs2gzorF3xpBAHC8TqFiRF9rJ\"]},\"project:/contracts/main.sol\":{\"keccak256\":\"0x95b0cc41efe9ed6b3efc3a672de38b9dcbea772afe3f40146a343f29eae0f27e\",\"urls\":[\"bzz-raw://ecac1126e7bc8730379d1766fd830d0f845d6ba8e41c8fbfdbefce3514a80d47\",\"dweb:/ipfs/QmX4uHMHDZDsVvZ68AMjpNYVWUFnXgKGe8xotYncKL36v2\"]},\"project:/contracts/math.sol\":{\"keccak256\":\"0x88574d989e21675f9ea35b6b2b813bef83f2353f008a749fb9dc53895d1ef4c7\",\"urls\":[\"bzz-raw://4d47f8a31300323c92fbac2056569518000470131689c16f4bafb08b86fe5163\",\"dweb:/ipfs/QmRgGf6m9znepcfrb81fxaTPopDcR2PjsJ4oGgrqiu3pCG\"]},\"project:/contracts/stores.sol\":{\"keccak256\":\"0x802cd729224dc814a481599675bfeac40a34f0ccab4a24e6420ea7d52b1006aa\",\"urls\":[\"bzz-raw://a8dc1a2148b88f787d6f4d0de034d06c56d92aac477b67900968746f4a48e3dd\",\"dweb:/ipfs/QmVcMbDXyByYy8FKXRydtkaBmeyFgJqYjwepkTDgnXw4R9\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
@@ -289,7 +289,7 @@
   "deployedGeneratedSources": [],
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "pragma solidity ^0.8.0;\r\n\r\nimport { TokenInterface , MemoryInterface } from \"./interfaces.sol\";\r\nimport { Stores } from \"./stores.sol\";\r\nimport { DSMath } from \"./math.sol\";\r\n\r\ninterface IUniswapV2Router02 {\r\n    function factory() external pure returns (address);\r\n    function WETH() external pure returns (address);\r\n\r\n    function addLiquidity(\r\n        address tokenA,\r\n        address tokenB,\r\n        uint amountADesired,\r\n        uint amountBDesired,\r\n        uint amountAMin,\r\n        uint amountBMin,\r\n        address to,\r\n        uint deadline\r\n    ) external returns (uint amountA, uint amountB, uint liquidity);\r\n    function removeLiquidity(\r\n        address tokenA,\r\n        address tokenB,\r\n        uint liquidity,\r\n        uint amountAMin,\r\n        uint amountBMin,\r\n        address to,\r\n        uint deadline\r\n    ) external returns (uint amountA, uint amountB);\r\n     \r\n     function quote(uint amountA, uint reserveA, uint reserveB) external pure returns (uint amountB);\r\n    function getAmountOut(uint amountIn, uint reserveIn, uint reserveOut) external pure returns (uint amountOut);\r\n    function getAmountIn(uint amountOut, uint reserveIn, uint reserveOut) external pure returns (uint amountIn);\r\n    function getAmountsOut(uint amountIn, address[] calldata path) external view returns (uint[] memory amounts);\r\n    function getAmountsIn(uint amountOut, address[] calldata path) external view returns (uint[] memory amounts);\r\n}\r\n\r\ninterface IUniswapV2Factory {\r\n  function getPair(address tokenA, address tokenB) external view returns (address pair);\r\n  function allPairs(uint) external view returns (address pair);\r\n  function allPairsLength() external view returns (uint);\r\n\r\n  function feeTo() external view returns (address);\r\n  function feeToSetter() external view returns (address);\r\n\r\n  function createPair(address tokenA, address tokenB) external returns (address pair);\r\n}\r\n\r\nabstract contract UniswapHelpers is Stores, DSMath {\r\n    /**\r\n     * @dev Return WETH address\r\n     */\r\n    function getAddressWETH() internal pure returns (address) {\r\n        return 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2;\r\n    }\r\n\r\n    /**\r\n     * @dev Return uniswap v2 router02 Address\r\n     */\r\n    function getUniswapAddr() internal pure returns (address) {\r\n        return 0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D;\r\n    }\r\n\r\n    function convert18ToDec(uint _dec, uint256 _amt) internal pure returns (uint256 amt) {\r\n        amt = (_amt / 10 ** (18 - _dec));\r\n    }\r\n\r\n    function convertTo18(uint _dec, uint256 _amt) internal pure returns (uint256 amt) {\r\n        amt = mul(_amt, 10 ** (18 - _dec));\r\n    }\r\n\r\n    function getTokenBalace(address token) internal view returns (uint256 amt) {\r\n        amt = token == ethAddr ? address(this).balance : TokenInterface(token).balanceOf(address(this));\r\n    }\r\n\r\n    function changeEthAddress(address buy, address sell) internal pure returns(TokenInterface _buy, TokenInterface _sell){\r\n        _buy = buy == ethAddr ? TokenInterface(getAddressWETH()) : TokenInterface(buy);\r\n        _sell = sell == ethAddr ? TokenInterface(getAddressWETH()) : TokenInterface(sell);\r\n    }\r\n\r\n    function convertEthToWeth(TokenInterface token, uint amount) internal {\r\n        if(address(token) == getAddressWETH()) token.deposit{value: amount}();\r\n    }\r\n\r\n    function convertWethToEth(TokenInterface token, uint amount) internal {\r\n       if(address(token) == getAddressWETH()) {\r\n            token.approve(getAddressWETH(), amount);\r\n            token.withdraw(amount);\r\n        }\r\n    }\r\n\r\n    function getExpectedBuyAmt(\r\n        IUniswapV2Router02 router,\r\n        address[] memory paths,\r\n        uint sellAmt\r\n    ) internal view returns(uint buyAmt) {\r\n        uint[] memory amts = router.getAmountsOut(\r\n            sellAmt,\r\n            paths\r\n        );\r\n        buyAmt = amts[1];\r\n    }\r\n\r\n    function getExpectedSellAmt(\r\n        IUniswapV2Router02 router,\r\n        address[] memory paths,\r\n        uint buyAmt\r\n    ) internal view returns(uint sellAmt) {\r\n        uint[] memory amts = router.getAmountsIn(\r\n            buyAmt,\r\n            paths\r\n        );\r\n        sellAmt = amts[0];\r\n    }\r\n\r\n    function checkPair(\r\n        IUniswapV2Router02 router,\r\n        address[] memory paths\r\n    ) internal view {\r\n        address pair = IUniswapV2Factory(router.factory()).getPair(paths[0], paths[1]);\r\n        require(pair != address(0), \"No-exchange-address\");\r\n    }\r\n\r\n    function getPaths(\r\n        address buyAddr,\r\n        address sellAddr\r\n    ) internal pure returns(address[] memory paths) {\r\n        paths = new address[](2);\r\n        paths[0] = address(sellAddr);\r\n        paths[1] = address(buyAddr);\r\n    }\r\n}\r\n\r\nabstract contract LiquidityHelpers is UniswapHelpers {\r\n\r\n    function getMinAmount(\r\n        TokenInterface token,\r\n        uint amt,\r\n        uint slippage\r\n    ) internal view returns(uint minAmt) {\r\n        uint _amt18 = convertTo18(token.decimals(), amt);\r\n        minAmt = wmul(_amt18, sub(WAD, slippage));\r\n        minAmt = convert18ToDec(token.decimals(), minAmt);\r\n    }\r\n\r\n    function changeEthToWeth(\r\n        address[] memory tokens\r\n    ) internal pure returns(TokenInterface[] memory _tokens) {\r\n        _tokens = new TokenInterface[](2);\r\n        _tokens[0] = tokens[0] == ethAddr ? TokenInterface(getAddressWETH()) : TokenInterface(tokens[0]);\r\n        _tokens[1] = tokens[1] == ethAddr ? TokenInterface(getAddressWETH()) : TokenInterface(tokens[1]);\r\n    }\r\n\r\n    function _addLiquidity(\r\n        address tokenA,\r\n        address tokenB,\r\n        uint _amt,\r\n        uint unitAmt,\r\n        uint slippage\r\n    ) internal returns (uint _amtA, uint _amtB, uint _liquidity) {\r\n        IUniswapV2Router02 router = IUniswapV2Router02(getUniswapAddr());\r\n        (TokenInterface _tokenA, TokenInterface _tokenB) = changeEthAddress(tokenA, tokenB);\r\n\r\n        _amtA = _amt == type(uint256).max ? getTokenBalace(tokenA) : _amt;\r\n        _amtB = convert18ToDec(_tokenB.decimals(), wmul(unitAmt, convertTo18(_tokenA.decimals(), _amtA)));\r\n\r\n        convertEthToWeth(_tokenA, _amtA);\r\n        convertEthToWeth(_tokenB, _amtB);\r\n        _tokenA.approve(address(router), _amtA);\r\n        _tokenB.approve(address(router), _amtB);\r\n\r\n       uint minAmtA = getMinAmount(_tokenA, _amtA, slippage);\r\n        uint minAmtB = getMinAmount(_tokenB, _amtB, slippage);\r\n       (_amtA, _amtB, _liquidity) = router.addLiquidity(\r\n            address(_tokenA),\r\n            address(_tokenB),\r\n            _amtA,\r\n            _amtB,\r\n            minAmtA,\r\n            minAmtB,\r\n            address(this),\r\n            block.timestamp + 1\r\n        );\r\n    }\r\n\r\n    function _removeLiquidity(\r\n        address tokenA,\r\n        address tokenB,\r\n        uint _amt,\r\n        uint unitAmtA,\r\n        uint unitAmtB\r\n    ) internal returns (uint _amtA, uint _amtB, uint _uniAmt) {\r\n        IUniswapV2Router02 router;\r\n        TokenInterface _tokenA;\r\n        TokenInterface _tokenB;\r\n        (router, _tokenA, _tokenB, _uniAmt) = _getRemoveLiquidityData(\r\n            tokenA,\r\n            tokenB,\r\n            _amt\r\n        );\r\n        {\r\n        uint minAmtA = convert18ToDec(_tokenA.decimals(), wmul(unitAmtA, _uniAmt));\r\n        uint minAmtB = convert18ToDec(_tokenB.decimals(), wmul(unitAmtB, _uniAmt));\r\n        (_amtA, _amtB) = router.removeLiquidity(\r\n            address(_tokenA),\r\n            address(_tokenB),\r\n            _uniAmt,\r\n            minAmtA,\r\n            minAmtB,\r\n            address(this),\r\n            block.timestamp + 1\r\n        );\r\n        }\r\n        convertWethToEth(_tokenA, _amtA);\r\n        convertWethToEth(_tokenB, _amtB);\r\n    }\r\n        function _getRemoveLiquidityData(\r\n        address tokenA,\r\n        address tokenB,\r\n        uint _amt\r\n    ) internal returns (IUniswapV2Router02 router, TokenInterface _tokenA, TokenInterface _tokenB, uint _uniAmt) {\r\n        router = IUniswapV2Router02(getUniswapAddr());\r\n        (_tokenA, _tokenB) = changeEthAddress(tokenA, tokenB);\r\n        address exchangeAddr = IUniswapV2Factory(router.factory()).getPair(address(_tokenA), address(_tokenB));\r\n        require(exchangeAddr != address(0), \"pair-not-found.\");\r\n\r\n        TokenInterface uniToken = TokenInterface(exchangeAddr);\r\n        _uniAmt = _amt == type(uint256).max ? uniToken.balanceOf(address(this)) : _amt;\r\n        uniToken.approve(address(router), _uniAmt);\r\n    }\r\n\r\n}\r\n\r\nabstract contract UniswapLiquidity is LiquidityHelpers {\r\n\r\n        /** \r\n     * @dev Deposit Liquidity.\r\n     * @param tokenA tokenA address.(For ETH: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE)\r\n     * @param tokenB tokenB address.(For ETH: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE)\r\n     * @param amtA tokenA amount.\r\n     * @param unitAmt unit amount of amtB/amtA with slippage.\r\n     * @param slippage slippage amount.\r\n     * @param getId Get token amount at this ID from `InstaMemory` Contract.\r\n    \r\n    */\r\n    function deposit(\r\n        address tokenA,\r\n        address tokenB,\r\n        uint amtA,\r\n        uint unitAmt,\r\n        uint slippage,\r\n        uint getId\r\n        //address user \r\n        \r\n       \r\n    ) external payable {\r\n        uint _amt = getUint(getId, amtA);\r\n\r\n        (uint _amtA, uint _amtB, uint _uniAmt) = _addLiquidity(\r\n                                            tokenA,\r\n                                            tokenB,\r\n                                            _amt,\r\n                                            unitAmt,\r\n                                            slippage\r\n                                            );\r\n       // setUint(setId, _uniAmt);\r\n       // emitDeposit(tokenA, tokenB, _amtA, _amtB, _uniAmt, getId, setId);\r\n    }\r\n\r\n    /**\r\n     * @dev Withdraw Liquidity.\r\n     * @param tokenA tokenA address.(For ETH: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE)\r\n     * @param tokenB tokenB address.(For ETH: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE)\r\n     * @param uniAmt uni token amount.\r\n     * @param unitAmtA unit amount of amtA/uniAmt with slippage.\r\n     * @param unitAmtB unit amount of amtB/uniAmt with slippage.\r\n     * @param getId Get token amount at this ID from `InstaMemory` Contract.\r\n   \r\n    */\r\n    function withdraw(\r\n        address tokenA,\r\n        address tokenB,\r\n        uint uniAmt,\r\n        uint unitAmtA,\r\n        uint unitAmtB,\r\n        uint getId\r\n       \r\n    ) external payable {\r\n        uint _amt = getUint(getId, uniAmt);\r\n\r\n        (uint _amtA, uint _amtB, uint _uniAmt) = _removeLiquidity(\r\n            tokenA,\r\n            tokenB,\r\n            _amt,\r\n            unitAmtA,\r\n            unitAmtB\r\n        );\r\n\r\n        //setUint(setIds[0], _amtA);\r\n       // setUint(setIds[1], _amtB);\r\n       // emitWithdraw(tokenA, tokenB, _amtA, _amtB, _uniAmt, getId, setIds);\r\n    }\r\n    \r\n}\r\n",
+  "source": "pragma solidity ^0.8.0;\r\n\r\nimport { TokenInterface , MemoryInterface } from \"./interfaces.sol\";\r\nimport { Stores } from \"./stores.sol\";\r\nimport { DSMath } from \"./math.sol\";\r\n\r\ninterface IUniswapV2Router02 {\r\n    function factory() external pure returns (address);\r\n    function WETH() external pure returns (address);\r\n\r\n    function addLiquidity(\r\n        address tokenA,\r\n        address tokenB,\r\n        uint amountADesired,\r\n        uint amountBDesired,\r\n        uint amountAMin,\r\n        uint amountBMin,\r\n        address to,\r\n        uint deadline\r\n    ) external returns (uint amountA, uint amountB, uint liquidity);\r\n    function removeLiquidity(\r\n        address tokenA,\r\n        address tokenB,\r\n        uint liquidity,\r\n        uint amountAMin,\r\n        uint amountBMin,\r\n        address to,\r\n        uint deadline\r\n    ) external returns (uint amountA, uint amountB);\r\n     \r\n     function quote(uint amountA, uint reserveA, uint reserveB) external pure returns (uint amountB);\r\n    function getAmountOut(uint amountIn, uint reserveIn, uint reserveOut) external pure returns (uint amountOut);\r\n    function getAmountIn(uint amountOut, uint reserveIn, uint reserveOut) external pure returns (uint amountIn);\r\n    function getAmountsOut(uint amountIn, address[] calldata path) external view returns (uint[] memory amounts);\r\n    function getAmountsIn(uint amountOut, address[] calldata path) external view returns (uint[] memory amounts);\r\n}\r\n\r\ninterface IUniswapV2Factory {\r\n  function getPair(address tokenA, address tokenB) external view returns (address pair);\r\n  function allPairs(uint) external view returns (address pair);\r\n  function allPairsLength() external view returns (uint);\r\n\r\n  function feeTo() external view returns (address);\r\n  function feeToSetter() external view returns (address);\r\n\r\n  function createPair(address tokenA, address tokenB) external returns (address pair);\r\n}\r\n\r\nabstract contract UniswapHelpers is Stores, DSMath {\r\n    /**\r\n     * @dev Return WETH address\r\n     */\r\n    function getAddressWETH() internal pure returns (address) {\r\n        return 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2;\r\n    }\r\n\r\n    /**\r\n     * @dev Return uniswap v2 router02 Address\r\n     */\r\n    function getUniswapAddr() internal pure returns (address) {\r\n        return 0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D;\r\n    }\r\n\r\n    function convert18ToDec(uint _dec, uint256 _amt) internal pure returns (uint256 amt) {\r\n        amt = (_amt / 10 ** (18 - _dec));\r\n    }\r\n\r\n    function convertTo18(uint _dec, uint256 _amt) internal pure returns (uint256 amt) {\r\n        amt = mul(_amt, 10 ** (18 - _dec));\r\n    }\r\n\r\n    function getTokenBalace(address token) internal view returns (uint256 amt) {\r\n        amt = token == ethAddr ? address(this).balance : TokenInterface(token).balanceOf(address(this));\r\n    }\r\n\r\n    function changeEthAddress(address buy, address sell) internal pure returns(TokenInterface _buy, TokenInterface _sell){\r\n        _buy = buy == ethAddr ? TokenInterface(getAddressWETH()) : TokenInterface(buy);\r\n        _sell = sell == ethAddr ? TokenInterface(getAddressWETH()) : TokenInterface(sell);\r\n    }\r\n\r\n    function convertEthToWeth(TokenInterface token, uint amount) internal {\r\n        if(address(token) == getAddressWETH()) token.deposit{value: amount}();\r\n    }\r\n\r\n    function convertWethToEth(TokenInterface token, uint amount) internal {\r\n       if(address(token) == getAddressWETH()) {\r\n            token.approve(getAddressWETH(), amount);\r\n            token.withdraw(amount);\r\n        }\r\n    }\r\n\r\n    function getExpectedBuyAmt(\r\n        IUniswapV2Router02 router,\r\n        address[] memory paths,\r\n        uint sellAmt\r\n    ) internal view returns(uint buyAmt) {\r\n        uint[] memory amts = router.getAmountsOut(\r\n            sellAmt,\r\n            paths\r\n        );\r\n        buyAmt = amts[1];\r\n    }\r\n\r\n    function getExpectedSellAmt(\r\n        IUniswapV2Router02 router,\r\n        address[] memory paths,\r\n        uint buyAmt\r\n    ) internal view returns(uint sellAmt) {\r\n        uint[] memory amts = router.getAmountsIn(\r\n            buyAmt,\r\n            paths\r\n        );\r\n        sellAmt = amts[0];\r\n    }\r\n\r\n    function checkPair(\r\n        IUniswapV2Router02 router,\r\n        address[] memory paths\r\n    ) internal view {\r\n        address pair = IUniswapV2Factory(router.factory()).getPair(paths[0], paths[1]);\r\n        require(pair != address(0), \"No-exchange-address\");\r\n    }\r\n\r\n    function getPaths(\r\n        address buyAddr,\r\n        address sellAddr\r\n    ) internal pure returns(address[] memory paths) {\r\n        paths = new address[](2);\r\n        paths[0] = address(sellAddr);\r\n        paths[1] = address(buyAddr);\r\n    }\r\n}\r\n\r\nabstract contract LiquidityHelpers is UniswapHelpers {\r\n\r\n    function getMinAmount(\r\n        TokenInterface token,\r\n        uint amt,\r\n        uint slippage\r\n    ) internal view returns(uint minAmt) {\r\n        uint _amt18 = convertTo18(token.decimals(), amt);\r\n        minAmt = wmul(_amt18, sub(WAD, slippage));\r\n        minAmt = convert18ToDec(token.decimals(), minAmt);\r\n    }\r\n\r\n    function changeEthToWeth(\r\n        address[] memory tokens\r\n    ) internal pure returns(TokenInterface[] memory _tokens) {\r\n        _tokens = new TokenInterface[](2);\r\n        _tokens[0] = tokens[0] == ethAddr ? TokenInterface(getAddressWETH()) : TokenInterface(tokens[0]);\r\n        _tokens[1] = tokens[1] == ethAddr ? TokenInterface(getAddressWETH()) : TokenInterface(tokens[1]);\r\n    }\r\n\r\n    function _addLiquidity(\r\n        address tokenA,\r\n        address tokenB,\r\n        uint _amt,\r\n        uint unitAmt,\r\n        uint slippage\r\n    ) internal returns (uint _amtA, uint _amtB, uint _liquidity) {\r\n        IUniswapV2Router02 router = IUniswapV2Router02(getUniswapAddr());\r\n        (TokenInterface _tokenA, TokenInterface _tokenB) = changeEthAddress(tokenA, tokenB);\r\n\r\n        _amtA = _amt == type(uint256).max ? getTokenBalace(tokenA) : _amt;\r\n        _amtB = convert18ToDec(_tokenB.decimals(), wmul(unitAmt, convertTo18(_tokenA.decimals(), _amtA)));\r\n\r\n        convertEthToWeth(_tokenA, _amtA);\r\n        convertEthToWeth(_tokenB, _amtB);\r\n        _tokenA.approve(address(router), _amtA);\r\n        _tokenB.approve(address(router), _amtB);\r\n\r\n       uint minAmtA = getMinAmount(_tokenA, _amtA, slippage);\r\n        uint minAmtB = getMinAmount(_tokenB, _amtB, slippage);\r\n       (_amtA, _amtB, _liquidity) = router.addLiquidity(\r\n            address(_tokenA),\r\n            address(_tokenB),\r\n            _amtA,\r\n            _amtB,\r\n            minAmtA,\r\n            minAmtB,\r\n            address(this),\r\n            block.timestamp + 1\r\n        );\r\n    }\r\n\r\n    function _removeLiquidity(\r\n        address tokenA,\r\n        address tokenB,\r\n        uint _amt,\r\n        uint unitAmtA,\r\n        uint unitAmtB\r\n    ) internal returns (uint _amtA, uint _amtB, uint _uniAmt) {\r\n        IUniswapV2Router02 router;\r\n        TokenInterface _tokenA;\r\n        TokenInterface _tokenB;\r\n        (router, _tokenA, _tokenB, _uniAmt) = _getRemoveLiquidityData(\r\n            tokenA,\r\n            tokenB,\r\n            _amt\r\n        );\r\n        {\r\n        uint minAmtA = convert18ToDec(_tokenA.decimals(), wmul(unitAmtA, _uniAmt));\r\n        uint minAmtB = convert18ToDec(_tokenB.decimals(), wmul(unitAmtB, _uniAmt));\r\n        (_amtA, _amtB) = router.removeLiquidity(\r\n            address(_tokenA),\r\n            address(_tokenB),\r\n            _uniAmt,\r\n            minAmtA,\r\n            minAmtB,\r\n            address(this),\r\n            block.timestamp + 1\r\n        );\r\n        }\r\n        convertWethToEth(_tokenA, _amtA);\r\n        convertWethToEth(_tokenB, _amtB);\r\n    }\r\n        function _getRemoveLiquidityData(\r\n        address tokenA,\r\n        address tokenB,\r\n        uint _amt\r\n    ) internal returns (IUniswapV2Router02 router, TokenInterface _tokenA, TokenInterface _tokenB, uint _uniAmt) {\r\n        router = IUniswapV2Router02(getUniswapAddr());\r\n        (_tokenA, _tokenB) = changeEthAddress(tokenA, tokenB);\r\n        address exchangeAddr = IUniswapV2Factory(router.factory()).getPair(address(_tokenA), address(_tokenB));\r\n        require(exchangeAddr != address(0), \"pair-not-found.\");\r\n\r\n        TokenInterface uniToken = TokenInterface(exchangeAddr);\r\n        _uniAmt = _amt == type(uint256).max ? uniToken.balanceOf(address(this)) : _amt;\r\n        uniToken.approve(address(router), _uniAmt);\r\n    }\r\n\r\n}\r\n\r\nabstract contract UniswapLiquidity is LiquidityHelpers {\r\n\r\n        /** \r\n     * @dev Deposit Liquidity.\r\n     * @param tokenA tokenA address.(For ETH: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE)\r\n     * @param tokenB tokenB address.(For ETH: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE)\r\n     * @param amtA tokenA amount.\r\n     * @param unitAmt unit amount of amtB/amtA with slippage.\r\n     * @param slippage slippage amount..\r\n     * @param getId Get token amount at this ID from `InstaMemory` Contract.\r\n    \r\n    */\r\n    function deposit(\r\n        address tokenA,\r\n        address tokenB,\r\n        uint amtA,\r\n        uint unitAmt,\r\n        uint slippage,\r\n        uint getId\r\n        //address user \r\n        \r\n       \r\n    ) external payable {\r\n        uint _amt = getUint(getId, amtA);\r\n\r\n        (uint _amtA, uint _amtB, uint _uniAmt) = _addLiquidity(\r\n                                            tokenA,\r\n                                            tokenB,\r\n                                            _amt,\r\n                                            unitAmt,\r\n                                            slippage\r\n                                            );\r\n       // setUint(setId, _uniAmt);\r\n       // emitDeposit(tokenA, tokenB, _amtA, _amtB, _uniAmt, getId, setId);\r\n    }\r\n\r\n    /**\r\n     * @dev Withdraw Liquidity.\r\n     * @param tokenA tokenA address.(For ETH: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE)\r\n     * @param tokenB tokenB address.(For ETH: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE)\r\n     * @param uniAmt uni token amount.\r\n     * @param unitAmtA unit amount of amtA/uniAmt with slippage.\r\n     * @param unitAmtB unit amount of amtB/uniAmt with slippage.\r\n     * @param getId Get token amount at this ID from `InstaMemory` Contract.\r\n   \r\n    */\r\n    function withdraw(\r\n        address tokenA,\r\n        address tokenB,\r\n        uint uniAmt,\r\n        uint unitAmtA,\r\n        uint unitAmtB,\r\n        uint getId\r\n       \r\n    ) external payable {\r\n        uint _amt = getUint(getId, uniAmt);\r\n\r\n        (uint _amtA, uint _amtB, uint _uniAmt) = _removeLiquidity(\r\n            tokenA,\r\n            tokenB,\r\n            _amt,\r\n            unitAmtA,\r\n            unitAmtB\r\n        );\r\n\r\n        //setUint(setIds[0], _amtA);\r\n       // setUint(setIds[1], _amtB);\r\n       // emitWithdraw(tokenA, tokenB, _amtA, _amtB, _uniAmt, getId, setIds);\r\n    }\r\n    \r\n}\r\n",
   "sourcePath": "C:\\Users\\mared\\OneDrive\\Desktop\\dapps-ethereum\\contracts\\main.sol",
   "ast": {
     "absolutePath": "project:/contracts/main.sol",
@@ -12559,7 +12559,7 @@
             "body": {
               "id": 1397,
               "nodeType": "Block",
-              "src": "9138:544:2",
+              "src": "9139:544:2",
               "statements": [
                 {
                   "assignments": [
@@ -12573,7 +12573,7 @@
                       "name": "_amt",
                       "nodeType": "VariableDeclaration",
                       "scope": 1397,
-                      "src": "9149:9:2",
+                      "src": "9150:9:2",
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
@@ -12584,7 +12584,7 @@
                         "id": 1376,
                         "name": "uint",
                         "nodeType": "ElementaryTypeName",
-                        "src": "9149:4:2",
+                        "src": "9150:4:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -12602,7 +12602,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 1373,
-                        "src": "9169:5:2",
+                        "src": "9170:5:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -12614,7 +12614,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 1367,
-                        "src": "9176:4:2",
+                        "src": "9177:4:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -12637,7 +12637,7 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 1717,
-                      "src": "9161:7:2",
+                      "src": "9162:7:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$_t_uint256_$returns$_t_uint256_$",
                         "typeString": "function (uint256,uint256) returns (uint256)"
@@ -12651,7 +12651,7 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "9161:20:2",
+                    "src": "9162:20:2",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
@@ -12659,7 +12659,7 @@
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "9149:32:2"
+                  "src": "9150:32:2"
                 },
                 {
                   "assignments": [
@@ -12675,7 +12675,7 @@
                       "name": "_amtA",
                       "nodeType": "VariableDeclaration",
                       "scope": 1397,
-                      "src": "9195:10:2",
+                      "src": "9196:10:2",
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
@@ -12686,7 +12686,7 @@
                         "id": 1383,
                         "name": "uint",
                         "nodeType": "ElementaryTypeName",
-                        "src": "9195:4:2",
+                        "src": "9196:4:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -12701,7 +12701,7 @@
                       "name": "_amtB",
                       "nodeType": "VariableDeclaration",
                       "scope": 1397,
-                      "src": "9207:10:2",
+                      "src": "9208:10:2",
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
@@ -12712,7 +12712,7 @@
                         "id": 1385,
                         "name": "uint",
                         "nodeType": "ElementaryTypeName",
-                        "src": "9207:4:2",
+                        "src": "9208:4:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -12727,7 +12727,7 @@
                       "name": "_uniAmt",
                       "nodeType": "VariableDeclaration",
                       "scope": 1397,
-                      "src": "9219:12:2",
+                      "src": "9220:12:2",
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
@@ -12738,7 +12738,7 @@
                         "id": 1387,
                         "name": "uint",
                         "nodeType": "ElementaryTypeName",
-                        "src": "9219:4:2",
+                        "src": "9220:4:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -12756,7 +12756,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 1363,
-                        "src": "9295:6:2",
+                        "src": "9296:6:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -12768,7 +12768,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 1365,
-                        "src": "9348:6:2",
+                        "src": "9349:6:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -12780,7 +12780,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 1377,
-                        "src": "9401:4:2",
+                        "src": "9402:4:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -12792,7 +12792,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 1369,
-                        "src": "9452:7:2",
+                        "src": "9453:7:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -12804,7 +12804,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 1371,
-                        "src": "9506:8:2",
+                        "src": "9507:8:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -12839,7 +12839,7 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 1150,
-                      "src": "9235:13:2",
+                      "src": "9236:13:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_address_$_t_uint256_$_t_uint256_$_t_uint256_$returns$_t_uint256_$_t_uint256_$_t_uint256_$",
                         "typeString": "function (address,address,uint256,uint256,uint256) returns (uint256,uint256,uint256)"
@@ -12853,7 +12853,7 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "9235:326:2",
+                    "src": "9236:326:2",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$_t_uint256_$_t_uint256_$_t_uint256_$",
@@ -12861,15 +12861,15 @@
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "9194:367:2"
+                  "src": "9195:367:2"
                 }
               ]
             },
             "documentation": {
               "id": 1361,
               "nodeType": "StructuredDocumentation",
-              "src": "8460:449:2",
-              "text": " @dev Deposit Liquidity.\n @param tokenA tokenA address.(For ETH: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE)\n @param tokenB tokenB address.(For ETH: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE)\n @param amtA tokenA amount.\n @param unitAmt unit amount of amtB/amtA with slippage.\n @param slippage slippage amount.\n @param getId Get token amount at this ID from `InstaMemory` Contract."
+              "src": "8460:450:2",
+              "text": " @dev Deposit Liquidity.\n @param tokenA tokenA address.(For ETH: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE)\n @param tokenB tokenB address.(For ETH: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE)\n @param amtA tokenA amount.\n @param unitAmt unit amount of amtB/amtA with slippage.\n @param slippage slippage amount..\n @param getId Get token amount at this ID from `InstaMemory` Contract."
             },
             "functionSelector": "2d4cb4b7",
             "id": 1398,
@@ -12889,7 +12889,7 @@
                   "name": "tokenA",
                   "nodeType": "VariableDeclaration",
                   "scope": 1398,
-                  "src": "8942:14:2",
+                  "src": "8943:14:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -12900,7 +12900,7 @@
                     "id": 1362,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "8942:7:2",
+                    "src": "8943:7:2",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -12916,7 +12916,7 @@
                   "name": "tokenB",
                   "nodeType": "VariableDeclaration",
                   "scope": 1398,
-                  "src": "8967:14:2",
+                  "src": "8968:14:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -12927,7 +12927,7 @@
                     "id": 1364,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "8967:7:2",
+                    "src": "8968:7:2",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -12943,7 +12943,7 @@
                   "name": "amtA",
                   "nodeType": "VariableDeclaration",
                   "scope": 1398,
-                  "src": "8992:9:2",
+                  "src": "8993:9:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -12954,7 +12954,7 @@
                     "id": 1366,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "8992:4:2",
+                    "src": "8993:4:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -12969,7 +12969,7 @@
                   "name": "unitAmt",
                   "nodeType": "VariableDeclaration",
                   "scope": 1398,
-                  "src": "9012:12:2",
+                  "src": "9013:12:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -12980,7 +12980,7 @@
                     "id": 1368,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "9012:4:2",
+                    "src": "9013:4:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -12995,7 +12995,7 @@
                   "name": "slippage",
                   "nodeType": "VariableDeclaration",
                   "scope": 1398,
-                  "src": "9035:13:2",
+                  "src": "9036:13:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -13006,7 +13006,7 @@
                     "id": 1370,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "9035:4:2",
+                    "src": "9036:4:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -13021,7 +13021,7 @@
                   "name": "getId",
                   "nodeType": "VariableDeclaration",
                   "scope": 1398,
-                  "src": "9059:10:2",
+                  "src": "9060:10:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -13032,7 +13032,7 @@
                     "id": 1372,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "9059:4:2",
+                    "src": "9060:4:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -13041,16 +13041,16 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "8931:189:2"
+              "src": "8932:189:2"
             },
             "returnParameters": {
               "id": 1375,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "9138:0:2"
+              "src": "9139:0:2"
             },
             "scope": 1437,
-            "src": "8915:767:2",
+            "src": "8916:767:2",
             "stateMutability": "payable",
             "virtual": false,
             "visibility": "external"
@@ -13059,7 +13059,7 @@
             "body": {
               "id": 1435,
               "nodeType": "Block",
-              "src": "10369:398:2",
+              "src": "10370:398:2",
               "statements": [
                 {
                   "assignments": [
@@ -13073,7 +13073,7 @@
                       "name": "_amt",
                       "nodeType": "VariableDeclaration",
                       "scope": 1435,
-                      "src": "10380:9:2",
+                      "src": "10381:9:2",
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
@@ -13084,7 +13084,7 @@
                         "id": 1414,
                         "name": "uint",
                         "nodeType": "ElementaryTypeName",
-                        "src": "10380:4:2",
+                        "src": "10381:4:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -13102,7 +13102,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 1411,
-                        "src": "10400:5:2",
+                        "src": "10401:5:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -13114,7 +13114,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 1405,
-                        "src": "10407:6:2",
+                        "src": "10408:6:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -13137,7 +13137,7 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 1717,
-                      "src": "10392:7:2",
+                      "src": "10393:7:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$_t_uint256_$returns$_t_uint256_$",
                         "typeString": "function (uint256,uint256) returns (uint256)"
@@ -13151,7 +13151,7 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "10392:22:2",
+                    "src": "10393:22:2",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
@@ -13159,7 +13159,7 @@
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "10380:34:2"
+                  "src": "10381:34:2"
                 },
                 {
                   "assignments": [
@@ -13175,7 +13175,7 @@
                       "name": "_amtA",
                       "nodeType": "VariableDeclaration",
                       "scope": 1435,
-                      "src": "10428:10:2",
+                      "src": "10429:10:2",
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
@@ -13186,7 +13186,7 @@
                         "id": 1421,
                         "name": "uint",
                         "nodeType": "ElementaryTypeName",
-                        "src": "10428:4:2",
+                        "src": "10429:4:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -13201,7 +13201,7 @@
                       "name": "_amtB",
                       "nodeType": "VariableDeclaration",
                       "scope": 1435,
-                      "src": "10440:10:2",
+                      "src": "10441:10:2",
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
@@ -13212,7 +13212,7 @@
                         "id": 1423,
                         "name": "uint",
                         "nodeType": "ElementaryTypeName",
-                        "src": "10440:4:2",
+                        "src": "10441:4:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -13227,7 +13227,7 @@
                       "name": "_uniAmt",
                       "nodeType": "VariableDeclaration",
                       "scope": 1435,
-                      "src": "10452:12:2",
+                      "src": "10453:12:2",
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
@@ -13238,7 +13238,7 @@
                         "id": 1425,
                         "name": "uint",
                         "nodeType": "ElementaryTypeName",
-                        "src": "10452:4:2",
+                        "src": "10453:4:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -13256,7 +13256,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 1401,
-                        "src": "10499:6:2",
+                        "src": "10500:6:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -13268,7 +13268,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 1403,
-                        "src": "10520:6:2",
+                        "src": "10521:6:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -13280,7 +13280,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 1415,
-                        "src": "10541:4:2",
+                        "src": "10542:4:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -13292,7 +13292,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 1407,
-                        "src": "10560:8:2",
+                        "src": "10561:8:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -13304,7 +13304,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 1409,
-                        "src": "10583:8:2",
+                        "src": "10584:8:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -13339,7 +13339,7 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 1256,
-                      "src": "10468:16:2",
+                      "src": "10469:16:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_address_$_t_uint256_$_t_uint256_$_t_uint256_$returns$_t_uint256_$_t_uint256_$_t_uint256_$",
                         "typeString": "function (address,address,uint256,uint256,uint256) returns (uint256,uint256,uint256)"
@@ -13353,7 +13353,7 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "10468:134:2",
+                    "src": "10469:134:2",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$_t_uint256_$_t_uint256_$_t_uint256_$",
@@ -13361,14 +13361,14 @@
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "10427:175:2"
+                  "src": "10428:175:2"
                 }
               ]
             },
             "documentation": {
               "id": 1399,
               "nodeType": "StructuredDocumentation",
-              "src": "9690:481:2",
+              "src": "9691:481:2",
               "text": " @dev Withdraw Liquidity.\n @param tokenA tokenA address.(For ETH: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE)\n @param tokenB tokenB address.(For ETH: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE)\n @param uniAmt uni token amount.\n @param unitAmtA unit amount of amtA/uniAmt with slippage.\n @param unitAmtB unit amount of amtB/uniAmt with slippage.\n @param getId Get token amount at this ID from `InstaMemory` Contract."
             },
             "functionSelector": "78401ec8",
@@ -13389,7 +13389,7 @@
                   "name": "tokenA",
                   "nodeType": "VariableDeclaration",
                   "scope": 1436,
-                  "src": "10205:14:2",
+                  "src": "10206:14:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -13400,7 +13400,7 @@
                     "id": 1400,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "10205:7:2",
+                    "src": "10206:7:2",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -13416,7 +13416,7 @@
                   "name": "tokenB",
                   "nodeType": "VariableDeclaration",
                   "scope": 1436,
-                  "src": "10230:14:2",
+                  "src": "10231:14:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -13427,7 +13427,7 @@
                     "id": 1402,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "10230:7:2",
+                    "src": "10231:7:2",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -13443,7 +13443,7 @@
                   "name": "uniAmt",
                   "nodeType": "VariableDeclaration",
                   "scope": 1436,
-                  "src": "10255:11:2",
+                  "src": "10256:11:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -13454,7 +13454,7 @@
                     "id": 1404,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "10255:4:2",
+                    "src": "10256:4:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -13469,7 +13469,7 @@
                   "name": "unitAmtA",
                   "nodeType": "VariableDeclaration",
                   "scope": 1436,
-                  "src": "10277:13:2",
+                  "src": "10278:13:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -13480,7 +13480,7 @@
                     "id": 1406,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "10277:4:2",
+                    "src": "10278:4:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -13495,7 +13495,7 @@
                   "name": "unitAmtB",
                   "nodeType": "VariableDeclaration",
                   "scope": 1436,
-                  "src": "10301:13:2",
+                  "src": "10302:13:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -13506,7 +13506,7 @@
                     "id": 1408,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "10301:4:2",
+                    "src": "10302:4:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -13521,7 +13521,7 @@
                   "name": "getId",
                   "nodeType": "VariableDeclaration",
                   "scope": 1436,
-                  "src": "10325:10:2",
+                  "src": "10326:10:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -13532,7 +13532,7 @@
                     "id": 1410,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "10325:4:2",
+                    "src": "10326:4:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -13541,26 +13541,26 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "10194:157:2"
+              "src": "10195:157:2"
             },
             "returnParameters": {
               "id": 1413,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "10369:0:2"
+              "src": "10370:0:2"
             },
             "scope": 1437,
-            "src": "10177:590:2",
+            "src": "10178:590:2",
             "stateMutability": "payable",
             "virtual": false,
             "visibility": "external"
           }
         ],
         "scope": 1438,
-        "src": "8392:2384:2"
+        "src": "8392:2385:2"
       }
     ],
-    "src": "0:10778:2"
+    "src": "0:10779:2"
   },
   "legacyAST": {
     "absolutePath": "project:/contracts/main.sol",
@@ -25830,7 +25830,7 @@
             "body": {
               "id": 1397,
               "nodeType": "Block",
-              "src": "9138:544:2",
+              "src": "9139:544:2",
               "statements": [
                 {
                   "assignments": [
@@ -25844,7 +25844,7 @@
                       "name": "_amt",
                       "nodeType": "VariableDeclaration",
                       "scope": 1397,
-                      "src": "9149:9:2",
+                      "src": "9150:9:2",
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
@@ -25855,7 +25855,7 @@
                         "id": 1376,
                         "name": "uint",
                         "nodeType": "ElementaryTypeName",
-                        "src": "9149:4:2",
+                        "src": "9150:4:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -25873,7 +25873,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 1373,
-                        "src": "9169:5:2",
+                        "src": "9170:5:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -25885,7 +25885,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 1367,
-                        "src": "9176:4:2",
+                        "src": "9177:4:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -25908,7 +25908,7 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 1717,
-                      "src": "9161:7:2",
+                      "src": "9162:7:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$_t_uint256_$returns$_t_uint256_$",
                         "typeString": "function (uint256,uint256) returns (uint256)"
@@ -25922,7 +25922,7 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "9161:20:2",
+                    "src": "9162:20:2",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
@@ -25930,7 +25930,7 @@
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "9149:32:2"
+                  "src": "9150:32:2"
                 },
                 {
                   "assignments": [
@@ -25946,7 +25946,7 @@
                       "name": "_amtA",
                       "nodeType": "VariableDeclaration",
                       "scope": 1397,
-                      "src": "9195:10:2",
+                      "src": "9196:10:2",
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
@@ -25957,7 +25957,7 @@
                         "id": 1383,
                         "name": "uint",
                         "nodeType": "ElementaryTypeName",
-                        "src": "9195:4:2",
+                        "src": "9196:4:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -25972,7 +25972,7 @@
                       "name": "_amtB",
                       "nodeType": "VariableDeclaration",
                       "scope": 1397,
-                      "src": "9207:10:2",
+                      "src": "9208:10:2",
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
@@ -25983,7 +25983,7 @@
                         "id": 1385,
                         "name": "uint",
                         "nodeType": "ElementaryTypeName",
-                        "src": "9207:4:2",
+                        "src": "9208:4:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -25998,7 +25998,7 @@
                       "name": "_uniAmt",
                       "nodeType": "VariableDeclaration",
                       "scope": 1397,
-                      "src": "9219:12:2",
+                      "src": "9220:12:2",
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
@@ -26009,7 +26009,7 @@
                         "id": 1387,
                         "name": "uint",
                         "nodeType": "ElementaryTypeName",
-                        "src": "9219:4:2",
+                        "src": "9220:4:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -26027,7 +26027,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 1363,
-                        "src": "9295:6:2",
+                        "src": "9296:6:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -26039,7 +26039,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 1365,
-                        "src": "9348:6:2",
+                        "src": "9349:6:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -26051,7 +26051,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 1377,
-                        "src": "9401:4:2",
+                        "src": "9402:4:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -26063,7 +26063,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 1369,
-                        "src": "9452:7:2",
+                        "src": "9453:7:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -26075,7 +26075,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 1371,
-                        "src": "9506:8:2",
+                        "src": "9507:8:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -26110,7 +26110,7 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 1150,
-                      "src": "9235:13:2",
+                      "src": "9236:13:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_address_$_t_uint256_$_t_uint256_$_t_uint256_$returns$_t_uint256_$_t_uint256_$_t_uint256_$",
                         "typeString": "function (address,address,uint256,uint256,uint256) returns (uint256,uint256,uint256)"
@@ -26124,7 +26124,7 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "9235:326:2",
+                    "src": "9236:326:2",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$_t_uint256_$_t_uint256_$_t_uint256_$",
@@ -26132,15 +26132,15 @@
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "9194:367:2"
+                  "src": "9195:367:2"
                 }
               ]
             },
             "documentation": {
               "id": 1361,
               "nodeType": "StructuredDocumentation",
-              "src": "8460:449:2",
-              "text": " @dev Deposit Liquidity.\n @param tokenA tokenA address.(For ETH: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE)\n @param tokenB tokenB address.(For ETH: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE)\n @param amtA tokenA amount.\n @param unitAmt unit amount of amtB/amtA with slippage.\n @param slippage slippage amount.\n @param getId Get token amount at this ID from `InstaMemory` Contract."
+              "src": "8460:450:2",
+              "text": " @dev Deposit Liquidity.\n @param tokenA tokenA address.(For ETH: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE)\n @param tokenB tokenB address.(For ETH: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE)\n @param amtA tokenA amount.\n @param unitAmt unit amount of amtB/amtA with slippage.\n @param slippage slippage amount..\n @param getId Get token amount at this ID from `InstaMemory` Contract."
             },
             "functionSelector": "2d4cb4b7",
             "id": 1398,
@@ -26160,7 +26160,7 @@
                   "name": "tokenA",
                   "nodeType": "VariableDeclaration",
                   "scope": 1398,
-                  "src": "8942:14:2",
+                  "src": "8943:14:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -26171,7 +26171,7 @@
                     "id": 1362,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "8942:7:2",
+                    "src": "8943:7:2",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -26187,7 +26187,7 @@
                   "name": "tokenB",
                   "nodeType": "VariableDeclaration",
                   "scope": 1398,
-                  "src": "8967:14:2",
+                  "src": "8968:14:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -26198,7 +26198,7 @@
                     "id": 1364,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "8967:7:2",
+                    "src": "8968:7:2",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -26214,7 +26214,7 @@
                   "name": "amtA",
                   "nodeType": "VariableDeclaration",
                   "scope": 1398,
-                  "src": "8992:9:2",
+                  "src": "8993:9:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -26225,7 +26225,7 @@
                     "id": 1366,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "8992:4:2",
+                    "src": "8993:4:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -26240,7 +26240,7 @@
                   "name": "unitAmt",
                   "nodeType": "VariableDeclaration",
                   "scope": 1398,
-                  "src": "9012:12:2",
+                  "src": "9013:12:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -26251,7 +26251,7 @@
                     "id": 1368,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "9012:4:2",
+                    "src": "9013:4:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -26266,7 +26266,7 @@
                   "name": "slippage",
                   "nodeType": "VariableDeclaration",
                   "scope": 1398,
-                  "src": "9035:13:2",
+                  "src": "9036:13:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -26277,7 +26277,7 @@
                     "id": 1370,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "9035:4:2",
+                    "src": "9036:4:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -26292,7 +26292,7 @@
                   "name": "getId",
                   "nodeType": "VariableDeclaration",
                   "scope": 1398,
-                  "src": "9059:10:2",
+                  "src": "9060:10:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -26303,7 +26303,7 @@
                     "id": 1372,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "9059:4:2",
+                    "src": "9060:4:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -26312,16 +26312,16 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "8931:189:2"
+              "src": "8932:189:2"
             },
             "returnParameters": {
               "id": 1375,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "9138:0:2"
+              "src": "9139:0:2"
             },
             "scope": 1437,
-            "src": "8915:767:2",
+            "src": "8916:767:2",
             "stateMutability": "payable",
             "virtual": false,
             "visibility": "external"
@@ -26330,7 +26330,7 @@
             "body": {
               "id": 1435,
               "nodeType": "Block",
-              "src": "10369:398:2",
+              "src": "10370:398:2",
               "statements": [
                 {
                   "assignments": [
@@ -26344,7 +26344,7 @@
                       "name": "_amt",
                       "nodeType": "VariableDeclaration",
                       "scope": 1435,
-                      "src": "10380:9:2",
+                      "src": "10381:9:2",
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
@@ -26355,7 +26355,7 @@
                         "id": 1414,
                         "name": "uint",
                         "nodeType": "ElementaryTypeName",
-                        "src": "10380:4:2",
+                        "src": "10381:4:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -26373,7 +26373,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 1411,
-                        "src": "10400:5:2",
+                        "src": "10401:5:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -26385,7 +26385,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 1405,
-                        "src": "10407:6:2",
+                        "src": "10408:6:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -26408,7 +26408,7 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 1717,
-                      "src": "10392:7:2",
+                      "src": "10393:7:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$_t_uint256_$returns$_t_uint256_$",
                         "typeString": "function (uint256,uint256) returns (uint256)"
@@ -26422,7 +26422,7 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "10392:22:2",
+                    "src": "10393:22:2",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
@@ -26430,7 +26430,7 @@
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "10380:34:2"
+                  "src": "10381:34:2"
                 },
                 {
                   "assignments": [
@@ -26446,7 +26446,7 @@
                       "name": "_amtA",
                       "nodeType": "VariableDeclaration",
                       "scope": 1435,
-                      "src": "10428:10:2",
+                      "src": "10429:10:2",
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
@@ -26457,7 +26457,7 @@
                         "id": 1421,
                         "name": "uint",
                         "nodeType": "ElementaryTypeName",
-                        "src": "10428:4:2",
+                        "src": "10429:4:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -26472,7 +26472,7 @@
                       "name": "_amtB",
                       "nodeType": "VariableDeclaration",
                       "scope": 1435,
-                      "src": "10440:10:2",
+                      "src": "10441:10:2",
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
@@ -26483,7 +26483,7 @@
                         "id": 1423,
                         "name": "uint",
                         "nodeType": "ElementaryTypeName",
-                        "src": "10440:4:2",
+                        "src": "10441:4:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -26498,7 +26498,7 @@
                       "name": "_uniAmt",
                       "nodeType": "VariableDeclaration",
                       "scope": 1435,
-                      "src": "10452:12:2",
+                      "src": "10453:12:2",
                       "stateVariable": false,
                       "storageLocation": "default",
                       "typeDescriptions": {
@@ -26509,7 +26509,7 @@
                         "id": 1425,
                         "name": "uint",
                         "nodeType": "ElementaryTypeName",
-                        "src": "10452:4:2",
+                        "src": "10453:4:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -26527,7 +26527,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 1401,
-                        "src": "10499:6:2",
+                        "src": "10500:6:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -26539,7 +26539,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 1403,
-                        "src": "10520:6:2",
+                        "src": "10521:6:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -26551,7 +26551,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 1415,
-                        "src": "10541:4:2",
+                        "src": "10542:4:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -26563,7 +26563,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 1407,
-                        "src": "10560:8:2",
+                        "src": "10561:8:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -26575,7 +26575,7 @@
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 1409,
-                        "src": "10583:8:2",
+                        "src": "10584:8:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -26610,7 +26610,7 @@
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 1256,
-                      "src": "10468:16:2",
+                      "src": "10469:16:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_address_$_t_uint256_$_t_uint256_$_t_uint256_$returns$_t_uint256_$_t_uint256_$_t_uint256_$",
                         "typeString": "function (address,address,uint256,uint256,uint256) returns (uint256,uint256,uint256)"
@@ -26624,7 +26624,7 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "10468:134:2",
+                    "src": "10469:134:2",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$_t_uint256_$_t_uint256_$_t_uint256_$",
@@ -26632,14 +26632,14 @@
                     }
                   },
                   "nodeType": "VariableDeclarationStatement",
-                  "src": "10427:175:2"
+                  "src": "10428:175:2"
                 }
               ]
             },
             "documentation": {
               "id": 1399,
               "nodeType": "StructuredDocumentation",
-              "src": "9690:481:2",
+              "src": "9691:481:2",
               "text": " @dev Withdraw Liquidity.\n @param tokenA tokenA address.(For ETH: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE)\n @param tokenB tokenB address.(For ETH: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE)\n @param uniAmt uni token amount.\n @param unitAmtA unit amount of amtA/uniAmt with slippage.\n @param unitAmtB unit amount of amtB/uniAmt with slippage.\n @param getId Get token amount at this ID from `InstaMemory` Contract."
             },
             "functionSelector": "78401ec8",
@@ -26660,7 +26660,7 @@
                   "name": "tokenA",
                   "nodeType": "VariableDeclaration",
                   "scope": 1436,
-                  "src": "10205:14:2",
+                  "src": "10206:14:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -26671,7 +26671,7 @@
                     "id": 1400,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "10205:7:2",
+                    "src": "10206:7:2",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -26687,7 +26687,7 @@
                   "name": "tokenB",
                   "nodeType": "VariableDeclaration",
                   "scope": 1436,
-                  "src": "10230:14:2",
+                  "src": "10231:14:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -26698,7 +26698,7 @@
                     "id": 1402,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "10230:7:2",
+                    "src": "10231:7:2",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -26714,7 +26714,7 @@
                   "name": "uniAmt",
                   "nodeType": "VariableDeclaration",
                   "scope": 1436,
-                  "src": "10255:11:2",
+                  "src": "10256:11:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -26725,7 +26725,7 @@
                     "id": 1404,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "10255:4:2",
+                    "src": "10256:4:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -26740,7 +26740,7 @@
                   "name": "unitAmtA",
                   "nodeType": "VariableDeclaration",
                   "scope": 1436,
-                  "src": "10277:13:2",
+                  "src": "10278:13:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -26751,7 +26751,7 @@
                     "id": 1406,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "10277:4:2",
+                    "src": "10278:4:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -26766,7 +26766,7 @@
                   "name": "unitAmtB",
                   "nodeType": "VariableDeclaration",
                   "scope": 1436,
-                  "src": "10301:13:2",
+                  "src": "10302:13:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -26777,7 +26777,7 @@
                     "id": 1408,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "10301:4:2",
+                    "src": "10302:4:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -26792,7 +26792,7 @@
                   "name": "getId",
                   "nodeType": "VariableDeclaration",
                   "scope": 1436,
-                  "src": "10325:10:2",
+                  "src": "10326:10:2",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -26803,7 +26803,7 @@
                     "id": 1410,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "10325:4:2",
+                    "src": "10326:4:2",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -26812,26 +26812,26 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "10194:157:2"
+              "src": "10195:157:2"
             },
             "returnParameters": {
               "id": 1413,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "10369:0:2"
+              "src": "10370:0:2"
             },
             "scope": 1437,
-            "src": "10177:590:2",
+            "src": "10178:590:2",
             "stateMutability": "payable",
             "virtual": false,
             "visibility": "external"
           }
         ],
         "scope": 1438,
-        "src": "8392:2384:2"
+        "src": "8392:2385:2"
       }
     ],
-    "src": "0:10778:2"
+    "src": "0:10779:2"
   },
   "compiler": {
     "name": "solc",
@@ -26839,7 +26839,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.4",
-  "updatedAt": "2022-02-12T17:50:46.979Z",
+  "updatedAt": "2022-02-15T18:06:22.991Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

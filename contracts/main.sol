@@ -239,7 +239,7 @@ abstract contract UniswapLiquidity is LiquidityHelpers {
      * @param tokenB tokenB address.(For ETH: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE)
      * @param amtA tokenA amount.
      * @param unitAmt unit amount of amtB/amtA with slippage.
-     * @param slippage slippage amount.
+     * @param slippage slippage amount..
      * @param getId Get token amount at this ID from `InstaMemory` Contract.
     
     */
@@ -296,9 +296,7 @@ abstract contract UniswapLiquidity is LiquidityHelpers {
             unitAmtB
         );
 
-        //setUint(setIds[0], _amtA);
-       // setUint(setIds[1], _amtB);
-       // emitWithdraw(tokenA, tokenB, _amtA, _amtB, _uniAmt, getId, setIds);
+        
     }
     
 }
