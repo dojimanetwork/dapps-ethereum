@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import "./App.css";
-import CompoundETH from "./Compound/CompoundETH";
+import CompoundETH from "./components/Compound/CompoundETH";
 import getWeb3 from "./getWeb3";
+import Dai from "./components/ERC20/Dai";
 
 class App extends Component {
   state = { loaded: false };
@@ -35,7 +36,8 @@ class App extends Component {
 
     return (
       <div>
-        <CompoundETH  web3={this.web3} networkId={this.networkId} activeAccount={this.accounts[0]} />
+        {/*<CompoundETH  web3={this.web3} networkId={this.networkId} activeAccount={this.accounts[0]} />*/}
+        <Dai  web3={this.web3} networkId={this.networkId} activeAccount={this.accounts[0]} />
       </div>
     );
   }
