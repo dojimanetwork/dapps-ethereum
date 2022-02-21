@@ -32,7 +32,6 @@ contract("TestCompoundEth", (accounts) => {
             balanceOfUnderlying: await testCompound.balanceOfUnderlying.call(),
             eth: await web3.eth.getBalance(testCompound.address),
             cToken: await cToken.balanceOf(testCompound.address),
-            cToken: await cToken.balanceOf(accounts[0]),
             accountBalance: await web3.eth.getBalance(accounts[0]),
         }
     }

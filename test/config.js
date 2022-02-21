@@ -18,6 +18,11 @@ const CUSDC = "0x39AA39c021dfbaE8faC545936693aC917d5E7563"
 const CWBTC = "0xccF4429DB6322D5C611ee964527D42E5d685DD6a"
 const CETH = "0x4Ddc2D193948926D02f9B1fE9e1daa0718270ED5"
 
+//Aave v2
+const AETH = "0x030bA81f1c18d280636F32af80b9AAd02Cf0854e"
+const WETHGateway = "0xcc9a0B7c43DC2a5F023Bb9b738E45B0Ef6B06E04"
+const ETHPoolAddress = "0x7d2768dE32b0b80b7a3454c06BdAc94A69DDc7A9"
+
 module.exports = {
   DAI,
   USDC,
@@ -34,4 +39,7 @@ module.exports = {
   CUSDC,
   CWBTC,
   CETH,
+  AETH,
+  WETHGateway,
+  ETHPoolAddress
 }
