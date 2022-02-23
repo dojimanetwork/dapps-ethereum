@@ -1,0 +1,182 @@
+{
+  "contractName": "TestCurveETH",
+  "abi": [
+    {
+      "stateMutability": "payable",
+      "type": "receive"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"stateMutability\":\"payable\",\"type\":\"receive\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Curve/main.sol\":\"TestCurveETH\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Curve/main.sol\":{\"keccak256\":\"0x340773c617c2e4159706ff0f6dea4942a37f36ce72cf08cb6abd394f82aa5a93\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://e21d22fea5714862bba51c84ce34e74d8eb0b3806ca5cf9ebc22c2f2a855de36\",\"dweb:/ipfs/QmTUEpjQFPHLUiR4VS9YdpTBnYL8BiwKSzMHH6xKqgiRRm\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50604580601d6000396000f3fe608060405236600a57005b600080fdfea26469706673582212204a09c78ce1d1746e7bd982b90fccccaab922e07824046cf09c8fe5b06e1c66a864736f6c63430008000033",
+  "deployedBytecode": "0x608060405236600a57005b600080fdfea26469706673582212204a09c78ce1d1746e7bd982b90fccccaab922e07824046cf09c8fe5b06e1c66a864736f6c63430008000033",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "60:65:17:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "60:65:17:-:0;;;;;;;;;;",
+  "source": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\ncontract TestCurveETH {\r\n    receive() external payable {}\r\n\r\n\r\n}",
+  "sourcePath": "C:\\Users\\mared\\OneDrive\\Desktop\\dapps-ethereum\\contracts\\Curve\\main.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/Curve/main.sol",
+    "exportedSymbols": {
+      "TestCurveETH": [
+        1418
+      ]
+    },
+    "id": 1419,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1413,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "33:23:17"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 1418,
+        "linearizedBaseContracts": [
+          1418
+        ],
+        "name": "TestCurveETH",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 1416,
+              "nodeType": "Block",
+              "src": "116:2:17",
+              "statements": []
+            },
+            "id": 1417,
+            "implemented": true,
+            "kind": "receive",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1414,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "96:2:17"
+            },
+            "returnParameters": {
+              "id": 1415,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "116:0:17"
+            },
+            "scope": 1418,
+            "src": "89:29:17",
+            "stateMutability": "payable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 1419,
+        "src": "60:65:17"
+      }
+    ],
+    "src": "33:92:17"
+  },
+  "legacyAST": {
+    "absolutePath": "project:/contracts/Curve/main.sol",
+    "exportedSymbols": {
+      "TestCurveETH": [
+        1418
+      ]
+    },
+    "id": 1419,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1413,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "33:23:17"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 1418,
+        "linearizedBaseContracts": [
+          1418
+        ],
+        "name": "TestCurveETH",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 1416,
+              "nodeType": "Block",
+              "src": "116:2:17",
+              "statements": []
+            },
+            "id": 1417,
+            "implemented": true,
+            "kind": "receive",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1414,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "96:2:17"
+            },
+            "returnParameters": {
+              "id": 1415,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "116:0:17"
+            },
+            "scope": 1418,
+            "src": "89:29:17",
+            "stateMutability": "payable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 1419,
+        "src": "60:65:17"
+      }
+    ],
+    "src": "33:92:17"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.0+commit.c7dfd78e.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.4",
+  "updatedAt": "2022-02-23T18:03:01.727Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

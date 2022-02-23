@@ -22,10 +22,7 @@
 //
 // const fs = require('fs');
 // const mnemonic = fs.readFileSync(".secret").toString().trim();
-const path = require('path');
-const HDWalletProvider = require("@truffle/hdwallet-provider");
-const fs = require("fs");
-const secrets = JSON.parse(fs.readFileSync(".secrets.json").toString().trim());
+
 
 module.exports = {
   /**
@@ -37,7 +34,7 @@ module.exports = {
    *
    * $ truffle test --network <network-name>
    */
-  contracts_build_directory: path.join(__dirname, "client/src/contracts"),
+ // contracts_build_directory: path.join(__dirname, "client/src/contracts"),
   networks: {
    /* kovan: {
       networkCheckTimeout: 10000,
@@ -60,8 +57,8 @@ module.exports = {
     },*/
     development: {
       host: "127.0.0.1",     // Localhost (default: none)
-      port: 9545,            // Standard Ethereum port (default: none)
-      network_id: "999",       // Any network (default: none)
+      port: 8545,            // Standard Ethereum port (default: none)
+      network_id: "*",       // Any network (default: none)
     },
     // Useful for testing. The `development` name is special - truffle uses it by default
     // if it's defined here and no other network is specified at the command line.
