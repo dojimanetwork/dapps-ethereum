@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import getWeb3 from "./getWeb3";
 // import Date from "./contracts/Date.json"
-import myToken from "./contracts/UniswapLiquidity.json";
+import myToken from "./contracts/UniswapLiquidity.json"; //"./build/contracts/TestUniswapV3.json";
 import "./App.css";
 //import Web3 from "web3";
 
@@ -15,14 +15,16 @@ class App extends Component {
 
         // Use web3 to get the user's accounts.
         this.accounts = await this.web3.eth.getAccounts();
+         this.chainId = await this.web3.eth.getChainId();
 
         // Get the contract instance.
         //this.networkId = await this.web3.eth.net.getId(); <<- this doesn't work with MetaMask anymore
         this.networkId = await this.web3.eth.net.getId();
         //console.log(this.networkId);
         // this.networkId = await this.web3.eth.net.getChainId();
-        //console.log(this.networkId);
-        //console.log(this.accounts);
+        console.log(this.networkId);
+        console.log(this.chainId)
+        console.log(this.accounts);
 
 
         // this.myToken = new this.web3.eth.Contract(
@@ -53,7 +55,7 @@ class App extends Component {
     // await this.myToken.methods.deposit()
     //       .send({from: this.accounts[0],value: Web3.utils.toWei('1','ether')});
 
-    await this.myTokenContract.methods.deposit( '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe',
+    await this.myTokenContract.methods.addLiquidity( '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe',
     '0x7d1afa7b718fb893db30a3abc0cfc608aacfebb0',
        1,
       1,
@@ -83,7 +85,7 @@ class App extends Component {
   withdraw = async()=>{
    // let cTokenBalance = await this.myTokenContract.methods.balanceOf(this.accounts[0]).call();
 
-    await this.myTokenContract.methods.withdraw( '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe',
+    await this.myTokenContract.methods.removeLiquidity( '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe',
     '0x7d1afa7b718fb893db30a3abc0cfc608aacfebb0',
         '1',
         '1',
