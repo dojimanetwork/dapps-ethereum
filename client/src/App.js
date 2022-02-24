@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import getWeb3 from "./getWeb3";
 // import Date from "./contracts/Date.json"
-import Compound from "./contracts/UniswapLiquidity.json";
+import myToken from "./contracts/UniswapLiquidity.json"; //"./build/contracts/TestUniswapV3.json";
 import "./App.css";
 //import Web3 from "web3";
 
@@ -15,13 +15,16 @@ class App extends Component {
 
         // Use web3 to get the user's accounts.
         this.accounts = await this.web3.eth.getAccounts();
+         this.chainId = await this.web3.eth.getChainId();
 
         // Get the contract instance.
         //this.networkId = await this.web3.eth.net.getId(); <<- this doesn't work with MetaMask anymore
         this.networkId = await this.web3.eth.net.getId();
-        console.log(this.networkId);
+        //console.log(this.networkId);
         // this.networkId = await this.web3.eth.net.getChainId();
-        // console.log(this.networkId);
+        console.log(this.networkId);
+        console.log(this.chainId)
+        console.log(this.accounts);
 
 
         // this.myToken = new this.web3.eth.Contract(
@@ -30,8 +33,8 @@ class App extends Component {
         // );
         
 
-        this.compoundContract = new this.web3.eth.Contract(
-          Compound.abi,'0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D'
+        this.myTokenContract = new this.web3.eth.Contract(
+          myToken.abi,'0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D'
         )
 
         // Set web3, accounts, and contract to the state, and then proceed with an
@@ -52,36 +55,37 @@ class App extends Component {
     // await this.myToken.methods.deposit()
     //       .send({from: this.accounts[0],value: Web3.utils.toWei('1','ether')});
 
-    await this.compoundContract.methods.deposit( '0x6b175474e89094c44da98b954eedeac495271d0f',
+    await this.myTokenContract.methods.addLiquidity( '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe',
     '0x7d1afa7b718fb893db30a3abc0cfc608aacfebb0',
-       '1',
-      '1',
+       1,
+      1,
       '1',
       '0' ).send({
       from: this.accounts[0]
     
     });
+ 
+     console.log(this.deposit);
 
-
-  }
+  } 
 
  /* checkBalance = async()=>{
 
-    let cTokenBalance = await this.compoundContract.methods.balanceOf(this.accounts[0]).call()/ 1e8;
+    let cTokenBalance = await this.myTokenContract.methods.balanceOf(this.accounts[0]).call()/ 1e8;
 
     console.log("My wallet's cETH Token Balance:", cTokenBalance, '\n');
 
-    const balanceOfUnderlying = Web3.utils.toBN(await this.compoundContract.methods
+    const balanceOfUnderlying = Web3.utils.toBN(await this.myTokenContract.methods
       .balanceOfUnderlying(this.accounts[0]).call()) / Math.pow(10, this.ethDecimals);
     
   
-    console.log("ETH supplied to the Compound Protocol:", balanceOfUnderlying, '\n');
+    console.log("ETH supplied to the myToken Protocol:", balanceOfUnderlying, '\n');
   }*/
 
   withdraw = async()=>{
-   // let cTokenBalance = await this.compoundContract.methods.balanceOf(this.accounts[0]).call();
+   // let cTokenBalance = await this.myTokenContract.methods.balanceOf(this.accounts[0]).call();
 
-    await this.compoundContract.methods.withdraw( '0x6b175474e89094c44da98b954eedeac495271d0f',
+    await this.myTokenContract.methods.removeLiquidity( '0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe',
     '0x7d1afa7b718fb893db30a3abc0cfc608aacfebb0',
         '1',
         '1',
@@ -90,6 +94,7 @@ class App extends Component {
       from: this.accounts[0]
    
     });
+    console.log(this.withdraw);
   }
 
   render() {
@@ -100,6 +105,7 @@ class App extends Component {
     return (
       <div>
         <button type="button" onClick={this.deposit}>Deposit</button>
+
       
         <button type="button" onClick={this.withdraw}>Withdraw</button>
 
