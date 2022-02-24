@@ -192,7 +192,7 @@ contract TestUniswapV3 is DSMath {
         );
         (amount0, amount1) = nftManager.decreaseLiquidity(params);
         emit Log("amtA", amount0);
-        emit Log("amtB", amount1);
+       // emit Log("amtB", amount1);
     }
 
 
