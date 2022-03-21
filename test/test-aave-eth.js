@@ -1,4 +1,5 @@
 const BN = require("bn.js")
+const assert = require("assert");
 const {pow} = require("./util")
 const {AETH, WETHGateway, ETHPoolAddress} = require("./config")
 
@@ -27,6 +28,7 @@ contract("TestAaveETH", (accounts) => {
 
     it("should supply", async () => {
         let snap = await snapshot(aWETHToken, web3)
+        let beforeAtokenBalance = snap.aTokensBalance;
 
         console.log("--- initial ---")
         console.log(`bal in aave : ${snap.aTokensBalance}`)
@@ -50,12 +52,14 @@ contract("TestAaveETH", (accounts) => {
         console.log(`bal in aave: ${snap.aTokensBalance}`)
         console.log(`eth balance in ${WHALE} ${snap.ethBalance}`)
 
+        assert.equal(`${snap.aTokensBalance}`,`${beforeAtokenBalance.add(DEPOSIT_AMOUNT)}`)
+
     })
 
     it("should withdraw", async () => {
 
         let snap = await snapshot(aWETHToken, web3)
-
+        let beforeAtokenBalance = snap.aTokensBalance;
         console.log("--- beforeWithdraw ---")
         console.log(`bal in aave: ${snap.aTokensBalance}`)
         console.log(`eth balance in ${WHALE} ${snap.ethBalance}`)
@@ -89,6 +93,20 @@ contract("TestAaveETH", (accounts) => {
         console.log("--- afterWithdraw ---")
         console.log(`bal in aave: ${snap.aTokensBalance}`)
         console.log(`eth balance in ${WHALE} ${snap.ethBalance}`)
+
+        assert.equal(`${snap.aTokensBalance}`,`${beforeAtokenBalance.sub(DEPOSIT_AMOUNT)}`)
+
     })
+
+    // it("try withdraw again", async () => {
+    //     tx = await wETHGateway.withdrawETH(
+    //         eTHPoolAddress,
+    //         snap.aTokensBalance,
+    //         WHALE,
+    //         {
+    //             from: WHALE
+    //         }
+    //     );
+    // })
 
 })
